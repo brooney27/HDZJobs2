@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ public class HdzApplicant implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_APPLICANT_APPLICANTID_GENERATOR", sequenceName="HDZ_APPLICANT_ID_SEQ", allocationSize=1)
+	@SequenceGenerator(name="HDZ_APPLICANT_APPLICANTID_GENERATOR", sequenceName="HDZ_APPLICANT_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_APPLICANT_APPLICANTID_GENERATOR")
 	private long applicantid;
 
@@ -24,7 +25,11 @@ public class HdzApplicant implements Serializable {
 
 	private String alcoholtestflag;
 
+	private String appsummary;
+
 	private String bday;
+
+	private String careerobj;
 
 	private String citizen;
 
@@ -42,10 +47,12 @@ public class HdzApplicant implements Serializable {
 
 	private String firstname;
 
+	private String hashedpwd;
+
 	private String lastname;
 
-	private String hashedpwd;
-	
+	private BigDecimal phonenum;
+
 	private String salt;
 
 	private String stdpanel;
@@ -59,6 +66,11 @@ public class HdzApplicant implements Serializable {
 	private String visa;
 
 	private String visaflag;
+
+	//bi-directional many-to-one association to HdzEmployee
+	@ManyToOne
+	@JoinColumn(name="EMPLOYEEID")
+	private HdzEmployee hdzEmployee;
 
 	//bi-directional many-to-one association to HdzApplication
 	@OneToMany(mappedBy="hdzApplicant")
@@ -75,6 +87,14 @@ public class HdzApplicant implements Serializable {
 	//bi-directional many-to-one association to HdzReftable
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzReftable> hdzReftables;
+
+	//bi-directional many-to-one association to HdzSkillappbridge
+	@OneToMany(mappedBy="hdzApplicant")
+	private List<HdzSkillappbridge> hdzSkillappbridges;
+
+	//bi-directional many-to-one association to HdzSkill
+	@OneToMany(mappedBy="hdzApplicant")
+	private List<HdzSkill> hdzSkills;
 
 	public HdzApplicant() {
 	}
@@ -103,12 +123,28 @@ public class HdzApplicant implements Serializable {
 		this.alcoholtestflag = alcoholtestflag;
 	}
 
+	public String getAppsummary() {
+		return this.appsummary;
+	}
+
+	public void setAppsummary(String appsummary) {
+		this.appsummary = appsummary;
+	}
+
 	public String getBday() {
 		return this.bday;
 	}
 
 	public void setBday(String bday) {
 		this.bday = bday;
+	}
+
+	public String getCareerobj() {
+		return this.careerobj;
+	}
+
+	public void setCareerobj(String careerobj) {
+		this.careerobj = careerobj;
 	}
 
 	public String getCitizen() {
@@ -175,6 +211,14 @@ public class HdzApplicant implements Serializable {
 		this.firstname = firstname;
 	}
 
+	public String getHashedpwd() {
+		return this.hashedpwd;
+	}
+
+	public void setHashedpwd(String hashedpwd) {
+		this.hashedpwd = hashedpwd;
+	}
+
 	public String getLastname() {
 		return this.lastname;
 	}
@@ -183,16 +227,16 @@ public class HdzApplicant implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public String getHashedpwd() {
-		return hashedpwd;
+	public BigDecimal getPhonenum() {
+		return this.phonenum;
 	}
 
-	public void setHashedpwd(String hashedpwd) {
-		this.hashedpwd = hashedpwd;
+	public void setPhonenum(BigDecimal phonenum) {
+		this.phonenum = phonenum;
 	}
 
 	public String getSalt() {
-		return salt;
+		return this.salt;
 	}
 
 	public void setSalt(String salt) {
@@ -245,6 +289,14 @@ public class HdzApplicant implements Serializable {
 
 	public void setVisaflag(String visaflag) {
 		this.visaflag = visaflag;
+	}
+
+	public HdzEmployee getHdzEmployee() {
+		return this.hdzEmployee;
+	}
+
+	public void setHdzEmployee(HdzEmployee hdzEmployee) {
+		this.hdzEmployee = hdzEmployee;
 	}
 
 	public List<HdzApplication> getHdzApplications() {
@@ -333,6 +385,50 @@ public class HdzApplicant implements Serializable {
 		hdzReftable.setHdzApplicant(null);
 
 		return hdzReftable;
+	}
+
+	public List<HdzSkillappbridge> getHdzSkillappbridges() {
+		return this.hdzSkillappbridges;
+	}
+
+	public void setHdzSkillappbridges(List<HdzSkillappbridge> hdzSkillappbridges) {
+		this.hdzSkillappbridges = hdzSkillappbridges;
+	}
+
+	public HdzSkillappbridge addHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().add(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzApplicant(this);
+
+		return hdzSkillappbridge;
+	}
+
+	public HdzSkillappbridge removeHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().remove(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzApplicant(null);
+
+		return hdzSkillappbridge;
+	}
+
+	public List<HdzSkill> getHdzSkills() {
+		return this.hdzSkills;
+	}
+
+	public void setHdzSkills(List<HdzSkill> hdzSkills) {
+		this.hdzSkills = hdzSkills;
+	}
+
+	public HdzSkill addHdzSkill(HdzSkill hdzSkill) {
+		getHdzSkills().add(hdzSkill);
+		hdzSkill.setHdzApplicant(this);
+
+		return hdzSkill;
+	}
+
+	public HdzSkill removeHdzSkill(HdzSkill hdzSkill) {
+		getHdzSkills().remove(hdzSkill);
+		hdzSkill.setHdzApplicant(null);
+
+		return hdzSkill;
 	}
 
 }

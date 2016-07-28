@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.List;
 
 
 /**
@@ -15,14 +17,18 @@ public class HdzApplication implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_APPLICATION_APPLICATIONID_GENERATOR", sequenceName="HDZ_APPLICATION_ID_SEQ", allocationSize=1)
+	@SequenceGenerator(name="HDZ_APPLICATION_APPLICATIONID_GENERATOR", sequenceName="HDZ_APPLICATION_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_APPLICATION_APPLICATIONID_GENERATOR")
 	private long applicationid;
+
+	private BigDecimal appscore;
 
 	private String appstatus;
 
 	private String codingtest;
-	
+
+	private BigDecimal codingtestscore;
+
 	private String comments;
 
 	//bi-directional many-to-one association to HdzApplicant
@@ -35,6 +41,14 @@ public class HdzApplication implements Serializable {
 	@JoinColumn(name="JOBSID")
 	private HdzJob hdzJob;
 
+	//bi-directional many-to-one association to HdzInterview
+	@OneToMany(mappedBy="hdzApplication")
+	private List<HdzInterview> hdzInterviews;
+
+	//bi-directional many-to-one association to HdzInterviewresp
+	@OneToMany(mappedBy="hdzApplication")
+	private List<HdzInterviewresp> hdzInterviewresps;
+
 	public HdzApplication() {
 	}
 
@@ -44,6 +58,14 @@ public class HdzApplication implements Serializable {
 
 	public void setApplicationid(long applicationid) {
 		this.applicationid = applicationid;
+	}
+
+	public BigDecimal getAppscore() {
+		return this.appscore;
+	}
+
+	public void setAppscore(BigDecimal appscore) {
+		this.appscore = appscore;
 	}
 
 	public String getAppstatus() {
@@ -62,6 +84,22 @@ public class HdzApplication implements Serializable {
 		this.codingtest = codingtest;
 	}
 
+	public BigDecimal getCodingtestscore() {
+		return this.codingtestscore;
+	}
+
+	public void setCodingtestscore(BigDecimal codingtestscore) {
+		this.codingtestscore = codingtestscore;
+	}
+
+	public String getComments() {
+		return this.comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
 	public HdzApplicant getHdzApplicant() {
 		return this.hdzApplicant;
 	}
@@ -78,13 +116,48 @@ public class HdzApplication implements Serializable {
 		this.hdzJob = hdzJob;
 	}
 
-	public String getComments() {
-		return comments;
+	public List<HdzInterview> getHdzInterviews() {
+		return this.hdzInterviews;
 	}
 
-	public void setComments(String comments) {
-		this.comments = comments;
+	public void setHdzInterviews(List<HdzInterview> hdzInterviews) {
+		this.hdzInterviews = hdzInterviews;
 	}
-	
+
+	public HdzInterview addHdzInterview(HdzInterview hdzInterview) {
+		getHdzInterviews().add(hdzInterview);
+		hdzInterview.setHdzApplication(this);
+
+		return hdzInterview;
+	}
+
+	public HdzInterview removeHdzInterview(HdzInterview hdzInterview) {
+		getHdzInterviews().remove(hdzInterview);
+		hdzInterview.setHdzApplication(null);
+
+		return hdzInterview;
+	}
+
+	public List<HdzInterviewresp> getHdzInterviewresps() {
+		return this.hdzInterviewresps;
+	}
+
+	public void setHdzInterviewresps(List<HdzInterviewresp> hdzInterviewresps) {
+		this.hdzInterviewresps = hdzInterviewresps;
+	}
+
+	public HdzInterviewresp addHdzInterviewresp(HdzInterviewresp hdzInterviewresp) {
+		getHdzInterviewresps().add(hdzInterviewresp);
+		hdzInterviewresp.setHdzApplication(this);
+
+		return hdzInterviewresp;
+	}
+
+	public HdzInterviewresp removeHdzInterviewresp(HdzInterviewresp hdzInterviewresp) {
+		getHdzInterviewresps().remove(hdzInterviewresp);
+		hdzInterviewresp.setHdzApplication(null);
+
+		return hdzInterviewresp;
+	}
 
 }

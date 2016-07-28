@@ -16,9 +16,11 @@ public class HdzJob implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_JOBS_JOBSID_GENERATOR", sequenceName="HDZ_JOBS_ID_SEQ", allocationSize=1)
+	@SequenceGenerator(name="HDZ_JOBS_JOBSID_GENERATOR", sequenceName="HDZ_JOBS_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_JOBS_JOBSID_GENERATOR")
 	private long jobsid;
+
+	private String codingtestreq;
 
 	private String description;
 
@@ -29,6 +31,15 @@ public class HdzJob implements Serializable {
 	@OneToMany(mappedBy="hdzJob")
 	private List<HdzApplication> hdzApplications;
 
+	//bi-directional many-to-one association to HdzInterviewquest
+	@OneToMany(mappedBy="hdzJob")
+	private List<HdzInterviewquest> hdzInterviewquests;
+
+	//bi-directional many-to-one association to HdzSkill
+	@ManyToOne
+	@JoinColumn(name="SKILLID")
+	private HdzSkill hdzSkill;
+
 	public HdzJob() {
 	}
 
@@ -38,6 +49,14 @@ public class HdzJob implements Serializable {
 
 	public void setJobsid(long jobsid) {
 		this.jobsid = jobsid;
+	}
+
+	public String getCodingtestreq() {
+		return this.codingtestreq;
+	}
+
+	public void setCodingtestreq(String codingtestreq) {
+		this.codingtestreq = codingtestreq;
 	}
 
 	public String getDescription() {
@@ -76,6 +95,36 @@ public class HdzJob implements Serializable {
 		hdzApplication.setHdzJob(null);
 
 		return hdzApplication;
+	}
+
+	public List<HdzInterviewquest> getHdzInterviewquests() {
+		return this.hdzInterviewquests;
+	}
+
+	public void setHdzInterviewquests(List<HdzInterviewquest> hdzInterviewquests) {
+		this.hdzInterviewquests = hdzInterviewquests;
+	}
+
+	public HdzInterviewquest addHdzInterviewquest(HdzInterviewquest hdzInterviewquest) {
+		getHdzInterviewquests().add(hdzInterviewquest);
+		hdzInterviewquest.setHdzJob(this);
+
+		return hdzInterviewquest;
+	}
+
+	public HdzInterviewquest removeHdzInterviewquest(HdzInterviewquest hdzInterviewquest) {
+		getHdzInterviewquests().remove(hdzInterviewquest);
+		hdzInterviewquest.setHdzJob(null);
+
+		return hdzInterviewquest;
+	}
+
+	public HdzSkill getHdzSkill() {
+		return this.hdzSkill;
+	}
+
+	public void setHdzSkill(HdzSkill hdzSkill) {
+		this.hdzSkill = hdzSkill;
 	}
 
 }

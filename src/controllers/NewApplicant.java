@@ -51,7 +51,7 @@ public class NewApplicant extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String email = request.getParameter("email");
@@ -59,13 +59,19 @@ public class NewApplicant extends HttpServlet {
 		String bday = request.getParameter("dob");
 		String veteran = request.getParameter("veteran");
 		String citizen = request.getParameter("citizen");
+		
 		List<HdzEducation> edhist = new ArrayList<HdzEducation>();
 		List<HdzJobhistory> jobhist = new ArrayList<HdzJobhistory>();
 		List<HdzReftable> references=new ArrayList<HdzReftable>();
+		//List<HdzSkill> skills=new ArrayList<HdzSkill>();
+		//List<HdzAward> awards=new ArrayList<HdzAward>();
 		for (int i = 1; i <= 3; i++) {
 			HdzEducation edu = new HdzEducation();
 			HdzJobhistory job = new HdzJobhistory();
 			HdzReftable reference = new HdzReftable();
+			//HdzSkill skill = new HdzSkill();
+			//HdzAward award = new HdzAward();
+			
 			String schoolname = request.getParameter("edu" + i);
 			String degree = request.getParameter("degree" + i);
 			String datecomp = request.getParameter("date" + i);
@@ -104,6 +110,16 @@ public class NewApplicant extends HttpServlet {
 				reference.setRefposition(refposition);
 				references.add(reference);
 			}
+			
+			
+			//String awardname=request.getParameter("award"+i);
+			//String awardyear=request.getParameter("awyear"+i);
+			
+			
+
+			//String skillname=request.getParameter("skill"+i);
+			//String skillyear=request.getParameter("skyear"+i);
+			
 		}
 
 		String salt = PasswordUtil.getSalt();
@@ -117,6 +133,18 @@ public class NewApplicant extends HttpServlet {
 
 		HdzApplicant applicant = new HdzApplicant();
 		applicant.setBday(bday);
+		
+		//if employee update fields
+		if(false){
+			applicant.setAlcoholtestflag("Y");
+			applicant.setCitizenflag("Y");
+			applicant.setDottestflag("Y");
+			applicant.setDrugtestflag("Y");
+			applicant.setStdpanelflag("Y");
+			applicant.setVisaflag("Y");
+			applicant.setVeteranflag("Y");
+		}
+		
 		
 		applicant.setEmail(email);
 		applicant.setFirstname(firstname);
