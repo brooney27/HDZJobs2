@@ -23,6 +23,11 @@ public class HdzAward implements Serializable {
 
 	private String awardyear;
 
+	//bi-directional many-to-one association to HdzApplicant
+	@ManyToOne
+	@JoinColumn(name="APPLICANTID")
+	private HdzApplicant hdzApplicant;
+
 	public HdzAward() {
 	}
 
@@ -48,6 +53,14 @@ public class HdzAward implements Serializable {
 
 	public void setAwardyear(String awardyear) {
 		this.awardyear = awardyear;
+	}
+
+	public HdzApplicant getHdzApplicant() {
+		return this.hdzApplicant;
+	}
+
+	public void setHdzApplicant(HdzApplicant hdzApplicant) {
+		this.hdzApplicant = hdzApplicant;
 	}
 
 }
