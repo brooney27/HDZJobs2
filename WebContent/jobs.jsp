@@ -24,12 +24,17 @@
 <c:forEach var="job" items="${jobs}">
 <tr>
 <td>${job.position}</td>
+<c:if test="${user!=null}">
 <td>
 <form action="Apply">
 <input type="hidden" name="jobid" id="jobid" value="${job.jobsid}"/>
 <input type="submit" name="submit" id="submit" value="Apply"/>
 </form>
 </td>
+</c:if>
+<c:if test="${user==null}">
+<td><a href="login.jsp">Login to apply</a></td>
+</c:if>
 </tr>
 </c:forEach>
 </table>
