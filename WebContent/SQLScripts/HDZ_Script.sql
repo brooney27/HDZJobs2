@@ -117,9 +117,7 @@ CONSTRAINT fk_HDZ_reftable_applicantID FOREIGN KEY (applicantID) references HDZ_
 
 create table HDZ_skills(
 skillid integer primary key,
-applicantid integer ,
-skillname varchar2(100),
-CONSTRAINT fk_HDZ_skills_applicantID FOREIGN KEY (applicantID) references HDZ_applicant(applicantID)
+skillname varchar2(100)
 );
 
 create table HDZ_Jobs(
