@@ -121,6 +121,7 @@
 										<th>Job Title</th>
 										<th>Job description</th>
 										<th>Coding Test</th>
+										<th>Interview Score</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -133,6 +134,7 @@
 									<td><c:out value="${application.hdzJob.position}"></c:out></td>
 									<td><c:out value="${application.hdzJob.description}"></c:out></td>
 									<td><c:out value="${application.codingtest}"></c:out></td>
+									<td><c:out value="${application.appscore}"></c:out></td>
 									<td><table>
 											<c:set var="type" scope="session" value="${interviewType}" />
 											<c:if test="${type == 'Group Interview'}">
@@ -225,11 +227,11 @@
 						</c:if>
 						
 						
-						<input type="text"
-									id="interviewscore" name="interviewscore" value="${interviewscore}" />
+						<input type="text" class="score"
+									id="interviewscore${application.applicationid}" name="interviewscore${interviewType}" value="${interviewscore}" />
 							
 
-
+						
 							<table class="table table-bordered">
 
 								<thead>
@@ -257,10 +259,10 @@
 
 											</td>
 
-											<td align="center"><a class="buttonLink"
+											<td align="center"><a 
 														href="PassQuestion?passquestionid=${ques.interviewquestid}&passapplicationid=${application.applicationid}&passinterviewtype=${interviewType}">
 															Pass</a>
-															<a class="buttonLink"
+															<a 
 														href="PassQuestion?failquestionid=${ques.interviewquestid}&failapplicationid=${application.applicationid}&failinterviewtype=${interviewType}">
 															Fail</a>
 															 </td>

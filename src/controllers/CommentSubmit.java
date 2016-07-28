@@ -1,11 +1,17 @@
 package controllers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.*;
+import services.InterviewService;
 
 /**
  * Servlet implementation class CommentSubmit
@@ -33,6 +39,8 @@ public class CommentSubmit extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();	
 		System.out.println("in com sub");
 		String comment = request.getParameter("commentInterview"); 
 				if (comment != null && !comment.equals("")) {
@@ -40,9 +48,41 @@ public class CommentSubmit extends HttpServlet {
 					request.getSession().setAttribute("commentInterview", comment);
 				} else {
 					request.getSession().setAttribute("commentInterview", null);
-				}
-		
+				}				
+				
 		System.out.println("com sub" + comment);
+		
+		String score = request.getParameter("score"); 
+		String appid=request.getParameter("appid");
+		String type=request.getParameter("type");
+		
+		if(score!=null &&appid!=null &&type!=null)
+		{
+			HdzInterview interview=new HdzInterview();
+			HdzApplication application=InterviewService.getHdzApplication(appid);
+			
+			
+			interview.setHdzApplication(application);
+			
+			interview.setInterviewtype(type);
+			
+			interview.setScore(new BigDecimal(score));
+			
+			InterviewService.insert(interview);
+			
+			long totalscore=InterviewService.gettotalscore(Long.parseLong(appid));
+			
+			application.setAppscore(new BigDecimal(totalscore));
+			
+			InterviewService.updateApplication(application);
+			
+			session.setAttribute("app", application);
+			
+			request.getRequestDispatcher("interview.jsp").forward(request, response);
+		}
+		
+		
+		
 	}
 
 }

@@ -160,6 +160,46 @@ public class InterviewDao {
         return score;  
 	}
 	
+	public static long gettotalscore(long applicationid) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        String qString = "select sum(b.score) from HdzInterview b"
+        		+ " where "
+        		+ " b.hdzApplication.applicationid=:applicationid ";
+        long score=0;
+        try{
+            Query query = em.createQuery(qString);
+            query.setParameter("applicationid", applicationid);    
+            if(query.getSingleResult()==null)
+            {
+            	score=0;
+            }
+            else
+            {
+              score = (long)(query.getSingleResult());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return score;  
+	}
+	
+	
+	public static void insert(HdzInterview response) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		try {
+			trans.begin();
+			em.persist(response);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
 	
 
 

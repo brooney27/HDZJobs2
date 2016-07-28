@@ -4,6 +4,7 @@ import java.util.List;
 
 import dao.InterviewDao;
 import model.HdzApplication;
+import model.HdzInterview;
 import model.HdzInterviewquest;
 import model.HdzInterviewresp;
 
@@ -42,5 +43,12 @@ public class InterviewService {
 	public static long getscore(long applicationid, String interviewtype) {
 		return InterviewDao.getscore(applicationid, interviewtype);
 	
+	}
+	public static void insert(HdzInterview response) {
+		InterviewDao.insert(response);
+	}
+	
+	public static long gettotalscore(long applicationid) {
+		return InterviewDao.gettotalscore(applicationid);
 	}
 }
