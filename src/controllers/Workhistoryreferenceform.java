@@ -77,29 +77,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 				
 			}
 			
-			
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				session.setAttribute("hiremessage", "This applicant is hired!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				
-				session.setAttribute("ApplicationComment", myapplication);
-				
-				
-				if(comment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
-					
-					dao.PendingActionsDao.update(myapplication);
-					
-					session.setAttribute("ApplicationComment", myapplication);
-				}
-			}
+		
 			
 			if(comment!=null)
 			{
@@ -150,28 +128,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 				
 			}
 			
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				session.setAttribute("hiremessage", "This applicant is hired!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				
-				session.setAttribute("ApplicationComment", myapplication);
-				
-				if(comment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
-					
-					dao.PendingActionsDao.update(myapplication);
-					
-					session.setAttribute("ApplicationComment", myapplication);
-					
-				}
-			}
+		
 			
 			if(comment!=null)
 			{
@@ -218,28 +175,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 				
 			}
 			
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				session.setAttribute("hiremessage", "This applicant is hired!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				
-				session.setAttribute("ApplicationComment", myapplication);
-				
-				if(comment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
-					
-					dao.PendingActionsDao.update(myapplication);
-					
-					session.setAttribute("ApplicationComment", myapplication);
-					
-				}
-			}
+			
 			System.out.println(comment);
 			if(comment!=null)
 			{

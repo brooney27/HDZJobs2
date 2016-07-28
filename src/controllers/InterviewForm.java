@@ -52,6 +52,8 @@ public class InterviewForm extends HttpServlet {
 			if (role.equals("HiringManager")) {
 				request.setAttribute("interviewType", "HM Interview");
 				request.setAttribute("coding", InterviewService.getCodingTest(hdzApplication.getApplicationid()));
+				
+				
 			} else if (role.equals("HRManager")) {
 				request.setAttribute("interviewType", "HR Interview");				
 			} else {
