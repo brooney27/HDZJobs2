@@ -1,7 +1,11 @@
 package services;
 
+import java.util.List;
+
 import dao.InterviewDao;
 import model.HdzApplication;
+import model.HdzInterviewquest;
+import model.HdzInterviewresp;
 
 public class InterviewService {
 
@@ -22,4 +26,21 @@ public class InterviewService {
 		return InterviewDao.getComment(hdzApplication);
 	}
 
+	public static List<HdzInterviewquest> getInterviewquestionbyjobid(String interviewtype, long jobid) {
+		return InterviewDao.getInterviewquestionbyjobid(interviewtype, jobid);
+	}
+	
+	public static HdzInterviewquest getInterviewquestion(String questionid) {
+
+		return InterviewDao.getInterviewquestion(questionid);
+	}
+	
+	public static void insert(HdzInterviewresp response) {
+		InterviewDao.insert(response);
+	}
+	
+	public static long getscore(long applicationid, String interviewtype) {
+		return InterviewDao.getscore(applicationid, interviewtype);
+	
+	}
 }

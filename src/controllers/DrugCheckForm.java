@@ -205,23 +205,7 @@ public class DrugCheckForm extends HttpServlet {
 				session.setAttribute("hiremessage", "The drug test is passed!!!!");			
 			}
 			}
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				if(stdcomment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+stdcomment);	
-					
-				}
-				
-				session.setAttribute("hiremessage", "The Applicant is hired!!!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				session.setAttribute("DrugApplication",myapplication);	
-			}
+		
 			
 			
 			
@@ -276,24 +260,7 @@ public class DrugCheckForm extends HttpServlet {
 			}
 			}
 
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				if(dotcomment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+dotcomment);	
-					
-				}
-				
-				session.setAttribute("hiremessage", "The Applicant is hired!!!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				session.setAttribute("DrugApplication",myapplication);	
-				
-			}
+		
 			
 			if(dotcomment!=null)
 			{
@@ -347,24 +314,7 @@ public class DrugCheckForm extends HttpServlet {
 				
 			}
 			}
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				if(alcoholcomment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+alcoholcomment);	
-					
-				}
-				
-				session.setAttribute("hiremessage", "The Applicant is hired!!!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				session.setAttribute("DrugApplication",myapplication);	
-				
-			}
+	
 			
 			if(alcoholcomment!=null)
 			{

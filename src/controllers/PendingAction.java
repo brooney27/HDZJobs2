@@ -74,6 +74,10 @@ public class PendingAction extends HttpServlet {
 				session.setAttribute("HR", "Yes");
 				hdzapplication = RoleActionService.getActionsHiringManager();
 				
+				List<HdzApplication> finalreport=RoleActionService.getActionsHiringManagerReport();
+				
+				session.setAttribute("finalreport", finalreport);
+				
 			} else {
 				session.setAttribute("HR", "No");
 				hdzapplication = RoleActionService.getActionsEmployee();

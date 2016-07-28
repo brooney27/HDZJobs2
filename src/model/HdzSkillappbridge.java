@@ -19,6 +19,8 @@ public class HdzSkillappbridge implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR")
 	private long skillappbridgeid;
 
+	private String experience;
+
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
 	@JoinColumn(name="APPLICANTID")
@@ -38,6 +40,14 @@ public class HdzSkillappbridge implements Serializable {
 
 	public void setSkillappbridgeid(long skillappbridgeid) {
 		this.skillappbridgeid = skillappbridgeid;
+	}
+
+	public String getExperience() {
+		return this.experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
 	}
 
 	public HdzApplicant getHdzApplicant() {

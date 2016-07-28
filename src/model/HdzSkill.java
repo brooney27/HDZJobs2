@@ -20,8 +20,6 @@ public class HdzSkill implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_SKILLS_SKILLID_GENERATOR")
 	private long skillid;
 
-	private String experience;
-
 	private String skillname;
 
 	//bi-directional many-to-one association to HdzJob
@@ -32,11 +30,6 @@ public class HdzSkill implements Serializable {
 	@OneToMany(mappedBy="hdzSkill")
 	private List<HdzSkillappbridge> hdzSkillappbridges;
 
-	//bi-directional many-to-one association to HdzApplicant
-	@ManyToOne
-	@JoinColumn(name="APPLICANTID")
-	private HdzApplicant hdzApplicant;
-
 	public HdzSkill() {
 	}
 
@@ -46,14 +39,6 @@ public class HdzSkill implements Serializable {
 
 	public void setSkillid(long skillid) {
 		this.skillid = skillid;
-	}
-
-	public String getExperience() {
-		return this.experience;
-	}
-
-	public void setExperience(String experience) {
-		this.experience = experience;
 	}
 
 	public String getSkillname() {
@@ -106,14 +91,6 @@ public class HdzSkill implements Serializable {
 		hdzSkillappbridge.setHdzSkill(null);
 
 		return hdzSkillappbridge;
-	}
-
-	public HdzApplicant getHdzApplicant() {
-		return this.hdzApplicant;
-	}
-
-	public void setHdzApplicant(HdzApplicant hdzApplicant) {
-		this.hdzApplicant = hdzApplicant;
 	}
 
 }

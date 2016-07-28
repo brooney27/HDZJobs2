@@ -76,6 +76,10 @@ public class HdzApplicant implements Serializable {
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzApplication> hdzApplications;
 
+	//bi-directional many-to-one association to HdzAward
+	@OneToMany(mappedBy="hdzApplicant")
+	private List<HdzAward> hdzAwards;
+
 	//bi-directional many-to-one association to HdzEducation
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzEducation> hdzEducations;
@@ -91,10 +95,6 @@ public class HdzApplicant implements Serializable {
 	//bi-directional many-to-one association to HdzSkillappbridge
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzSkillappbridge> hdzSkillappbridges;
-
-	//bi-directional many-to-one association to HdzSkill
-	@OneToMany(mappedBy="hdzApplicant")
-	private List<HdzSkill> hdzSkills;
 
 	public HdzApplicant() {
 	}
@@ -321,6 +321,28 @@ public class HdzApplicant implements Serializable {
 		return hdzApplication;
 	}
 
+	public List<HdzAward> getHdzAwards() {
+		return this.hdzAwards;
+	}
+
+	public void setHdzAwards(List<HdzAward> hdzAwards) {
+		this.hdzAwards = hdzAwards;
+	}
+
+	public HdzAward addHdzAward(HdzAward hdzAward) {
+		getHdzAwards().add(hdzAward);
+		hdzAward.setHdzApplicant(this);
+
+		return hdzAward;
+	}
+
+	public HdzAward removeHdzAward(HdzAward hdzAward) {
+		getHdzAwards().remove(hdzAward);
+		hdzAward.setHdzApplicant(null);
+
+		return hdzAward;
+	}
+
 	public List<HdzEducation> getHdzEducations() {
 		return this.hdzEducations;
 	}
@@ -407,28 +429,6 @@ public class HdzApplicant implements Serializable {
 		hdzSkillappbridge.setHdzApplicant(null);
 
 		return hdzSkillappbridge;
-	}
-
-	public List<HdzSkill> getHdzSkills() {
-		return this.hdzSkills;
-	}
-
-	public void setHdzSkills(List<HdzSkill> hdzSkills) {
-		this.hdzSkills = hdzSkills;
-	}
-
-	public HdzSkill addHdzSkill(HdzSkill hdzSkill) {
-		getHdzSkills().add(hdzSkill);
-		hdzSkill.setHdzApplicant(this);
-
-		return hdzSkill;
-	}
-
-	public HdzSkill removeHdzSkill(HdzSkill hdzSkill) {
-		getHdzSkills().remove(hdzSkill);
-		hdzSkill.setHdzApplicant(null);
-
-		return hdzSkill;
 	}
 
 }
