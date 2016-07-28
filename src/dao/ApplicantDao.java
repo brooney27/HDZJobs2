@@ -10,9 +10,11 @@ import util.DBUtil;
 import model.HdzApplicant;
 import model.HdzApplication;
 import model.HdzEducation;
+import model.HdzEmployee;
 import model.HdzJob;
 import model.HdzJobhistory;
 import model.HdzReftable;
+import model.HdzSkill;
 
 
 public class ApplicantDao {	
@@ -171,4 +173,51 @@ public class ApplicantDao {
         }return searchposts;
     }
 	
+	public static HdzEmployee getEmployeeByEmail (String email)
+    {
+        EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        HdzEmployee employee = null;
+        String qString = "select e from HdzEmployee e where e.email = :search";
+        
+        try{
+            TypedQuery<HdzEmployee> query = em.createQuery(qString,HdzEmployee.class);
+            query.setParameter("search", email);
+            employee = query.getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally{
+            em.close();
+        }return employee;
+    }
+	
+	public static HdzSkill getSkillByName (String skillname)
+    {
+        EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        HdzSkill skill = null;
+        String qString = "select s from HdzSkill s where s.skillname = :search";
+        
+        try{
+            TypedQuery<HdzSkill> query = em.createQuery(qString,HdzSkill.class);
+            query.setParameter("search", skillname);
+            skill = query.getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally{
+            em.close();
+        }return skill;
+    }
+	
+	public static void insert(HdzSkill skill) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		try {
+			trans.begin();
+			em.persist(skill);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
 }

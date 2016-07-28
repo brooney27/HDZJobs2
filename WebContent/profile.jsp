@@ -39,11 +39,11 @@
 		</tr>
 		<c:forEach var="job" items="${user.hdzJobhistories}">
 			<tr>
-				<td>${job.title}</td>
-				<td>${job.company}</td>
+				<td>${job.position}</td>
+				<td>${job.companyname}</td>
 				<td>${job.description}</td>
-				<td>${job.start}</td>
-				<td>${job.end}</td>
+				<td>${job.startdate}</td>
+				<td>${job.enddate}</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -71,7 +71,7 @@
 			<tr>
 				<td>${edu.schoolname}</td>
 				<td>${edu.degreecompleted}</td>
-				<td>${edu.yearcompleted}</td>
+				<td>${edu.datecompleted}</td>
 			</tr>
 		</c:forEach>
 	</table>
