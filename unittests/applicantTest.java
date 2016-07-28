@@ -17,6 +17,6 @@ public class applicantTest {
 		
 		//assertTrue(jobs.get(0).getPosition().contains("Hardware"));
 		
-		System.out.println(InterviewDao.getscore());
+		System.out.println(InterviewDao.gettotalscore(1));
 	}
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +11,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import dao.ApplicantDao;
 import dao.ValidateUserDao;
 import model.HdzApplicant;
+import model.HdzAward;
 import model.HdzEducation;
 import model.HdzJobhistory;
 import model.HdzReftable;
+import model.HdzSkill;
+import model.HdzSkillappbridge;
 import services.NewApplicantService;
 import util.PasswordUtil;
 
@@ -51,7 +55,6 @@ public class NewApplicant extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String email = request.getParameter("email");
@@ -59,18 +62,21 @@ public class NewApplicant extends HttpServlet {
 		String bday = request.getParameter("dob");
 		String veteran = request.getParameter("veteran");
 		String citizen = request.getParameter("citizen");
+		String phone = request.getParameter("phone");
 		
 		List<HdzEducation> edhist = new ArrayList<HdzEducation>();
 		List<HdzJobhistory> jobhist = new ArrayList<HdzJobhistory>();
 		List<HdzReftable> references=new ArrayList<HdzReftable>();
-		//List<HdzSkill> skills=new ArrayList<HdzSkill>();
-		//List<HdzAward> awards=new ArrayList<HdzAward>();
+		List<HdzSkillappbridge> skills=new ArrayList<HdzSkillappbridge>();
+		List<HdzAward> awards=new ArrayList<HdzAward>();
 		for (int i = 1; i <= 3; i++) {
+			System.out.println("Looping through parameters... " + i);
 			HdzEducation edu = new HdzEducation();
 			HdzJobhistory job = new HdzJobhistory();
 			HdzReftable reference = new HdzReftable();
-			//HdzSkill skill = new HdzSkill();
-			//HdzAward award = new HdzAward();
+			HdzSkill skill = new HdzSkill();
+			HdzAward award = new HdzAward();
+			HdzSkillappbridge userskill = new HdzSkillappbridge();
 			
 			String schoolname = request.getParameter("edu" + i);
 			String degree = request.getParameter("degree" + i);
@@ -112,14 +118,30 @@ public class NewApplicant extends HttpServlet {
 			}
 			
 			
-			//String awardname=request.getParameter("award"+i);
-			//String awardyear=request.getParameter("awyear"+i);
+			String awardname=request.getParameter("award"+i);
+			String awardyear=request.getParameter("awyear"+i);
 			
+			if(!awardname.equals("")){
+				award.setAwardname(awardname);
+				award.setAwardyear(awardyear);
+				awards.add(award);
+			}
 			
-
-			//String skillname=request.getParameter("skill"+i);
-			//String skillyear=request.getParameter("skyear"+i);
+			String skillname=request.getParameter("skill"+i);
+			String skillyear=request.getParameter("skyear"+i);
 			
+			if(!skillname.equals("")){
+				//get skill by name
+				System.out.println("trying skill... "+i);
+				skill = NewApplicantService.getSkill(skillname);
+				//add skill to bridge
+				userskill.setHdzSkill(skill);
+				//set bridge experience
+				userskill.setExperience(skillyear);
+				//add bridge to applicant
+				skills.add(userskill);
+				System.out.println("skill added to list");
+			}
 		}
 
 		String salt = PasswordUtil.getSalt();
@@ -135,17 +157,17 @@ public class NewApplicant extends HttpServlet {
 		applicant.setBday(bday);
 		
 		//if employee update fields
-		if(false){
-			applicant.setAlcoholtestflag("Y");
+		if(ApplicantDao.getEmployeeByEmail(email)!=null){
+			applicant.setAlcoholtestflag("N");
 			applicant.setCitizenflag("Y");
-			applicant.setDottestflag("Y");
+			applicant.setDottestflag("N");
 			applicant.setDrugtestflag("Y");
-			applicant.setStdpanelflag("Y");
+			applicant.setStdpanelflag("N");
 			applicant.setVisaflag("Y");
 			applicant.setVeteranflag("Y");
 		}
 		
-		
+		applicant.setPhonenum(new BigDecimal(phone));
 		applicant.setEmail(email);
 		applicant.setFirstname(firstname);
 		applicant.setLastname(lastname);
@@ -159,6 +181,8 @@ public class NewApplicant extends HttpServlet {
 		applicant.setHdzEducations(edhist);
 		applicant.setHdzJobhistories(jobhist);
 		applicant.setHdzReftables(references);
+		applicant.setHdzAwards(awards);
+		applicant.setHdzSkillappbridges(skills);
 		for (HdzEducation e:edhist){
 			e.setHdzApplicant(applicant);
 		}
@@ -167,6 +191,12 @@ public class NewApplicant extends HttpServlet {
 		}
 		for (HdzReftable r:references){
 			r.setHdzApplicant(applicant);
+		}
+		for (HdzAward a:awards){
+			a.setHdzApplicant(applicant);
+		}
+		for (HdzSkillappbridge s:skills){
+			s.setHdzApplicant(applicant);
 		}
 		NewApplicantService.updateApplicant(applicant);
 		
