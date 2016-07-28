@@ -147,6 +147,42 @@
 							</fieldset>
 						</div>
 					</div>
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div align="left">Skills</div>
+						</div>
+						<div class="panel-body">
+							<fieldset>
+								Skill: <input type="text" name="skill1" id="skill1" />
+								Years experience: <input type="text" name="skyear1" id="skyear1" /><br />
+								<br />
+								Skill: <input type="text" name="skill2" id="skill2" />
+								Years experience: <input type="text" name="skyear2" id="skyear2" /><br />
+								<br />
+								Skill: <input type="text" name="skill3" id="skill3" />
+								Years experience: <input type="text" name="skyear3" id="skyear3" />
+								</fieldset>
+						</div>
+					</div>
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div align="left">Awards</div>
+						</div>
+						<div class="panel-body">
+							<fieldset>
+								Award: <input type="text" name="award1" id="award1" />
+								Year awarded: <input type="text" name="awyear1" id="awyear1" /><br />
+								<br />
+								Award: <input type="text" name="award2" id="award2" />
+								Year awarded: <input type="text" name="awyear2" id="awyear2" /><br />
+								<br />
+								Award: <input type="text" name="award1" id="award1" />
+								Year awarded: <input type="text" name="awyear2" id="awyear2" />
+								</fieldset>
+						</div>
+					</div>
 					<p id="invalid"></p>
 					<input type="submit" name="submit" id="submit" value="Submit" />
 				</form>

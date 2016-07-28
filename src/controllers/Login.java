@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import dao.ValidateUserDao;
 import model.HdzApplicant;
 import model.HdzEmployee;
+import util.Gravatar;
 
 /**
  * Servlet implementation class Login
@@ -50,6 +51,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("user", applicant);
 				session.setAttribute("role",  "applicant");
 				session.setAttribute("userrole",  1);
+				session.setAttribute("gravatar", Gravatar.getGravatarUrl(email));
 				nextURL = "/yourapplications.jsp";
 			} else {
 				System.out.println("user not found: " + email + " " + password);
