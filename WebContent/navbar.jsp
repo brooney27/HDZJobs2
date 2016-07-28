@@ -7,6 +7,7 @@
     <ul class="nav navbar-nav">   	  
        <c:if test="${role =='applicant'}">  
       <li ><a href="yourapplications.jsp" style="color: #fff; font-weight: bold;font-size: 16px" >Your Applications</a></li> 
+      <li ><a href="profile.jsp" style="color: #fff; font-weight: bold;font-size: 16px" >Profile</a></li>
       <li ><a href="./Jobs" style="color: #fff;font-weight: bold;font-size: 16px" >Jobs</a></li>
     </c:if>
       <c:if test="${role == 'HRAssistant'or role=='HRManager' or role=='HRSpecialist'or role=='HiringManager' or role=='ComplianceOfficer' or role=='HealthCareProfessional'}">
@@ -18,7 +19,8 @@
       <li ><a href="<%=request.getContextPath() %>/Logout"  style="color: #fff;font-weight: bold;font-size: 16px">Log Out</a></li>
     </c:if>
     <c:if test="${user == null}"> 
-     <li ><a href="login.jsp"  style="color: #fff;font-weight: bold;font-size: 16px">Log Out</a></li>
+    <li><a href="./Jobs" style="color: #fff;font-weight: bold;font-size: 16px" >Jobs</a></li>
+     <li ><a href="login.jsp"  style="color: #fff;font-weight: bold;font-size: 16px">Login</a></li>
     </c:if>
     </ul>
  

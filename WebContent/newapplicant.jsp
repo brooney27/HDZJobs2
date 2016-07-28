@@ -66,10 +66,11 @@
 							<fieldset>
 								First name: <input type="text" name="firstname" id="firstname" />
 								Last name: <input type="text" name="lastname" id="lastname" /><br />
-								Email: <input type="text" name="email" id="email" /> Password:
-								<input type="password" name="password" id="password" /><br />
+								Email: <input type="text" name="email" id="email" />
+								Phone #: <input type="text" name="phone" id="phone" />
+								Password:<input type="password" name="password" id="password" /><br />
 								Date of Birth: <input type="text" name="dob" id="dob" />
-								Veteran Status: <select name="veteran"><br />
+								Veteran Status: <select name="veteran">
 									<option value="yes">Veteran</option>
 									<option value="no">Non-veteran</option>
 								</select> <br /> Citizenship <select name="citizen">
@@ -178,8 +179,8 @@
 								Award: <input type="text" name="award2" id="award2" />
 								Year awarded: <input type="text" name="awyear2" id="awyear2" /><br />
 								<br />
-								Award: <input type="text" name="award1" id="award1" />
-								Year awarded: <input type="text" name="awyear2" id="awyear2" />
+								Award: <input type="text" name="award3" id="award3" />
+								Year awarded: <input type="text" name="awyear3" id="awyear3" />
 								</fieldset>
 						</div>
 					</div>
