@@ -58,26 +58,7 @@ public class Nationalityform extends HttpServlet {
 			dao.PendingActionsDao.update(myapplicant);	
 			HdzApplication myapplication=(HdzApplication)session.getAttribute("NationalityCheck");
 			
-			if(dao.PendingActionsDao.checkAppStatus(myapplication))
-			{
-				myapplication.setAppstatus("Hired");
-				
-				session.setAttribute("hiremessage", "The Applicant is Hired!!!!");
-				
-				dao.PendingActionsDao.update(myapplication);
-				
-				if(comment!=null)
-				{
-					
-					HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-					myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
-					
-					dao.PendingActionsDao.update(myapplication);
-					
-				}
-				session.setAttribute("NationalityCheck", myapplication);
-				
-			}
+		
 			
 			if(comment!=null)
 			{

@@ -36,6 +36,10 @@ public class RoleActionService {
 	public static List<HdzApplication> getActionsEmployee() {
 		return RoleActionDao.getActionsEmployee(); 
 	}
+	
+	public static List<HdzApplication> getActionsHiringManagerReport() {
+		return RoleActionDao.getActionsHiringManagerReport();
+	}
 
 	public static HdzEmployee getEmployee(String id) {
 		return RoleActionDao.getEmployee(id); 

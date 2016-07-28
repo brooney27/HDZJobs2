@@ -199,6 +199,56 @@
 
 							</form>
 						</div>
+						<c:set var="role" value="${role}"/>
+						
+						<c:if test="${role=='HiringManager'}">
+						<h3 style="background-color: #01579b;color: #ffffff;">Final Report</h3>
+						<div>
+							<form id="target" action="FinalReport" method="get">
+								
+								<c:set var="finalreport" scope="session" value="${finalreport}" />
+								<c:if test="${finalreport != null}">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Job ID</th>
+										<th>Job Title</th>
+										<th>Job Desc</th>
+										<th>Applicant Name</th>
+										<th>Applicant Status</th>
+										<th>Application Score</th>
+										<th>Take Action</th>
+									</tr>
+								</thead>
+								<c:forEach var="report" items="${finalreport}">
+									<tbody>
+										<tr>
+											<td><c:out value="${report.hdzJob.jobsid}"></c:out></td>
+											<td><c:out value="${report.hdzJob.position}"></c:out></td>
+											<td><c:out value="${report.hdzJob.description}"></c:out>
+											</td>
+											<td><c:out value="${report.hdzApplicant.firstname}"></c:out>
+											</td>
+											<td><c:out value="${report.appstatus}"></c:out></td>
+											<td><c:out value="${report.appscore}"></c:out></td>
+											<td><a
+												href="FinalReport?hireappid=${report.applicationid}">
+													Hire</a>
+													<a
+												href="FinalReport?failappid=${report.applicationid}">
+													Fail</a></td>
+										</tr>
+									</tbody>
+								</c:forEach>
+							</table>
+							</c:if>
+							<c:if test="${finalreport == null}">
+								<h2>No Action Pending!!</h2>
+								</c:if>
+
+							</form>
+						</div>
+						</c:if>
 						
 					</div>
 					<%-- <div class="panel panel-primary">

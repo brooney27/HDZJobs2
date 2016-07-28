@@ -153,6 +153,26 @@ public class RoleActionDao {
             }
         return hdzApplications;  
 	}
+	
+	
+	public static List<HdzApplication> getActionsHiringManagerReport() {
+		// get all applicants where GroupInterviewDone
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        List<HdzApplication> hdzApplications = null;
+        String qString = "select b from HdzApplication b where b.appstatus = :status";
+        
+        try{
+            TypedQuery<HdzApplication> query = em.createQuery(qString,HdzApplication.class);
+            query.setParameter("status", "GroupInterviewDone");
+            hdzApplications = query.getResultList();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return hdzApplications;  
+	}
 
 	public static HdzEmployee getEmployee(String id) {
 		EntityManager em = DBUtil.getEmfFactory().createEntityManager();

@@ -120,10 +120,6 @@ public class InterviewReportSubmission extends HttpServlet {
 					} else {
 						hdzApplication.setAppstatus("GroupInterviewDone");					
 						InterviewService.updateApplication(hdzApplication);
-						if (PendingActionsDao.checkAppStatus(hdzApplication)) {
-							hdzApplication.setAppstatus("Hired");					
-							InterviewService.updateApplication(hdzApplication);
-						}
 						
 					}
 					
