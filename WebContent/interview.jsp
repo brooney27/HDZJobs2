@@ -211,30 +211,23 @@
 
 						Comment: <input type="text" id="commentInterview"
 								name="commentInterview" />
-
 							<c:if test="${type == 'HR Interview'}">
 
-						HR Interview Score: (0-10) <input type="text"
-									id="hrinterviewscore" name="hrinterviewscore" />
-
-
-							</c:if>
-
-							<c:if test="${type == 'HM Interview'}">
+						HR Interview Score:  
+						</c:if>
+						<c:if test="${type == 'HM Interview'}">
+						HM Interview Score: 
+						</c:if>
+						<c:if test="${type == 'Group Interview'}">
 						
-						HM Interview Score: (0-10) <input type="text"
-									id="hminterviewscore" name="hminterviewscore" />
-
-							</c:if>
-
-
-							<c:if test="${type == 'Group Interview'}">
+						Group Interview Score: 
 						
-						Group Interview Score: (0-10) <input type="text"
-									id="groupinterviewscore" name="groupinterviewscore" />
-
-							</c:if>
-
+						</c:if>
+						
+						
+						<input type="text"
+									id="interviewscore" name="interviewscore" value="${interviewscore}" />
+							
 
 
 							<table class="table table-bordered">
@@ -252,7 +245,7 @@
 								
 									<c:forEach var="ques" items="${interviewquestion}">
 										<tr>
-											<td align="center"> <c:out value="P.${ques.interviewquestionid}" />
+											<td align="center"> <c:out value="P.${ques.interviewquestid}" />
 											<td align="center"><c:out
 													value="${ques.question}" />
 
@@ -265,10 +258,10 @@
 											</td>
 
 											<td align="center"><a class="buttonLink"
-														href="PassQuestion?passquestionid=${ques.interviewquestionid}&passapplicationid=${application.applicationid}&passinterviewtype=${interviewType}">HR
+														href="PassQuestion?passquestionid=${ques.interviewquestid}&passapplicationid=${application.applicationid}&passinterviewtype=${interviewType}">
 															Pass</a>
 															<a class="buttonLink"
-														href="PassQuestion?failquestionid=${ques.interviewquestionid}&failapplicationid=${application.applicationid}&failinterviewtype=${interviewType}">HR
+														href="PassQuestion?failquestionid=${ques.interviewquestid}&failapplicationid=${application.applicationid}&failinterviewtype=${interviewType}">
 															Fail</a>
 															 </td>
 

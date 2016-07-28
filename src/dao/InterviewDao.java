@@ -1,10 +1,15 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import model.HdzApplication;
+import model.*;
 import util.DBUtil;
 
 public class InterviewDao {
@@ -78,6 +83,83 @@ public class InterviewDao {
         return comment;
 		
 	}
+	public static List<HdzInterviewquest> getInterviewquestionbyjobid(String interviewtype, long jobid) {
+
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+
+		String qString = "Select p from HdzInterviewquest p where p.interviewtype=:interviewtype and p.hdzJob.jobsid=:jobid";
+
+		Query q = em.createQuery(qString);
+		q.setParameter("jobid", jobid);
+		q.setParameter("interviewtype", interviewtype);
+		List<HdzInterviewquest> post = new ArrayList<HdzInterviewquest>();
+
+		try {
+			post = q.getResultList();
+
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return post;
+	}
+	
+	public static HdzInterviewquest getInterviewquestion(String questionid) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		HdzInterviewquest question = null;
+        String qString = "select b from HdzInterviewquest b where b.interviewquestid = :id";
+        
+        try{
+            TypedQuery<HdzInterviewquest> query = em.createQuery(qString,HdzInterviewquest.class);
+            query.setParameter("id", Long.parseLong(questionid));
+            question = query.getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return question;  
+	}
+	public static void insert(HdzInterviewresp response) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		try {
+			trans.begin();
+			em.persist(response);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
+	public static long getscore(long applicationid, String interviewtype) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        String qString = "select count(b.interviewrespid) from HdzInterviewresp b"
+        		+ " where b.questionflag =:pass "
+        		+ "and b.hdzApplication.applicationid=:applicationid "
+        		+ "and b.interviewtype=:interviewtype";
+        long score=0;
+        try{
+            Query query = em.createQuery(qString);
+            query.setParameter("pass", "P");
+            query.setParameter("applicationid", applicationid);
+            query.setParameter("interviewtype", interviewtype);
+            score = (long)(query.getSingleResult());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return score;  
+	}
+	
 	
 
 
