@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -15,7 +16,7 @@ public class HdzEmployee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_EMPLOYEE_EMPLOYEEID_GENERATOR", sequenceName="HDZ_EMPLOYEE_ID_SEQ", allocationSize=1)
+	@SequenceGenerator(name="HDZ_EMPLOYEE_EMPLOYEEID_GENERATOR", sequenceName="HDZ_EMPLOYEE_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_EMPLOYEE_EMPLOYEEID_GENERATOR")
 	private long employeeid;
 
@@ -23,11 +24,16 @@ public class HdzEmployee implements Serializable {
 
 	private String empname;
 
+	private String hashedpwd;
+
 	@Column(name="\"POSITION\"")
 	private String position;
 
-	private String hashedpwd;
 	private String salt;
+
+	//bi-directional many-to-one association to HdzApplicant
+	@OneToMany(mappedBy="hdzEmployee")
+	private List<HdzApplicant> hdzApplicants;
 
 	public HdzEmployee() {
 	}
@@ -56,6 +62,14 @@ public class HdzEmployee implements Serializable {
 		this.empname = empname;
 	}
 
+	public String getHashedpwd() {
+		return this.hashedpwd;
+	}
+
+	public void setHashedpwd(String hashedpwd) {
+		this.hashedpwd = hashedpwd;
+	}
+
 	public String getPosition() {
 		return this.position;
 	}
@@ -64,22 +78,34 @@ public class HdzEmployee implements Serializable {
 		this.position = position;
 	}
 
-	public String getHashedpwd() {
-		return hashedpwd;
-	}
-
-	public void setHashedpwd(String hashedpwd) {
-		this.hashedpwd = hashedpwd;
-	}
-
 	public String getSalt() {
-		return salt;
+		return this.salt;
 	}
 
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
 
+	public List<HdzApplicant> getHdzApplicants() {
+		return this.hdzApplicants;
+	}
 
+	public void setHdzApplicants(List<HdzApplicant> hdzApplicants) {
+		this.hdzApplicants = hdzApplicants;
+	}
+
+	public HdzApplicant addHdzApplicant(HdzApplicant hdzApplicant) {
+		getHdzApplicants().add(hdzApplicant);
+		hdzApplicant.setHdzEmployee(this);
+
+		return hdzApplicant;
+	}
+
+	public HdzApplicant removeHdzApplicant(HdzApplicant hdzApplicant) {
+		getHdzApplicants().remove(hdzApplicant);
+		hdzApplicant.setHdzEmployee(null);
+
+		return hdzApplicant;
+	}
 
 }
