@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ public class HdzInterviewquest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_INTERVIEWQUEST_INTERVIEWQUESTID_GENERATOR", sequenceName="HDZ_INTERVIEWQUEST_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_INTERVIEWQUEST_INTERVIEWQUESTID_GENERATOR", sequenceName="HDZ_INTERVIEWQUEST_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_INTERVIEWQUEST_INTERVIEWQUESTID_GENERATOR")
 	private long interviewquestid;
 

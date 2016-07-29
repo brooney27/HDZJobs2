@@ -43,6 +43,7 @@ public class Apply extends HttpServlet {
 		List<HdzApplication> myapps = applicant.getHdzApplications();
 		
 		application.setAppstatus("New");
+		if(applicant.getHdzEmployee()!=null)application.setAppstatus("WorkRefsChecked");
 		application.setCodingtest("N");
 		application.setHdzJob(job);
 		application.setHdzApplicant(applicant);

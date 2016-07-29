@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 /**
@@ -15,7 +16,7 @@ public class HdzJobhistory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_JOBHISTORY_JOBHISTORYID_GENERATOR", sequenceName="HDZ_JOBHISTORY_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_JOBHISTORY_JOBHISTORYID_GENERATOR", sequenceName="HDZ_JOBHISTORY_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_JOBHISTORY_JOBHISTORYID_GENERATOR")
 	private long jobhistoryid;
 

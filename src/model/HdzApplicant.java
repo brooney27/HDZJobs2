@@ -17,7 +17,7 @@ public class HdzApplicant implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_APPLICANT_APPLICANTID_GENERATOR", sequenceName="HDZ_APPLICANT_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_APPLICANT_APPLICANTID_GENERATOR", sequenceName="HDZ_APPLICANT_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_APPLICANT_APPLICANTID_GENERATOR")
 	private long applicantid;
 
@@ -92,7 +92,9 @@ public class HdzApplicant implements Serializable {
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzReftable> hdzReftables;
 
-	
+	//bi-directional many-to-one association to HdzSkillappbridge
+	@OneToMany(mappedBy="hdzApplicant")
+	private List<HdzSkillappbridge> hdzSkillappbridges;
 
 	public HdzApplicant() {
 	}
@@ -407,5 +409,26 @@ public class HdzApplicant implements Serializable {
 		return hdzReftable;
 	}
 
-	
+	public List<HdzSkillappbridge> getHdzSkillappbridges() {
+		return this.hdzSkillappbridges;
+	}
+
+	public void setHdzSkillappbridges(List<HdzSkillappbridge> hdzSkillappbridges) {
+		this.hdzSkillappbridges = hdzSkillappbridges;
+	}
+
+	public HdzSkillappbridge addHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().add(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzApplicant(this);
+
+		return hdzSkillappbridge;
+	}
+
+	public HdzSkillappbridge removeHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().remove(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzApplicant(null);
+
+		return hdzSkillappbridge;
+	}
+
 }

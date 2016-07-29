@@ -16,7 +16,7 @@ public class HdzJob implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_JOBS_JOBSID_GENERATOR", sequenceName="HDZ_JOBS_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_JOBS_JOBSID_GENERATOR", sequenceName="HDZ_JOBS_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_JOBS_JOBSID_GENERATOR")
 	private long jobsid;
 
@@ -34,9 +34,6 @@ public class HdzJob implements Serializable {
 	//bi-directional many-to-one association to HdzInterviewquest
 	@OneToMany(mappedBy="hdzJob")
 	private List<HdzInterviewquest> hdzInterviewquests;
-
-	//bi-directional many-to-one association to HdzSkill
-	
 
 	public HdzJob() {
 	}
@@ -117,5 +114,4 @@ public class HdzJob implements Serializable {
 		return hdzInterviewquest;
 	}
 
-	
 }

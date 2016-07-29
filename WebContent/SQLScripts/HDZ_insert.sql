@@ -122,19 +122,28 @@ values (hdz_skills_id_seq.nextval, 'Waterfall');
 
 --jobs
 
-insert into HDZ_Jobs (jobsid, position, description,skillsid, codingtestreq)
-values (hdz_jobs_id_seq.nextval, 'Software Engineer', 'Entry Level Java Programming and testing',1,'Y');
+insert into HDZ_Jobs (jobsid, position, description,codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Software Engineer', 'Entry Level Java Programming and testing','Y');
 
-insert into HDZ_Jobs (jobsid, position, description,skillsid, codingtestreq)
-values (hdz_jobs_id_seq.nextval, 'Hardware Engineer', 'ASIC CPU Design and Testing',2, 'N');
+insert into HDZ_Jobs (jobsid, position, description,codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Hardware Engineer', 'ASIC CPU Design and Testing','N');
 
-insert into HDZ_Jobs (jobsid, position, description, skillsid, codingtestreq)
-values (hdz_jobs_id_seq.nextval, 'Quality Assurance', 'Software testing and configuration',7, 'Y');
+insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Quality Assurance', 'Software testing and configuration','Y');
 
-insert into HDZ_Jobs (jobsid, position, description, skillsid, codingtestreq)
-values (hdz_jobs_id_seq.nextval, 'Cyber security', 'Software development and networking',3,'N');
+insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Cyber security', 'Software development and networking','N');
 
+--jobskillbridge
 
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,1,1,'3');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,2,2,'1');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,3,3,'2');
 
 --application
 
