@@ -52,34 +52,7 @@ public class CommentSubmit extends HttpServlet {
 				
 		System.out.println("com sub" + comment);
 		
-		String score = request.getParameter("score"); 
-		String appid=request.getParameter("appid");
-		String type=request.getParameter("type");
 		
-		if(score!=null &&appid!=null &&type!=null)
-		{
-			HdzInterview interview=new HdzInterview();
-			HdzApplication application=InterviewService.getHdzApplication(appid);
-			
-			
-			interview.setHdzApplication(application);
-			
-			interview.setInterviewtype(type);
-			
-			interview.setScore(new BigDecimal(score));
-			
-			InterviewService.insert(interview);
-			
-			long totalscore=InterviewService.gettotalscore(Long.parseLong(appid));
-			
-			application.setAppscore(new BigDecimal(totalscore));
-			
-			InterviewService.updateApplication(application);
-			
-			session.setAttribute("app", application);
-			
-			request.getRequestDispatcher("interview.jsp").forward(request, response);
-		}
 		
 		
 		

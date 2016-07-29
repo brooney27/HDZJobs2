@@ -142,24 +142,24 @@
 												<c:if test="${coding == 'N'}">
 													<tr>
 														<td><a class="buttonLink"
-															href="InterviewReportSubmission?groupInterviewCoding=P">Coding
+															href="InterviewReportSubmission?groupInterviewCoding=P&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
 																Test Pass</a></td>
 													</tr>
 													<tr>
 														<td><a class="buttonLink"
-															href="InterviewReportSubmission?groupInterviewCoding=F">Coding
+															href="InterviewReportSubmission?groupInterviewCoding=F&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
 																Test Fail</a></td>
 													</tr>
 												</c:if>
 
 												<tr>
 													<td><a class="buttonLink"
-														href="InterviewReportSubmission?groupInterview=Pass">Group
+														href="InterviewReportSubmission?groupInterview=Pass&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Group
 															Interview Pass</a></td>
 												</tr>
 												<tr>
 													<td><a class="buttonLink"
-														href="InterviewReportSubmission?groupInterview=Fail">Group
+														href="InterviewReportSubmission?groupInterview=Fail&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Group
 															Interview Fail</a></td>
 												</tr>
 											</c:if>
@@ -168,23 +168,23 @@
 												<c:if test="${coding == 'N'}">
 													<tr>
 														<td><a class="buttonLink"
-															href="InterviewReportSubmission?hmInterviewCoding=P">Coding
+															href="InterviewReportSubmission?hmInterviewCoding=P&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
 																Test Pass</a></td>
 													</tr>
 													<tr>
 														<td><a class="buttonLink"
-															href="InterviewReportSubmission?hmInterviewCoding=F">Coding
+															href="InterviewReportSubmission?hmInterviewCoding=F&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
 																Test Fail</a></td>
 													</tr>
 												</c:if>
 												<tr>
 													<td><a class="buttonLink"
-														href="InterviewReportSubmission?hmInterview=Pass">HM
+														href="InterviewReportSubmission?hmInterview=Pass&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HM
 															Pass</a></td>
 												</tr>
 												<tr>
 													<td><a class="buttonLink"
-														href="InterviewReportSubmission?hmInterview=Fail">HM
+														href="InterviewReportSubmission?hmInterview=Fail&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HM
 															Fail</a></td>
 												</tr>
 											</c:if>
@@ -192,12 +192,12 @@
 
 												<tr>
 													<td><a class="buttonLink"
-														href="InterviewReportSubmission?hrInterview=Pass">HR
+														href="InterviewReportSubmission?hrInterview=Pass&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HR
 															Pass</a></td>
 												</tr>
 												<tr>
 													<td><a class="buttonLink"
-														href="InterviewReportSubmission?hrInterview=Fail">HR
+														href="InterviewReportSubmission?hrInterview=Fail&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HR
 															Fail</a></td>
 												</tr>
 											</c:if>
