@@ -11,8 +11,9 @@
 <body>
 <form>
 <c:forEach var="q" items="${questions}">
-<p><c:out value="${q.text}"/></p>
-<input type="text">
+<p><c:out value="${q.question}"/></p>
+<input type="text" name="response${q.questionid}"/>
+<input type="hidden" name="answer${q.questionid}"/>
 </c:forEach>
 </form>
 </body>
