@@ -134,18 +134,10 @@ public class NewApplicant extends HttpServlet {
 			String skillyear=request.getParameter("skyear"+i);
 			
 			if(!skillname.equals("")){
-				//get skill by name
-				System.out.println("trying skill... "+i);
 				skill = NewApplicantService.getSkill(skillname);
-				//add skill to bridge
-				HdzSkillappbridge skillapp = new HdzSkillappbridge();
-				//skillapp.set
-				//userskill.setHdzSkill();
-				//set bridge experience
+				userskill.setHdzSkill(skill);
 				userskill.setExperience(skillyear);
-				//add bridge to applicant
 				skills.add(userskill);
-				System.out.println("skill added to list");
 			}
 		}
 
@@ -154,7 +146,6 @@ public class NewApplicant extends HttpServlet {
 		try {
 			hashedPwd = PasswordUtil.hashPasswordPlusSalt(password, salt);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

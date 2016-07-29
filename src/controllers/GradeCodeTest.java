@@ -51,10 +51,10 @@ public class GradeCodeTest extends HttpServlet {
 		
 		application.setCodingtestscore(new BigDecimal(numCorrect));
 		if(numCorrect>6){
-			application.setCodingtest("P");
+			application.setCodingtest("Y");
 		}
 		else{
-			application.setCodingtest("F");
+			application.setCodingtest("N");
 			application.setAppstatus("Fail");
 		}
 		InterviewService.updateApplication(application);
