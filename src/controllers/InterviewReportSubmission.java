@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.PendingActionsDao;
 import model.HdzApplication;
 import model.HdzEmployee;
+import model.HdzInterview;
 import services.InterviewService;
 
 /**
@@ -43,8 +46,14 @@ public class InterviewReportSubmission extends HttpServlet {
 		HdzEmployee employee = (HdzEmployee)session.getAttribute("user");
 		HdzApplication hdzApplication = (HdzApplication) session.getAttribute("app");
 		String url = "/PendingAction";
-		String comment = (String) session.getAttribute("commentInterview");
+		String comment = (String)session.getAttribute("commentInterview"); 
 		System.out.println("Interview comment: " + comment);
+		
+		String score = request.getParameter("score"); 
+		String appid=request.getParameter("appid");
+		String type=request.getParameter("type");
+		
+		System.out.println(score);
 		
 		if (employee == null) {
 			request.setAttribute("message", "Log in!!");
@@ -60,6 +69,63 @@ public class InterviewReportSubmission extends HttpServlet {
 						employee.getPosition()+"): " + comment);
 			}
 			
+			
+			if(score!=null &&appid!=null &&type!=null)
+			{
+			HdzInterview interview=InterviewService.getinterview(Long.parseLong(appid), type);
+			HdzApplication application=InterviewService.getHdzApplication(appid);
+			
+			
+			
+			if(interview==null)
+			{
+				HdzInterview myinterview=new HdzInterview();
+				myinterview.setHdzApplication(application);
+				
+				myinterview.setInterviewtype(type);
+				
+				myinterview.setScore(new BigDecimal(score));
+				
+				InterviewService.insert(myinterview);
+				
+				BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(appid));
+				
+				System.out.println("totalscore"+totalscore);
+				
+				application.setAppscore(totalscore);
+				
+				InterviewService.updateApplication(application);
+				System.out.println(application.getAppscore());
+				
+				session.setAttribute("app", application);
+			}
+			else
+			{
+				interview.setHdzApplication(application);
+				
+				interview.setInterviewtype(type);
+				
+				interview.setScore(new BigDecimal(score));
+				
+				InterviewService.update(interview);
+				
+				BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(appid));
+				
+				System.out.println("totalscore"+totalscore);
+				
+				application.setAppscore(totalscore);
+				
+				InterviewService.updateApplication(application);
+				System.out.println(application.getAppscore());
+				
+				session.setAttribute("app", application);
+			}
+			
+			
+			
+			
+			
+			}
 			String groupInterviewCoding = request.getParameter("groupInterviewCoding");
 			String groupInterview = request.getParameter("groupInterview");
 			String hmInterviewCoding = request.getParameter("hmInterviewCoding");

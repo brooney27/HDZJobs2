@@ -1,5 +1,6 @@
 package services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import dao.InterviewDao;
@@ -48,7 +49,7 @@ public class InterviewService {
 		InterviewDao.insert(response);
 	}
 	
-	public static long gettotalscore(long applicationid) {
+	public static BigDecimal gettotalscore(long applicationid) {
 		return InterviewDao.gettotalscore(applicationid);
 	}
 	
@@ -58,5 +59,13 @@ public class InterviewService {
 	
 	public static void update(HdzInterviewresp response) {
 		InterviewDao.update(response);
+	}
+	
+	public static HdzInterview getinterview(long applicationid, String interviewtype) {
+		return InterviewDao.getinterview(applicationid, interviewtype);
+	}
+	
+	public static void update(HdzInterview response) {
+	InterviewDao.update(response);
 	}
 }
