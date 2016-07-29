@@ -92,7 +92,9 @@ public class HdzApplicant implements Serializable {
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzReftable> hdzReftables;
 
-	
+	//bi-directional many-to-one association to HdzSkillappbridge
+	@OneToMany(mappedBy="hdzApplicant")
+	private List<HdzSkillappbridge> hdzSkillappbridges;
 
 	public HdzApplicant() {
 	}
@@ -407,5 +409,26 @@ public class HdzApplicant implements Serializable {
 		return hdzReftable;
 	}
 
-	
+	public List<HdzSkillappbridge> getHdzSkillappbridges() {
+		return this.hdzSkillappbridges;
+	}
+
+	public void setHdzSkillappbridges(List<HdzSkillappbridge> hdzSkillappbridges) {
+		this.hdzSkillappbridges = hdzSkillappbridges;
+	}
+
+	public HdzSkillappbridge addHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().add(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzApplicant(this);
+
+		return hdzSkillappbridge;
+	}
+
+	public HdzSkillappbridge removeHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().remove(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzApplicant(null);
+
+		return hdzSkillappbridge;
+	}
+
 }

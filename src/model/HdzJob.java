@@ -35,9 +35,6 @@ public class HdzJob implements Serializable {
 	@OneToMany(mappedBy="hdzJob")
 	private List<HdzInterviewquest> hdzInterviewquests;
 
-	//bi-directional many-to-one association to HdzSkill
-	
-
 	public HdzJob() {
 	}
 
@@ -117,5 +114,4 @@ public class HdzJob implements Serializable {
 		return hdzInterviewquest;
 	}
 
-	
 }
