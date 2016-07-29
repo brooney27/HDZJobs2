@@ -16,7 +16,7 @@ public class HdzInterviewresp implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_INTERVIEWRESP_INTERVIEWRESPID_GENERATOR", sequenceName="HDZ_INTERVIEWRESP_ID_SEQ")
+	@SequenceGenerator(name="HDZ_INTERVIEWRESP_INTERVIEWRESPID_GENERATOR", sequenceName="HDZ_INTERVIEWRESP_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_INTERVIEWRESP_INTERVIEWRESPID_GENERATOR")
 	private long interviewrespid;
 

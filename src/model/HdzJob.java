@@ -16,7 +16,7 @@ public class HdzJob implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_JOBS_JOBSID_GENERATOR", sequenceName="HDZ_JOBS_ID_SEQ")
+	@SequenceGenerator(name="HDZ_JOBS_JOBSID_GENERATOR", sequenceName="HDZ_JOBS_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_JOBS_JOBSID_GENERATOR")
 	private long jobsid;
 
@@ -34,6 +34,10 @@ public class HdzJob implements Serializable {
 	//bi-directional many-to-one association to HdzInterviewquest
 	@OneToMany(mappedBy="hdzJob")
 	private List<HdzInterviewquest> hdzInterviewquests;
+
+	//bi-directional many-to-one association to HdzJobskillbridge
+	@OneToMany(mappedBy="hdzJob")
+	private List<HdzJobskillbridge> hdzJobskillbridges;
 
 	public HdzJob() {
 	}
@@ -112,6 +116,28 @@ public class HdzJob implements Serializable {
 		hdzInterviewquest.setHdzJob(null);
 
 		return hdzInterviewquest;
+	}
+
+	public List<HdzJobskillbridge> getHdzJobskillbridges() {
+		return this.hdzJobskillbridges;
+	}
+
+	public void setHdzJobskillbridges(List<HdzJobskillbridge> hdzJobskillbridges) {
+		this.hdzJobskillbridges = hdzJobskillbridges;
+	}
+
+	public HdzJobskillbridge addHdzJobskillbridge(HdzJobskillbridge hdzJobskillbridge) {
+		getHdzJobskillbridges().add(hdzJobskillbridge);
+		hdzJobskillbridge.setHdzJob(this);
+
+		return hdzJobskillbridge;
+	}
+
+	public HdzJobskillbridge removeHdzJobskillbridge(HdzJobskillbridge hdzJobskillbridge) {
+		getHdzJobskillbridges().remove(hdzJobskillbridge);
+		hdzJobskillbridge.setHdzJob(null);
+
+		return hdzJobskillbridge;
 	}
 
 }
