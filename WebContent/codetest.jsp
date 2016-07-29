@@ -10,6 +10,7 @@
 </head>
 <body>
 <form>
+<input type="hidden" name="appid" id="appid" value="${application.applicationid}"/>
 <c:forEach var="q" items="${questions}">
 <p><c:out value="${q.question}"/></p>
 <input type="text" name="response${q.questionid}"/>
