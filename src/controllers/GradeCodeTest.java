@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.HdzApplication;
 import services.InterviewService;
+import util.Email;
 
 /**
  * Servlet implementation class GradeCodeTest
@@ -57,6 +59,15 @@ public class GradeCodeTest extends HttpServlet {
 		else{
 			application.setCodingtest("N");
 			application.setAppstatus("Fail");
+			
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+application.getHdzApplicant().getFirstname()+",<br/><br/> You have failed  "+application.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/> <br/> Best,<br/> <br/> HDZ Jobs <br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
 		InterviewService.updateApplication(application);
 		
