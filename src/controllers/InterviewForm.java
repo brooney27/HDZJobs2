@@ -53,8 +53,8 @@ public class InterviewForm extends HttpServlet {
 		} else {
 			String role = (String) session.getAttribute("role");
 			if (role.equals("HiringManager")) {
-				request.setAttribute("interviewType", "HM Interview");
-				request.setAttribute("coding", InterviewService.getCodingTest(hdzApplication.getApplicationid()));
+				session.setAttribute("interviewType", "HM Interview");
+				session.setAttribute("coding", InterviewService.getCodingTest(hdzApplication.getApplicationid()));
 				List<HdzInterviewquest> questions=InterviewService.getInterviewquestionbyjobid("HM Interview", hdzApplication.getHdzJob().getJobsid());
 				
 				session.setAttribute("interviewquestion", questions);
@@ -65,7 +65,7 @@ public class InterviewForm extends HttpServlet {
 				session.setAttribute("interviewscore", score);
 				
 			} else if (role.equals("HRManager")) {
-				request.setAttribute("interviewType", "HR Interview");	
+				session.setAttribute("interviewType", "HR Interview");	
 				List<HdzInterviewquest> questions=InterviewService.getInterviewquestionbyjobid("HR Interview", hdzApplication.getHdzJob().getJobsid());
 				
 				session.setAttribute("interviewquestion", questions);
@@ -75,8 +75,8 @@ public class InterviewForm extends HttpServlet {
 				
 				
 			} else {
-				request.setAttribute("interviewType", "Group Interview");
-				request.setAttribute("coding", InterviewService.getCodingTest(hdzApplication.getApplicationid()));
+				session.setAttribute("interviewType", "Group Interview");
+				session.setAttribute("coding", InterviewService.getCodingTest(hdzApplication.getApplicationid()));
 				
 				List<HdzInterviewquest> questions=InterviewService.getInterviewquestionbyjobid("Group Interview", hdzApplication.getHdzJob().getJobsid());
 				

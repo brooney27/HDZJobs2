@@ -51,4 +51,12 @@ public class InterviewService {
 	public static long gettotalscore(long applicationid) {
 		return InterviewDao.gettotalscore(applicationid);
 	}
+	
+	public static HdzInterviewresp getinterviewresp(long applicationid, String interviewtype, long questionid) {
+		return InterviewDao.getinterviewresp(applicationid, interviewtype, questionid);
+	}
+	
+	public static void update(HdzInterviewresp response) {
+		InterviewDao.update(response);
+	}
 }

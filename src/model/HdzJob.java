@@ -36,9 +36,7 @@ public class HdzJob implements Serializable {
 	private List<HdzInterviewquest> hdzInterviewquests;
 
 	//bi-directional many-to-one association to HdzSkill
-	@ManyToOne
-	@JoinColumn(name="SKILLID")
-	private HdzSkill hdzSkill;
+	
 
 	public HdzJob() {
 	}
@@ -119,12 +117,5 @@ public class HdzJob implements Serializable {
 		return hdzInterviewquest;
 	}
 
-	public HdzSkill getHdzSkill() {
-		return this.hdzSkill;
-	}
-
-	public void setHdzSkill(HdzSkill hdzSkill) {
-		this.hdzSkill = hdzSkill;
-	}
-
+	
 }
