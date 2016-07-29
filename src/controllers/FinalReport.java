@@ -37,7 +37,7 @@ public class FinalReport extends HttpServlet {
 		
 		HttpSession session = request.getSession();	
 		
-		String hireid=request.getParameter("hirappid");	
+		String hireid=request.getParameter("hireappid");	
 		
 		String failid=request.getParameter("failappid");	
 		
@@ -46,7 +46,11 @@ public class FinalReport extends HttpServlet {
 		if(hireid!=null)
 		{
 			HdzApplication myapplication=dao.PendingActionsDao.getapplicationbyapplicationid(hireid);
-			if (PendingActionsDao.checkAppStatus(myapplication)) {
+			
+			if (PendingActionsDao.checkAppStatus(myapplication))
+			{
+				
+				System.out.println("check status");
 				myapplication.setAppstatus("Hired");					
 				InterviewService.updateApplication(myapplication);
 				
@@ -54,14 +58,17 @@ public class FinalReport extends HttpServlet {
 				
 				session.setAttribute("finalreport", finalreport);
 				request.setAttribute("message", "The applicant has been hired!!");
-				
+				request.getRequestDispatcher(url).forward(request, response);
 				
 			}else
 			{
+				
 				request.setAttribute("message", "You need to validate education, nationality and drug screen!!");
+				
+				request.getRequestDispatcher(url).forward(request, response);
 			}
 			
-			request.getRequestDispatcher(url).forward(request, response);
+			
 			
 		}
 		if(failid!=null)

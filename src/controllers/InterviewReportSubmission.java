@@ -123,9 +123,9 @@ public class InterviewReportSubmission extends HttpServlet {
 
 			
 			}
-			String groupInterviewCoding = request.getParameter("groupInterviewCoding");
+			
 			String groupInterview = request.getParameter("groupInterview");
-			String hmInterviewCoding = request.getParameter("hmInterviewCoding");
+			
 			String hmInterview = request.getParameter("hmInterview");
 			String hrInterview = request.getParameter("hrInterview");
 			if (hrInterview != null) {
@@ -140,17 +140,7 @@ public class InterviewReportSubmission extends HttpServlet {
 				
 				
 			}
-			if (hmInterviewCoding != null) {
-				hdzApplication.setCodingtest(hmInterviewCoding);
-				if (hmInterviewCoding.equals("F")) {
-					hdzApplication.setAppstatus("Fail");					
-					InterviewService.updateApplication(hdzApplication);
-					request.setAttribute("message", "Letter sent to Applicant");
-				} else {
-					InterviewService.updateApplication(hdzApplication);
-				}
-				
-			} 
+			
 			
 			if (hmInterview != null) {
 				if (hmInterview.equals("Pass")) {
@@ -163,17 +153,7 @@ public class InterviewReportSubmission extends HttpServlet {
 				}
 				
 			}
-			if (groupInterviewCoding != null) {
-				hdzApplication.setCodingtest(groupInterviewCoding);
-				if (groupInterviewCoding.equals("F")) {
-					hdzApplication.setAppstatus("Fail");					
-					InterviewService.updateApplication(hdzApplication);
-					request.setAttribute("message", "Letter sent to Applicant");
-				} else {
-					InterviewService.updateApplication(hdzApplication);
-				}
-				
-			} 
+			
 			
 			if (groupInterview != null) {
 				if (groupInterview.equals("Pass")) {

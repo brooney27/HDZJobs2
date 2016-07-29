@@ -142,13 +142,11 @@
 												<c:if test="${coding == 'N'}">
 													<tr>
 														<td><a class="buttonLink"
-															href="InterviewReportSubmission?groupInterviewCoding=P&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
-																Test Pass</a></td>
+															href="GetCodeTest?appid${application.applicationid}">Take Coding
+																Test</a></td>
 													</tr>
 													<tr>
-														<td><a class="buttonLink"
-															href="InterviewReportSubmission?groupInterviewCoding=F&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
-																Test Fail</a></td>
+														
 													</tr>
 												</c:if>
 
@@ -168,13 +166,11 @@
 												<c:if test="${coding == 'N'}">
 													<tr>
 														<td><a class="buttonLink"
-															href="InterviewReportSubmission?hmInterviewCoding=P&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
-																Test Pass</a></td>
+															href="GetCodeTest?appid${application.applicationid}">Take Coding
+																Test</a></td>
 													</tr>
 													<tr>
-														<td><a class="buttonLink"
-															href="InterviewReportSubmission?hmInterviewCoding=F&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Coding
-																Test Fail</a></td>
+														
 													</tr>
 												</c:if>
 												<tr>
