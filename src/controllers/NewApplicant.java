@@ -17,6 +17,7 @@ import dao.ValidateUserDao;
 import model.HdzApplicant;
 import model.HdzAward;
 import model.HdzEducation;
+import model.HdzEmployee;
 import model.HdzJobhistory;
 import model.HdzReftable;
 import model.HdzSkill;
@@ -63,6 +64,8 @@ public class NewApplicant extends HttpServlet {
 		String veteran = request.getParameter("veteran");
 		String citizen = request.getParameter("citizen");
 		String phone = request.getParameter("phone");
+		String summary = request.getParameter("summary");
+		String objective = request.getParameter("objective");
 		
 		List<HdzEducation> edhist = new ArrayList<HdzEducation>();
 		List<HdzJobhistory> jobhist = new ArrayList<HdzJobhistory>();
@@ -156,8 +159,10 @@ public class NewApplicant extends HttpServlet {
 		HdzApplicant applicant = new HdzApplicant();
 		applicant.setBday(bday);
 		
+		HdzEmployee employee = ApplicantDao.getEmployeeByEmail(email);
+		
 		//if employee update fields
-		if(ApplicantDao.getEmployeeByEmail(email)!=null){
+		if(employee!=null){
 			applicant.setAlcoholtestflag("N");
 			applicant.setCitizenflag("Y");
 			applicant.setDottestflag("N");
@@ -165,6 +170,7 @@ public class NewApplicant extends HttpServlet {
 			applicant.setStdpanelflag("N");
 			applicant.setVisaflag("Y");
 			applicant.setVeteranflag("Y");
+			applicant.setHdzEmployee(employee);
 		}
 		
 		applicant.setPhonenum(new BigDecimal(phone));
@@ -174,6 +180,8 @@ public class NewApplicant extends HttpServlet {
 		applicant.setHashedpwd(hashedPwd);
 		applicant.setCitizen(citizen);
 		applicant.setVeteran(veteran);
+		applicant.setAppsummary(summary);
+		applicant.setCareerobj(objective);
 		//System.out.println(email+" "+firstname+" "+lastname+" "+hashedPwd+" "+" "+citizen+" "+veteran);
 		applicant.setSalt(salt);
 		NewApplicantService.insertApplicant(applicant);
@@ -188,9 +196,11 @@ public class NewApplicant extends HttpServlet {
 		}
 		for(HdzJobhistory j:jobhist){
 			j.setHdzApplicant(applicant);
+			j.setJobhistoryflag("Y");
 		}
 		for (HdzReftable r:references){
 			r.setHdzApplicant(applicant);
+			r.setRefflag("Y");
 		}
 		for (HdzAward a:awards){
 			a.setHdzApplicant(applicant);
@@ -203,7 +213,4 @@ public class NewApplicant extends HttpServlet {
 		String nextURL = "/login.jsp";
 		request.getRequestDispatcher(nextURL).forward(request, response);
 	}
-	
-	
-	
 }

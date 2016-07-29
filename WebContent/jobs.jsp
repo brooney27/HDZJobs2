@@ -19,11 +19,11 @@
 </form>
 <table>
 <tr>
-<th>Position</th>
+<th>Position</th><th>Description</th>
 </tr>
 <c:forEach var="job" items="${jobs}">
 <tr>
-<td>${job.position}</td>
+<td>${job.position}</td><td>${job.description}</td>
 <c:if test="${user!=null}">
 <td>
 <form action="Apply">
