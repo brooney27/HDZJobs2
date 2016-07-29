@@ -12,6 +12,8 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
+	<div class="col-sm-10 col-sm-offset-1">
+	<div class="card hovercard">
 	<img src="${gravatar}">
 	<h2>
 		<c:out value="${user.firstname} ${user.lastname}" />
@@ -28,8 +30,35 @@
 		Contact:
 		<c:out value="${user.phonenum} ${user.email}" />
 	</p>
+	<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" id="jobhistory" class="btn btn-primary" href="#tab1" data-toggle="tab">
+                <div class="hidden-xs">Job History</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="skills" class="btn btn-default" href="#tab2" data-toggle="tab">
+                <div class="hidden-xs">Skills</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="education" class="btn btn-default" href="#tab3" data-toggle="tab">
+                <div class="hidden-xs">Education</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="awards" class="btn btn-default" href="#tab4" data-toggle="tab">
+                <div class="hidden-xs">Awards</div>
+            </button>
+        </div>
+    </div>
+	
+	
+	  <div class="well">
+      <div class="tab-content">
+      <div class="tab-pane fade in active" id="tab1">
 	<h4>Job History</h4>
-	<table>
+	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<th>Title</th>
 			<th>Company</th>
@@ -47,8 +76,10 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
+	<div class="tab-pane fade in" id="tab2">
 	<h4>Skills</h4>
-	<table>
+	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<th></th>
 			<th>Years</th>
@@ -60,8 +91,10 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
+	<div class="tab-pane fade in" id="tab3">
 	<h4>Education</h4>
-	<table>
+	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<th>Institution</th>
 			<th>Degree</th>
@@ -75,8 +108,10 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
+	<div class="tab-pane fade in" id="tab4">
 	<h4>Awards</h4>
-	<table>
+	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<th>Award name</th>
 			<th>Year Received</th>
@@ -88,6 +123,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
 	<a href="./resume.jsp">View Resume</a>
+	</div>
+	</div>
 </body>
 </html>
