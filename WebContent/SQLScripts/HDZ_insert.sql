@@ -212,10 +212,46 @@ insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, questio
 values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Expected Salary?');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Relocation percentage');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Expected Salary?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','Whats your work experience related to applied job?');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','Whats your work experience related to applied job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','Whats your work experience related to applied job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','Whats your work experience related to applied job?');
+
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','% of relocation?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Is Pokeman go causing problems?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Iphone vs Anroid phones');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Will WorldWar 3 happen?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
+
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
+
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
@@ -224,16 +260,31 @@ values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elec
 
 insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
 values (hdz_interview_id_seq.nextval,'HR Interview', null, 1);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'HM Interview', null, 1);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'Group Interview', null, 1);
 
 insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
 values (hdz_interview_id_seq.nextval,'HM Interview', null, 2);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'Group Interview', null, 2);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'HR Interview', null, 2);
 
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'HM Interview', null, 3);
 insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
 values (hdz_interview_id_seq.nextval,'Group Interview', null, 3);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'HR Interview', null, 3);
 
 insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'HM Interview', null, 4);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
+values (hdz_interview_id_seq.nextval,'Group Interview', null, 4);
+insert into HDZ_interview (interviewid, interviewtype, score, applicationid)
 values (hdz_interview_id_seq.nextval,'HR Interview', null, 4);
-
 
 
 
