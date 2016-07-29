@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import model.HdzApplication;
 import model.HdzEmployee;
 import model.HdzInterview;
 import services.InterviewService;
+import util.Email;
 
 /**
  * Servlet implementation class InterviewReportSubmission
@@ -130,10 +132,26 @@ public class InterviewReportSubmission extends HttpServlet {
 			String hrInterview = request.getParameter("hrInterview");
 			if (hrInterview != null) {
 				if (hrInterview.equals("Pass")) {
-					hdzApplication.setAppstatus("HRInterviewDone");					
+					hdzApplication.setAppstatus("HRInterviewDone");	
+					
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed HR interview!", "Hi "+hdzApplication.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED HR interview"+". Your application has been set as HRInterviewDone! We will reach you soon! <br/><br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
 					InterviewService.updateApplication(hdzApplication);
 				} else {
-					hdzApplication.setAppstatus("Fail");					
+					hdzApplication.setAppstatus("Fail");
+					
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+hdzApplication.getHdzApplicant().getFirstname()+",<br/><br/> You have failed  "+hdzApplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/> <br/>Best,<br/><br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					InterviewService.updateApplication(hdzApplication);
 					request.setAttribute("message", "Letter sent to Applicant");
 				}
@@ -144,10 +162,23 @@ public class InterviewReportSubmission extends HttpServlet {
 			
 			if (hmInterview != null) {
 				if (hmInterview.equals("Pass")) {
-					hdzApplication.setAppstatus("HMInterviewDone");					
+					hdzApplication.setAppstatus("HMInterviewDone");	
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed HM interview!", "Hi "+hdzApplication.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED HM interview!"+". Your application has been set as HMInterviewDone! We will reach you soon! <br/> <br/>Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					InterviewService.updateApplication(hdzApplication);
 				} else {
-					hdzApplication.setAppstatus("Fail");					
+					hdzApplication.setAppstatus("Fail");
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+hdzApplication.getHdzApplicant().getFirstname()+",<br/><br/> You have failed  "+hdzApplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					InterviewService.updateApplication(hdzApplication);
 					request.setAttribute("message", "Letter sent to Applicant");
 				}
@@ -161,13 +192,28 @@ public class InterviewReportSubmission extends HttpServlet {
 						request.setAttribute("message", "Coding Test has to be completed");
 						url = "/InterviewForm";
 					} else {
-						hdzApplication.setAppstatus("GroupInterviewDone");					
+						hdzApplication.setAppstatus("GroupInterviewDone");
+						try {
+							Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Group interview!", "Hi"+hdzApplication.getHdzApplicant().getFirstname()+",<br/> You have PASSED Group interview!"+". Your application has been set as GroupInterviewDone! We will reach you soon! <br/> Thank you for choosing HDZ Jobs!! <br/> Best,<br/> HDZ Jobs <br/>", true);
+						} catch (MessagingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						
 						InterviewService.updateApplication(hdzApplication);
 						
 					}
 					
 				} else {
-					hdzApplication.setAppstatus("Fail");	
+					hdzApplication.setAppstatus("Fail");
+					
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi"+hdzApplication.getHdzApplicant().getFirstname()+",<br/> You have failed  "+hdzApplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/> Thank you for choosing HDZ Jobs!! <br/> Best,<br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					request.setAttribute("message", "Letter sent to Applicant");
 					InterviewService.updateApplication(hdzApplication);
 					

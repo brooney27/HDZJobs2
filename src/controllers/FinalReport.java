@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import dao.PendingActionsDao;
 import model.*;
 import services.InterviewService;
 import services.RoleActionService;
+import util.Email;
 
 /**
  * Servlet implementation class FinalReport
@@ -51,7 +53,15 @@ public class FinalReport extends HttpServlet {
 			{
 				
 				System.out.println("check status");
-				myapplication.setAppstatus("Hired");					
+				myapplication.setAppstatus("Hired");	
+				
+				try {
+					Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have got this job!", "Hi "+myapplication.getHdzApplicant().getFirstname()+",<br/><br/> You got the job:  "+myapplication.getHdzJob().getPosition()+". Your application has been set as hired! We will reach you soon!<br/> <br/>Thank you for choosing HDZ Jobs!! <br/> <br/>Best,<br/><br/> HDZ Jobs <br/>", true);
+				} catch (MessagingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				InterviewService.updateApplication(myapplication);
 				
 				List<HdzApplication> finalreport=RoleActionService.getActionsHiringManagerReport();
@@ -75,6 +85,14 @@ public class FinalReport extends HttpServlet {
 		{
 			HdzApplication myapplication=dao.PendingActionsDao.getapplicationbyapplicationid(failid);
 			myapplication.setAppstatus("Fail");
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+myapplication.getHdzApplicant().getFirstname()+",<br/><br/> You have failed  "+myapplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 			InterviewService.updateApplication(myapplication);
 			
 			List<HdzApplication> finalreport=RoleActionService.getActionsHiringManagerReport();
