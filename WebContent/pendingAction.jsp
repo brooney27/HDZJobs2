@@ -138,10 +138,19 @@
 											<td><c:out value="${app.hdzJob.description}"></c:out></td>
 									</c:forEach>
 								</table>
+								
+								
+								
+								
 								</c:if>
+								
+								
 								<c:if test="${application == null}">
 								<h4>No records found!</h4>
 								</c:if>
+								
+								
+								
 							</form>
 						</div>
 						<h3 style="background-color: #01579b;color: #ffffff;">Pending Actions</h3>
