@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.*;
+import util.Email;
 
 /**
  * Servlet implementation class DrugCheckForm
@@ -69,6 +71,13 @@ public class DrugCheckForm extends HttpServlet {
 			session.setAttribute("DrugApplicant",applicant);
 			
 			myapplication.setAppstatus("Fail");
+			
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+applicant.getFirstname()+",<br/><br/> You have failed  "+myapplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			dao.PendingActionsDao.update(myapplication);
 			
 			session.setAttribute("hiremessage", "The Application is Failed!!!!");
@@ -102,6 +111,13 @@ public class DrugCheckForm extends HttpServlet {
 			dao.PendingActionsDao.update(applicant);
 			session.setAttribute("DrugApplicant",applicant);
 			myapplication.setAppstatus("Fail");
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+applicant.getFirstname()+",<br/><br/> You have failed  "+myapplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/> HDZ Jobs <br/><br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			dao.PendingActionsDao.update(myapplication);
 			
 			session.setAttribute("hiremessage", "The Application is Failed!!!!");
@@ -134,6 +150,13 @@ public class DrugCheckForm extends HttpServlet {
 			dao.PendingActionsDao.update(applicant);
 			session.setAttribute("DrugApplicant",applicant);
 			myapplication.setAppstatus("Fail");
+			
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Sorry!! You have failed this job!", "Hi "+applicant.getFirstname()+",<br/><br/> You have failed  "+myapplication.getHdzJob().getPosition()+". Your application has been set as Fail! <br/><br/> Thank you for choosing HDZ Jobs!! <br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			dao.PendingActionsDao.update(myapplication);
 			
 			session.setAttribute("hiremessage", "The Application is Failed!!!!");

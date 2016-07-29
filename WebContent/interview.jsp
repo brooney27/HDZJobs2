@@ -142,7 +142,7 @@
 												<c:if test="${coding == 'N'}">
 													<tr>
 														<td><a class="buttonLink"
-															href="GetCodeTest?appid${application.applicationid}">Take Coding
+															href="GetCodeTest?appid=${application.applicationid}">Take Coding
 																Test</a></td>
 													</tr>
 													<tr>
@@ -166,7 +166,7 @@
 												<c:if test="${coding == 'N'}">
 													<tr>
 														<td><a class="buttonLink"
-															href="GetCodeTest?appid${application.applicationid}">Take Coding
+															href="GetCodeTest?appid=${application.applicationid}">Take Coding
 																Test</a></td>
 													</tr>
 													<tr>
