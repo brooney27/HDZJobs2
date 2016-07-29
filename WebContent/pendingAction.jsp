@@ -127,6 +127,8 @@
 											<th>Job Id</th>
 											<th>Job Title</th>
 											<th>Job description</th>
+											<th>Skills</th>
+											<th>Matching</th>
 										</tr>
 									</thead>
 									<c:forEach var="app" items="${applicationsSearch}">
@@ -136,10 +138,53 @@
 											<td><c:out value="${app.hdzJob.jobsid}"></c:out></td>
 											<td><c:out value="${app.hdzJob.position}"></c:out></td>
 											<td><c:out value="${app.hdzJob.description}"></c:out></td>
-									</c:forEach>
+											<c:set var="myjobid"  value="${app.hdzJob.jobsid}" />
+											<td><c:out value="${mapskill[myjobid]}"></c:out></td>
+											<c:set var="role" value="${role}"/>
+						
+											<c:if test="${role=='HiringManager'}">
+											
+												<td><input type="button" class="match" name="match${app.hdzJob.jobsid}" id="match${app.hdzJob.jobsid}" value="Search Qualified Applicants"></td>
+												</c:if>				
+											</tr>
+									</c:forEach>	
+									
 								</table>
 								
+								<c:set var="mycandidates" scope="session" value="${candidates}" />
+									<c:if test="${mycandidates != null && mycandidates != ''}">
+								<table class="table table-bordered">
+
+									<thead>
+										<tr>
+											<th>Applicant id</th>
+											<th>Name</th>
+											<th>Phone Number</th>
+											<th>Email</th>
+											<th>Citizen</th>
+										</tr>
+									</thead>
+									
+									
+									<c:forEach var="candidate" items="${candidates}">
+										<tr>
+											<td><c:out value="${candidate.applicantid}"></c:out></td>
+											<td><c:out value="${candidate.firstname} ${candidate.lastname}"></c:out></td>
+											<td><c:out value="${candidate.phonenum}"></c:out></td>
+											<td><c:out value="${candidate.email}"></c:out></td>
+											<td><c:out value="${candidate.citizen}"></c:out></td>
+																
+											</tr>
+									</c:forEach>
+									
+										
+									
+								</table>
 								
+								</c:if>
+								<c:if test="${mycandiates == null}">
+								<h4>No records found!</h4>
+								</c:if>
 								
 								
 								</c:if>

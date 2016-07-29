@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,6 +11,7 @@ import dao.InterviewDao;
 import model.HdzApplication;
 import model.HdzJob;
 import services.InterviewService;
+import services.QualifiedService;
 
 public class applicantTest {
 
@@ -24,17 +26,12 @@ public class applicantTest {
 		
 		//System.out.println(InterviewDao.getinterviewresp(3, "HM Interview", 3));
 		
-		BigDecimal totalscore=(InterviewDao.gettotalscore(3));
+		HashMap<Long, String> mymap=QualifiedService.gethashmapSkillsbyJob();
 		
-		System.out.println(totalscore);
+		System.out.println(mymap);
 		
-		System.out.println("totalscore"+totalscore);
-		HdzApplication application=InterviewService.getHdzApplication("2");
 		
-		application.setAppscore(totalscore);
 		
-		InterviewService.updateApplication(application);
 		
-		System.out.println(application.getAppscore());
 	}
 }
