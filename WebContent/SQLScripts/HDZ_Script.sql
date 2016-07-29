@@ -124,9 +124,7 @@ create table HDZ_Jobs(
 jobsid integer primary key,
 position varchar2(50) ,
 description varchar2(200),
-skillsid integer,
-codingtestreq varchar2(100),
-CONSTRAINT fk_HDZ_skills_skillsID FOREIGN KEY (skillsID) references HDZ_skills(skillsID)
+codingtestreq varchar2(100)
 );
 
 
