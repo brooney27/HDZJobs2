@@ -88,5 +88,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="./resume.jsp">View Resume</a>
 </body>
 </html>

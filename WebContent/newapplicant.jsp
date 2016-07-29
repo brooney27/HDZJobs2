@@ -70,6 +70,8 @@
 								Phone #: <input type="text" name="phone" id="phone" />
 								Password:<input type="password" name="password" id="password" /><br />
 								Date of Birth: <input type="text" name="dob" id="dob" />
+								Career Objective: <input type="text" name="objective" id="objective" />
+								Profile Summary: <input type="text" name="summary" id="summary" />
 								Veteran Status: <select name="veteran">
 									<option value="yes">Veteran</option>
 									<option value="no">Non-veteran</option>
