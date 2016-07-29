@@ -17,7 +17,7 @@ import services.InterviewService;
 /**
  * Servlet implementation class CodeTest
  */
-@WebServlet("/CodeTest")
+@WebServlet("/GetCodeTest")
 public class GetCodeTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
