@@ -16,18 +16,21 @@ public class HdzSkillappbridge implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR", sequenceName="HDZ_SKILLAPPBRIDGE_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR", sequenceName="HDZ_SKILLAPPBRIDGE_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR")
 	private long skillappbridgeid;
 
 	private String experience;
 
-	private BigDecimal skillsid;
-
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
 	@JoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
+
+	//bi-directional many-to-one association to HdzSkill
+	@ManyToOne
+	@JoinColumn(name="SKILLSID")
+	private HdzSkill hdzSkill;
 
 	public HdzSkillappbridge() {
 	}
@@ -48,20 +51,20 @@ public class HdzSkillappbridge implements Serializable {
 		this.experience = experience;
 	}
 
-	public BigDecimal getSkillsid() {
-		return this.skillsid;
-	}
-
-	public void setSkillsid(BigDecimal skillsid) {
-		this.skillsid = skillsid;
-	}
-
 	public HdzApplicant getHdzApplicant() {
 		return this.hdzApplicant;
 	}
 
 	public void setHdzApplicant(HdzApplicant hdzApplicant) {
 		this.hdzApplicant = hdzApplicant;
+	}
+
+	public HdzSkill getHdzSkill() {
+		return this.hdzSkill;
+	}
+
+	public void setHdzSkill(HdzSkill hdzSkill) {
+		this.hdzSkill = hdzSkill;
 	}
 
 }

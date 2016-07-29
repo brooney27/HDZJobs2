@@ -16,7 +16,7 @@ public class HdzAward implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_AWARD_AWARDID_GENERATOR", sequenceName="HDZ_AWARD_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_AWARD_AWARDID_GENERATOR", sequenceName="HDZ_AWARD_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_AWARD_AWARDID_GENERATOR")
 	private long awardid;
 

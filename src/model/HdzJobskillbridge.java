@@ -16,7 +16,7 @@ public class HdzJobskillbridge implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_JOBSKILLBRIDGE_JOBSKILLBRIDGEID_GENERATOR", sequenceName="HDZ_JOBSKILLBRIDGE_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_JOBSKILLBRIDGE_JOBSKILLBRIDGEID_GENERATOR", sequenceName="HDZ_JOBSKILLBRIDGE_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_JOBSKILLBRIDGE_JOBSKILLBRIDGEID_GENERATOR")
 	private long jobskillbridgeid;
 
