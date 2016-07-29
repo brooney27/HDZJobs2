@@ -16,18 +16,21 @@ public class HdzJobskillbridge implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_JOBSKILLBRIDGE_JOBSKILLBRIDGEID_GENERATOR", sequenceName="HDZ_JOBSKILLBRIDGE_ID_SEQ")
+	@SequenceGenerator(name="HDZ_JOBSKILLBRIDGE_JOBSKILLBRIDGEID_GENERATOR", sequenceName="HDZ_JOBSKILLBRIDGE_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_JOBSKILLBRIDGE_JOBSKILLBRIDGEID_GENERATOR")
 	private long jobskillbridgeid;
 
 	private String experience;
 
-	private BigDecimal jobsid;
-
 	//bi-directional many-to-one association to HdzSkill
 	@ManyToOne
 	@JoinColumn(name="SKILLSID")
 	private HdzSkill hdzSkill;
+
+	//bi-directional many-to-one association to HdzJob
+	@ManyToOne
+	@JoinColumn(name="JOBSID")
+	private HdzJob hdzJob;
 
 	public HdzJobskillbridge() {
 	}
@@ -48,20 +51,20 @@ public class HdzJobskillbridge implements Serializable {
 		this.experience = experience;
 	}
 
-	public BigDecimal getJobsid() {
-		return this.jobsid;
-	}
-
-	public void setJobsid(BigDecimal jobsid) {
-		this.jobsid = jobsid;
-	}
-
 	public HdzSkill getHdzSkill() {
 		return this.hdzSkill;
 	}
 
 	public void setHdzSkill(HdzSkill hdzSkill) {
 		this.hdzSkill = hdzSkill;
+	}
+
+	public HdzJob getHdzJob() {
+		return this.hdzJob;
+	}
+
+	public void setHdzJob(HdzJob hdzJob) {
+		this.hdzJob = hdzJob;
 	}
 
 }
