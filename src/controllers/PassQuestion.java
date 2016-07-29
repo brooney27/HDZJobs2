@@ -46,18 +46,37 @@ public class PassQuestion extends HttpServlet {
 		
 		if(passquestionid!=null&&passapplicationid!=null&&passinterviewtype!=null)
 		{
+				
 			HdzApplication myapplication=InterviewDao.getHdzApplication(passapplicationid);
 			HdzInterviewquest myquestion=InterviewDao.getInterviewquestion(passquestionid);
-			HdzInterviewresp interviewresponse=new HdzInterviewresp();
-			interviewresponse.setHdzApplication(myapplication);
-			interviewresponse.setHdzInterviewquest(myquestion);
-			interviewresponse.setInterviewtype(passinterviewtype);
-			interviewresponse.setQuestionflag("P");		
-			InterviewService.insert(interviewresponse);
+			HdzInterviewresp interviewresponse=InterviewDao.getinterviewresp(Long.parseLong(passapplicationid), passinterviewtype, Long.parseLong(passquestionid));
+			if(interviewresponse==null)
+			{
+				HdzInterviewresp myresponse=new HdzInterviewresp();
+				myresponse.setHdzApplication(myapplication);
+				myresponse.setHdzInterviewquest(myquestion);
+				myresponse.setInterviewtype(passinterviewtype);
+				myresponse.setQuestionflag("P");	
+				InterviewService.insert(myresponse);
+				
+			}
+			else
+			{
+				interviewresponse.setHdzApplication(myapplication);
+				interviewresponse.setHdzInterviewquest(myquestion);
+				interviewresponse.setInterviewtype(passinterviewtype);
+				interviewresponse.setQuestionflag("P");					
+				
+				InterviewService.update(interviewresponse);
+			}
+			
 			
 			long score=InterviewService.getscore(Long.parseLong(passapplicationid), passinterviewtype);
 			
 			session.setAttribute("interviewscore", score);
+			
+			
+			
 			
 			
 			request.getRequestDispatcher("interview.jsp").forward(request, response);
@@ -66,13 +85,25 @@ public class PassQuestion extends HttpServlet {
 		{
 			HdzApplication myapplication=InterviewDao.getHdzApplication(failapplicationid);
 			HdzInterviewquest myquestion=InterviewDao.getInterviewquestion(failquestionid);
-			HdzInterviewresp interviewresponse=new HdzInterviewresp();
+			HdzInterviewresp interviewresponse=InterviewDao.getinterviewresp(Long.parseLong(failapplicationid), failinterviewtype, Long.parseLong(failquestionid));
+			
+			if(interviewresponse==null)
+			{
+				HdzInterviewresp myresponse=new HdzInterviewresp();
+				myresponse.setHdzApplication(myapplication);
+				myresponse.setHdzInterviewquest(myquestion);
+				myresponse.setInterviewtype(failinterviewtype);
+				myresponse.setQuestionflag("F");		
+				InterviewService.insert(myresponse);
+			}
+			else
+			{
 			interviewresponse.setHdzApplication(myapplication);
 			interviewresponse.setHdzInterviewquest(myquestion);
 			interviewresponse.setInterviewtype(failinterviewtype);
 			interviewresponse.setQuestionflag("F");		
-			InterviewService.insert(interviewresponse);
-			
+			InterviewService.update(interviewresponse);
+			}
 			long score=InterviewService.getscore(Long.parseLong(failapplicationid), failinterviewtype);
 			
 			session.setAttribute("interviewscore", score);

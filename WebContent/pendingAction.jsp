@@ -204,7 +204,7 @@
 						<c:if test="${role=='HiringManager'}">
 						<h3 style="background-color: #01579b;color: #ffffff;">Final Report</h3>
 						<div>
-							<form id="target" action="FinalReport" method="get">
+							
 								
 								<c:set var="finalreport" scope="session" value="${finalreport}" />
 								<c:if test="${finalreport != null}">
@@ -246,7 +246,7 @@
 								<h2>No Action Pending!!</h2>
 								</c:if>
 
-							</form>
+							
 						</div>
 						</c:if>
 						

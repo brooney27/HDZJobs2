@@ -64,6 +64,21 @@ public class InterviewDao {
         }
 		
 	}
+	
+	public static void update(HdzInterviewresp response) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.merge(response);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+		
+	}
 
 	public static String getComment(HdzApplication hdzApplication) {
 		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
@@ -200,6 +215,32 @@ public class InterviewDao {
 			em.close();
 		}
 	}
+	public static HdzInterviewresp getinterviewresp(long applicationid, String interviewtype, long questionid) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+        String qString = "select b from HdzInterviewresp b"
+        		+ " where b.hdzInterviewquest.interviewquestid =:questionid "
+        		+ "and b.hdzApplication.applicationid=:applicationid "
+        		+ "and b.interviewtype=:interviewtype";
+        HdzInterviewresp interviewresp=null;
+        try{
+        	 TypedQuery<HdzInterviewresp> query = em.createQuery(qString,HdzInterviewresp.class);
+            query.setParameter("questionid", questionid);
+            query.setParameter("applicationid", applicationid);
+            query.setParameter("interviewtype", interviewtype);
+            if(query.getSingleResult()!=null)
+            {
+            	interviewresp=query.getSingleResult();
+            }
+            
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return interviewresp;  
+	}
+	
 	
 
 

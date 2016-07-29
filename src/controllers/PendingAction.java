@@ -83,6 +83,8 @@ public class PendingAction extends HttpServlet {
 				hdzapplication = RoleActionService.getActionsEmployee();
 				
 			}
+			
+			
 			if (hdzapplication== null || hdzapplication.size() ==0) {
 				session.setAttribute("actionList", null);
 			} else {
