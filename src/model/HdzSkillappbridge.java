@@ -16,7 +16,7 @@ public class HdzSkillappbridge implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR", sequenceName="HDZ_SKILLAPPBRIDGE_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR", sequenceName="HDZ_SKILLAPPBRIDGE_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_SKILLAPPBRIDGE_SKILLAPPBRIDGEID_GENERATOR")
 	private long skillappbridgeid;
 
