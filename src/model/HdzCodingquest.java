@@ -15,7 +15,7 @@ public class HdzCodingquest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_CODINGQUEST_CODINGQUESTID_GENERATOR", sequenceName="HDZ_CODINGQUEST_ID_SEQ")
+	@SequenceGenerator(name="HDZ_CODINGQUEST_CODINGQUESTID_GENERATOR", sequenceName="HDZ_CODINGQUEST_ID_SEQ",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_CODINGQUEST_CODINGQUESTID_GENERATOR")
 	private long codingquestid;
 
