@@ -41,6 +41,8 @@ public class FinalReport extends HttpServlet {
 		
 		String failid=request.getParameter("failappid");	
 		
+		String url = "/PendingAction";
+		
 		if(hireid!=null)
 		{
 			HdzApplication myapplication=dao.PendingActionsDao.getapplicationbyapplicationid(hireid);
@@ -59,7 +61,7 @@ public class FinalReport extends HttpServlet {
 				request.setAttribute("message", "You need to validate education, nationality and drug screen!!");
 			}
 			
-			request.getRequestDispatcher("pendingAction.jsp").forward(request, response);
+			request.getRequestDispatcher(url).forward(request, response);
 			
 		}
 		if(failid!=null)
@@ -74,7 +76,7 @@ public class FinalReport extends HttpServlet {
 			
 			request.setAttribute("message", "The applicant is failed!!");
 			
-			request.getRequestDispatcher("pendingAction.jsp").forward(request, response);
+			request.getRequestDispatcher(url).forward(request, response);
 			
 		}
 	

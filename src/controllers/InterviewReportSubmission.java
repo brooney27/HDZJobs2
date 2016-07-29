@@ -75,8 +75,7 @@ public class InterviewReportSubmission extends HttpServlet {
 			HdzInterview interview=InterviewService.getinterview(Long.parseLong(appid), type);
 			HdzApplication application=InterviewService.getHdzApplication(appid);
 			
-			
-			
+					
 			if(interview==null)
 			{
 				HdzInterview myinterview=new HdzInterview();
@@ -90,14 +89,14 @@ public class InterviewReportSubmission extends HttpServlet {
 				
 				BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(appid));
 				
-				System.out.println("totalscore"+totalscore);
+				hdzApplication.setAppscore(totalscore);
 				
-				application.setAppscore(totalscore);
+				InterviewService.updateApplication(hdzApplication);
 				
-				InterviewService.updateApplication(application);
-				System.out.println(application.getAppscore());
 				
-				session.setAttribute("app", application);
+				session.setAttribute("app", hdzApplication);
+				
+				
 			}
 			else
 			{
@@ -110,20 +109,18 @@ public class InterviewReportSubmission extends HttpServlet {
 				InterviewService.update(interview);
 				
 				BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(appid));
+					
+				hdzApplication.setAppscore(totalscore);
 				
-				System.out.println("totalscore"+totalscore);
+				InterviewService.updateApplication(hdzApplication);
 				
-				application.setAppscore(totalscore);
 				
-				InterviewService.updateApplication(application);
-				System.out.println(application.getAppscore());
-				
-				session.setAttribute("app", application);
+				session.setAttribute("app", hdzApplication);
 			}
 			
 			
 			
-			
+
 			
 			}
 			String groupInterviewCoding = request.getParameter("groupInterviewCoding");

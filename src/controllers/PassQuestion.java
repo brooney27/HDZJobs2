@@ -75,10 +75,6 @@ public class PassQuestion extends HttpServlet {
 			
 			session.setAttribute("interviewscore", score);
 			
-			
-			
-			
-			
 			request.getRequestDispatcher("interview.jsp").forward(request, response);
 		}
 		if(failquestionid!=null&&failapplicationid!=null&&failinterviewtype!=null)
