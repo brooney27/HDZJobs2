@@ -42,6 +42,7 @@ public class GradeCodeTest extends HttpServlet {
 		while(questions<10){
 			String useranswer = request.getParameter("response"+questionid);
 			String answer = request.getParameter("answer"+questionid);
+			System.out.println("Response: "+useranswer+" Correct answer: "+answer);
 			if(useranswer!=null){
 				questions++;
 				if(useranswer.equals(answer))numCorrect++;
@@ -51,15 +52,15 @@ public class GradeCodeTest extends HttpServlet {
 		
 		application.setCodingtestscore(new BigDecimal(numCorrect));
 		if(numCorrect>6){
-			application.setCodingtest("P");
+			application.setCodingtest("Y");
 		}
 		else{
-			application.setCodingtest("F");
+			application.setCodingtest("N");
 			application.setAppstatus("Fail");
 		}
 		InterviewService.updateApplication(application);
 		
-		request.getRequestDispatcher("/PendingActions").forward(request, response);
+		request.getRequestDispatcher("/PendingAction").forward(request, response);
 	}
 
 	/**
