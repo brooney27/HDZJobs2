@@ -33,6 +33,8 @@ public class GetCodeTest extends HttpServlet {
 		
 		HdzApplication app = InterviewService.getHdzApplication(appid);
 		
+		request.setAttribute("application", app);
+		
 		
 	}
 

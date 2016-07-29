@@ -138,7 +138,9 @@ public class NewApplicant extends HttpServlet {
 				System.out.println("trying skill... "+i);
 				skill = NewApplicantService.getSkill(skillname);
 				//add skill to bridge
-				userskill.setHdzSkill(skill);
+				HdzSkillappbridge skillapp = new HdzSkillappbridge();
+				//skillapp.set
+				//userskill.setHdzSkill();
 				//set bridge experience
 				userskill.setExperience(skillyear);
 				//add bridge to applicant
