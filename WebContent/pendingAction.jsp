@@ -144,7 +144,10 @@
 						
 											<c:if test="${role=='HiringManager'}">
 											
-												<td><input type="button" class="match" name="match${app.hdzJob.jobsid}" id="match${app.hdzJob.jobsid}" value="Search Qualified Applicants"></td>
+												<td>
+												
+												<input type="hidden" Style="visibility:hidden"  name="jobid" id="jobid" value="${app.hdzJob.jobsid}">
+												<input type="submit"  name="match" id="match" value="Search Qualified Applicants"></td>
 												</c:if>				
 											</tr>
 									</c:forEach>	

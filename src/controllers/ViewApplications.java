@@ -57,19 +57,26 @@ public class ViewApplications extends HttpServlet {
 			
 			request.setAttribute("mapskill", jobskillmap);
 			
-			String jobid=(String)request.getParameter("jobid");
+			String method= (String) request.getParameter("match");
 			
-			if(jobid!=null)
+			if(method!=null)
 			{
-			
-			List<HdzJobskillbridge> mybridge=QualifiedService.getSkillsbyJob(Long.parseLong(jobid));
-			
-			List<HdzApplicant> mycandidates=QualifiedService.getQualifiedApplicants(mybridge);
-			
-			request.setAttribute("candidates", mycandidates);
-			
-			
+				String jobid=(String)request.getParameter("jobid");
+				
+				if(jobid!=null)
+				{
+				
+				List<HdzJobskillbridge> mybridge=QualifiedService.getSkillsbyJob(Long.parseLong(jobid));
+				
+				List<HdzApplicant> mycandidates=QualifiedService.getQualifiedApplicants(mybridge);
+				
+				request.setAttribute("candidates", mycandidates);
+				
+				
+				}
 			}
+			
+			
 			if (apps== null || apps.size() ==0) {
 				request.setAttribute("message", "No Results!!");
 				request.setAttribute("applicationsSearch", null);
