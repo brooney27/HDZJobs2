@@ -133,6 +133,8 @@
 									</thead>
 									<c:forEach var="app" items="${applicationsSearch}">
 										<tr>
+										
+											
 											<td><c:out value="${app.applicationid}"></c:out></td>
 											<td><c:out value="${app.appstatus}"></c:out></td>
 											<td><c:out value="${app.hdzJob.jobsid}"></c:out></td>
@@ -140,15 +142,20 @@
 											<td><c:out value="${app.hdzJob.description}"></c:out></td>
 											<c:set var="myjobid"  value="${app.hdzJob.jobsid}" />
 											<td><c:out value="${mapskill[myjobid]}"></c:out></td>
+											 
+											
 											<c:set var="role" value="${role}"/>
 						
 											<c:if test="${role=='HiringManager'}">
-											
-												<td>
+											 
+												<td><a
+												href="ViewApplications?jobid=${app.hdzJob.jobsid}">
+													Search Qualified Applicants</a>		
+													</td>				
 												
-												<input type="hidden" Style="visibility:hidden"  name="jobid" id="jobid" value="${app.hdzJob.jobsid}">
-												<input type="submit"  name="match" id="match" value="Search Qualified Applicants"></td>
-												</c:if>				
+												</c:if>	
+												
+														
 											</tr>
 									</c:forEach>	
 									
@@ -185,9 +192,7 @@
 								</table>
 								
 								</c:if>
-								<c:if test="${mycandiates == null}">
-								<h4>No records found!</h4>
-								</c:if>
+								
 								
 								
 								</c:if>

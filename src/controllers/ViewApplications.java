@@ -52,15 +52,20 @@ public class ViewApplications extends HttpServlet {
 			//HttpSession session = request.getSession();
 			String position = request.getParameter("position");
 			List<HdzApplication> apps = ApplicationsDao.getapplications(position);
+			
+			if(position==null)
+			{
+				apps=ApplicationsDao.getallapplications();
+			}
 
 			HashMap<Long, String> jobskillmap=QualifiedService.gethashmapSkillsbyJob();
 			
 			request.setAttribute("mapskill", jobskillmap);
 			
-			String method= (String) request.getParameter("match");
+			//String method= (String) request.getParameter("match");
 			
-			if(method!=null)
-			{
+			
+			
 				String jobid=(String)request.getParameter("jobid");
 				
 				if(jobid!=null)
@@ -71,10 +76,10 @@ public class ViewApplications extends HttpServlet {
 				List<HdzApplicant> mycandidates=QualifiedService.getQualifiedApplicants(mybridge);
 				
 				request.setAttribute("candidates", mycandidates);
-				
+				request.setAttribute("applicationsSearch", apps);
 				
 				}
-			}
+			
 			
 			
 			if (apps== null || apps.size() ==0) {

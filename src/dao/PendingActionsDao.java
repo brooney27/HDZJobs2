@@ -340,5 +340,21 @@ public class PendingActionsDao {
 		return appstatus;
 
 	}
+	public static boolean checkEducation(HdzApplication myapplication)
+	{
+		boolean educheck = true;
+		List<HdzEducation> educations = dao.PendingActionsDao
+				.getEducationbyapplicantid(myapplication.getHdzApplicant().getApplicantid());
+		for (HdzEducation edu : educations) {
+			if (edu.getEducationflag() != null) {
+				if (edu.getEducationflag().equals("N")) {
+					educheck = false;
+					break;
+				}
+			}
+		}
+		return educheck;
+	}
+	
 
 }

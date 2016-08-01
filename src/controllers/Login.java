@@ -52,6 +52,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("role",  "applicant");
 				session.setAttribute("userrole",  1);
 				session.setAttribute("gravatar", Gravatar.getGravatarUrl(email));
+				
 				nextURL = "/yourapplications.jsp";
 			} else {
 				System.out.println("user not found: " + email + " " + password);
