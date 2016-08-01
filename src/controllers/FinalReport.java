@@ -73,7 +73,37 @@ public class FinalReport extends HttpServlet {
 			}else
 			{
 				
-				request.setAttribute("message", "You need to validate education, nationality and drug screen!!");
+				String message="";
+				
+				System.out.println("in message");
+				
+				if(myapplication.getHdzApplicant().getDrugtestflag()==null)
+				{
+					message+="You need to validate drug test! before";
+				}
+				else if(myapplication.getHdzApplicant().getDrugtestflag().equals("N"))
+				{
+					message+="Your drug test is faled! ";
+				}
+				
+				if(myapplication.getHdzApplicant().getCitizenflag()==null||myapplication.getHdzApplicant().getVisaflag()==null)
+				{
+					message+="You need to validate nationality! ";
+				}
+				else if (myapplication.getHdzApplicant().getCitizenflag().equals("N")||myapplication.getHdzApplicant().getVisaflag().equals("N"))
+				{
+					message+="Your nationality check is failed! ";
+				}		
+				
+				
+				if(PendingActionsDao.checkEducation(myapplication)==false)
+				{
+					message+="You need to validate education! ";
+				}
+				
+				System.out.println("in message"+ message);
+				
+				request.setAttribute("message", message);
 				
 				request.getRequestDispatcher(url).forward(request, response);
 			}

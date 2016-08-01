@@ -28,5 +28,24 @@ public class ApplicationsDao {
 		}
 		return app;
 	}
+	
+	public static List<HdzApplication> getallapplications() {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		List<HdzApplication> app = null;
+		String qString = "select b from HdzApplication b";
+       
+		try {
+			
+			TypedQuery<HdzApplication> query = em.createQuery(qString, HdzApplication.class);
+			
+			app = query.getResultList();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return app;
+	}
 
 }
