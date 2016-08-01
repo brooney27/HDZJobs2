@@ -18,16 +18,22 @@ import util.DBUtil;
 
 public class QualifiedService {
 	public static List<HdzApplicant> getQualifiedApplicants(List<HdzJobskillbridge> skills){
+		if(skills==null||skills.size()==0){
+			return getAllApplicants();
+		}
+		
 		List<HdzApplicant> candidates = new ArrayList<HdzApplicant>();
 		
 		for(HdzJobskillbridge skill:skills){
 			HdzSkill s = skill.getHdzSkill();
 			List<HdzSkillappbridge> apps = s.getHdzSkillappbridges();
+			List<HdzSkillappbridge> filteredApps = new ArrayList<HdzSkillappbridge>();
 			for(HdzSkillappbridge application:apps){
-				if(Integer.parseInt(application.getExperience())<Integer.parseInt(skill.getExperience())){
-					apps.remove(application);
+				if(Integer.parseInt(application.getExperience())>=Integer.parseInt(skill.getExperience())){
+					filteredApps.add(application);
 				}
 			}
+			apps=filteredApps;
 			if(apps.size()==0)return null;
 			
 			if(candidates.size()==0){
