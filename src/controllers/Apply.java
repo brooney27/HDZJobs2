@@ -66,6 +66,7 @@ public class Apply extends HttpServlet {
 		myapps.add(application);
 		applicant.setHdzApplications(myapps);
 		ApplicantDao.insert(application);
+		ApplicantDao.update(applicant);
 		session.setAttribute("user", applicant);
 		
 		request.getRequestDispatcher("/yourapplications.jsp").forward(request, response);
