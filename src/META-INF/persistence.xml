@@ -4,17 +4,17 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.HdzApplicant</class>
 		<class>model.HdzApplication</class>
-		<class>model.HdzEducation</class>
-		<class>model.HdzEmployee</class>
-		<class>model.HdzJobhistory</class>
-		<class>model.HdzJob</class>
-		<class>model.HdzReftable</class>
 		<class>model.HdzAward</class>
 		<class>model.HdzCodingquest</class>
+		<class>model.HdzEducation</class>
+		<class>model.HdzEmployee</class>
 		<class>model.HdzInterview</class>
 		<class>model.HdzInterviewquest</class>
 		<class>model.HdzInterviewresp</class>
+		<class>model.HdzJobhistory</class>
+		<class>model.HdzJob</class>
 		<class>model.HdzJobskillbridge</class>
+		<class>model.HdzReftable</class>
 		<class>model.HdzSkillappbridge</class>
 		<class>model.HdzSkill</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>

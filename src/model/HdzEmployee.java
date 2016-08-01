@@ -31,7 +31,9 @@ public class HdzEmployee implements Serializable {
 
 	private String salt;
 
-	
+	//bi-directional many-to-one association to HdzApplicant
+	@OneToMany(mappedBy="hdzEmployee")
+	private List<HdzApplicant> hdzApplicants;
 
 	public HdzEmployee() {
 	}
@@ -84,6 +86,26 @@ public class HdzEmployee implements Serializable {
 		this.salt = salt;
 	}
 
-	
-	
+	public List<HdzApplicant> getHdzApplicants() {
+		return this.hdzApplicants;
+	}
+
+	public void setHdzApplicants(List<HdzApplicant> hdzApplicants) {
+		this.hdzApplicants = hdzApplicants;
+	}
+
+	public HdzApplicant addHdzApplicant(HdzApplicant hdzApplicant) {
+		getHdzApplicants().add(hdzApplicant);
+		hdzApplicant.setHdzEmployee(this);
+
+		return hdzApplicant;
+	}
+
+	public HdzApplicant removeHdzApplicant(HdzApplicant hdzApplicant) {
+		getHdzApplicants().remove(hdzApplicant);
+		hdzApplicant.setHdzEmployee(null);
+
+		return hdzApplicant;
+	}
+
 }

@@ -30,7 +30,7 @@ public class HdzEducation implements Serializable {
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
-	@JoinColumn(name="APPLICANTID")
+	@PrimaryKeyJoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
 
 	public HdzEducation() {

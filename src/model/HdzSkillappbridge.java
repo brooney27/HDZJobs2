@@ -24,12 +24,12 @@ public class HdzSkillappbridge implements Serializable {
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
-	@JoinColumn(name="APPLICANTID")
+	@PrimaryKeyJoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
 
 	//bi-directional many-to-one association to HdzSkill
 	@ManyToOne
-	@JoinColumn(name="SKILLSID")
+	@PrimaryKeyJoinColumn(name="SKILLSID")
 	private HdzSkill hdzSkill;
 
 	public HdzSkillappbridge() {

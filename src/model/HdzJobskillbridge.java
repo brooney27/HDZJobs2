@@ -22,15 +22,15 @@ public class HdzJobskillbridge implements Serializable {
 
 	private String experience;
 
-	//bi-directional many-to-one association to HdzSkill
-	@ManyToOne
-	@JoinColumn(name="SKILLSID")
-	private HdzSkill hdzSkill;
-
 	//bi-directional many-to-one association to HdzJob
 	@ManyToOne
-	@JoinColumn(name="JOBSID")
+	@PrimaryKeyJoinColumn(name="JOBSID")
 	private HdzJob hdzJob;
+
+	//bi-directional many-to-one association to HdzSkill
+	@ManyToOne
+	@PrimaryKeyJoinColumn(name="SKILLSID")
+	private HdzSkill hdzSkill;
 
 	public HdzJobskillbridge() {
 	}
@@ -51,20 +51,20 @@ public class HdzJobskillbridge implements Serializable {
 		this.experience = experience;
 	}
 
-	public HdzSkill getHdzSkill() {
-		return this.hdzSkill;
-	}
-
-	public void setHdzSkill(HdzSkill hdzSkill) {
-		this.hdzSkill = hdzSkill;
-	}
-
 	public HdzJob getHdzJob() {
 		return this.hdzJob;
 	}
 
 	public void setHdzJob(HdzJob hdzJob) {
 		this.hdzJob = hdzJob;
+	}
+
+	public HdzSkill getHdzSkill() {
+		return this.hdzSkill;
+	}
+
+	public void setHdzSkill(HdzSkill hdzSkill) {
+		this.hdzSkill = hdzSkill;
 	}
 
 }
