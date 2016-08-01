@@ -223,8 +223,7 @@
 						</c:if>
 						
 						
-						<input type="text" class="score"
-									id="interviewscore${application.applicationid}" name="interviewscore${interviewType}" value="${interviewscore}" />
+						<c:out value="${interviewscore}" />
 							
 
 						
