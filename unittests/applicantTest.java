@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import dao.ApplicantDao;
 import dao.InterviewDao;
+import dao.PendingActionsDao;
 import model.HdzApplication;
 import model.HdzJob;
 import services.InterviewService;
@@ -30,6 +31,9 @@ public class applicantTest {
 		
 		System.out.println(mymap);
 		
+		HdzApplication myapplication=PendingActionsDao.getapplicationbyapplicationid("7");
+		
+		System.out.println(PendingActionsDao.checkAppStatus(myapplication));
 		
 		
 		

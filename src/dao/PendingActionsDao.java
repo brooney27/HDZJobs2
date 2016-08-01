@@ -279,9 +279,8 @@ public class PendingActionsDao {
 			}
 		}
 		if (myapplicant.getCitizenflag() != null && myapplicant.getVisaflag() != null
-				&& myapplicant.getVeteranflag() != null && myapplicant.getDrugtestflag() != null
-				&& myapplicant.getStdpanelflag() != null && myapplicant.getDottestflag() != null
-				&& myapplicant.getAlcoholtest() != null) {
+				&& myapplicant.getVeteranflag() != null && myapplicant.getDrugtestflag() != null)
+				 {
 			if (myapplicant.getCitizenflag().equals("Y") && myapplicant.getVisaflag().equals("Y")
 					&& myapplicant.getVeteranflag().equals("Y") && myapplicant.getDrugtestflag().equals("Y")) {
 				if (refcheck && educheck && jobcheck) {
@@ -347,10 +346,16 @@ public class PendingActionsDao {
 				.getEducationbyapplicantid(myapplication.getHdzApplicant().getApplicantid());
 		for (HdzEducation edu : educations) {
 			if (edu.getEducationflag() != null) {
+				
 				if (edu.getEducationflag().equals("N")) {
 					educheck = false;
 					break;
 				}
+			}
+			else
+			{
+				educheck = false;
+				break;
 			}
 		}
 		return educheck;
