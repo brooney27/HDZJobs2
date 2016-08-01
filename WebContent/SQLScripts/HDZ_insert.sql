@@ -205,6 +205,39 @@ values (hdz_codingquest_id_seq.nextval,'What is the difference between a constru
 insert into HDZ_codingquest (codingquestid, question, answer)
 values (hdz_codingquest_id_seq.nextval,'What is an abstract class?', 'Abstract class must be extended/subclassed (to be useful). It serves as a template.');
 
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,'Which is a reserved word in the Java programming language?
+A. 	method
+B. 	native
+C. 	subclasses
+D. 	reference
+E. 	array', 'a');
+
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,'Which is a valid keyword in java?
+A. 	interface
+B. 	string
+C. 	Float
+D. 	unsigned', 'a');
+
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,' 	
+
+You need to store elements in a collection that guarantees that no duplicates are stored and all elements can be accessed in natural order. Which interface provides that capability?', 'a');
+
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,'Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?', 'a');
+
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,'Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?', 'a');
+
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,'You want subclasses in any package to have access to members of a superclass. Which is the most restrictive access that accomplishes this objective?', 'a');
+
+insert into HDZ_codingquest (codingquestid, question, answer)
+values (hdz_codingquest_id_seq.nextval,'What is the value of "d" after this line of code has been executed?
+
+double d = Math.round ( 2.5 + Math.random() );', 'a');
 
 -- HDZ_interviewquest
 
@@ -212,10 +245,123 @@ insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, questio
 values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Expected Salary?');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
-values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Relocation percentage');
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Expected Salary?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Expected Salary?');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Expected Salary?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Are you willing to relocate or travel?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Are you willing to relocate or travel?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Are you willing to relocate or travel?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Are you willing to relocate or travel?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Why are you interested in this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Why are you interested in this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Why are you interested in this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Why are you interested in this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Tell me about yourself.');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Tell me about yourself.');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Tell me about yourself.');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Tell me about yourself.');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Why are you leaving your current job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Why are you leaving your current job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Why are you leaving your current job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Why are you leaving your current job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','What do you know about the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','What do you know about the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','What do you know about the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','What do you know about the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Can you work under pressure?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Can you work under pressure?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Can you work under pressure?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Can you work under pressure?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Who has inspired you in your life and why?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Who has inspired you in your life and why?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Who has inspired you in your life and why?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Who has inspired you in your life and why?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','If you won $10 million lottery, would you still work?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','If you won $10 million lottery, would you still work?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','If you won $10 million lottery, would you still work?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','If you won $10 million lottery, would you still work?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HR Interview','Do you have any questions for me?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HR Interview','Do you have any questions for me?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','Do you have any questions for me?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HR Interview','Do you have any questions for me?');
+
+
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','Whats your work experience related to applied job?');
@@ -229,32 +375,208 @@ values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','Whats your work expe
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','Whats your work experience related to applied job?');
 
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','Give me an example of your creativity.');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
-values (hdz_interviewquest_id_seq.nextval,3,'HR Interview','% of relocation?');
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','Give me an example of your creativity.');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
-values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','Give me an example of your creativity.');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','Give me an example of your creativity.');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','What motivates you to do good job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','What motivates you to do good job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','What motivates you to do good job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','What motivates you to do good job?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','What was the toughest decision you ever had to make?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','What was the toughest decision you ever had to make?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','What was the toughest decision you ever had to make?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','What was the toughest decision you ever had to make?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','Would you lie for the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','Would you lie for the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','Would you lie for the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','Would you lie for the company?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','How long would you expect to work for us if hired?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','How long would you expect to work for us if hired?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','How long would you expect to work for us if hired?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','How long would you expect to work for us if hired?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','What are your strengths and weaknesses?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','What are your strengths and weaknesses?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','What are your strengths and weaknesses?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','What are your strengths and weaknesses?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','Are not you overqualified for this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','Are not you overqualified for this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','Are not you overqualified for this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','Are not you overqualified for this position?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','How do you feel about working nights and weekends?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','How do you feel about working nights and weekends?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','How do you feel about working nights and weekends?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','How do you feel about working nights and weekends?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'HM Interview','Do you have any questions for me?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'HM Interview','Do you have any questions for me?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'HM Interview','Do you have any questions for me?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'HM Interview','Do you have any questions for me?');
+
+
+
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Is Pokeman go causing problems?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Is Pokeman go causing problems?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Is Pokeman go causing problems?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Is Pokeman go causing problems?');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Iphone vs Anroid phones');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Iphone vs Anroid phones');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Iphone vs Anroid phones');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Iphone vs Anroid phones');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Will WorldWar 3 happen?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Will WorldWar 3 happen?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Will WorldWar 3 happen?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Will WorldWar 3 happen?');
 
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Who win 2016 elections?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Who win 2016 elections?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Who win 2016 elections?');
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
 values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
 
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
-values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
-
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Should the public sector be privatized?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Should the public sector be privatized?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Should the public sector be privatized?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Should the public sector be privatized?');
 
 insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
-values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Who win 2016 elections?');
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Security Cameras and Privacy');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Security Cameras and Privacy');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Security Cameras and Privacy');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Security Cameras and Privacy');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Globalization vs. Nationalism');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Globalization vs. Nationalism');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Globalization vs. Nationalism');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Globalization vs. Nationalism');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Is the Budgeting Exercise of any Use?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Is the Budgeting Exercise of any Use?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Is the Budgeting Exercise of any Use?');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Is the Budgeting Exercise of any Use?');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Advertising is a Waste of Resources');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Advertising is a Waste of Resources');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Advertising is a Waste of Resources');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Advertising is a Waste of Resources');
+
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,2,'Group Interview','Every cloud has a silver lining');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,1,'Group Interview','Every cloud has a silver lining');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,3,'Group Interview','Every cloud has a silver lining');
+insert into HDZ_interviewquest (interviewquestid, jobsid, interviewtype, question)
+values (hdz_interviewquest_id_seq.nextval,4,'Group Interview','Every cloud has a silver lining');
+
 
 -- HDZ_interview
 
