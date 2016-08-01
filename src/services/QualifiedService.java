@@ -74,6 +74,30 @@ public class QualifiedService {
 		return post;
 	}
 	
+	
+	public static List<HdzSkillappbridge> getSkillsbyApplicant(long appid){
+		
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+
+		String qString = "Select p from HdzSkillappbridge p where p.hdzApplicant.applicantid=:appid";
+
+		Query q = em.createQuery(qString);
+		q.setParameter("appid", appid);
+		List<HdzSkillappbridge> post = new ArrayList<HdzSkillappbridge>();
+
+		try {
+			post = q.getResultList();
+
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return post;
+	}
 public static List<HdzJob> getAlljobs(){
 		
 		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
@@ -96,6 +120,29 @@ public static List<HdzJob> getAlljobs(){
 		}
 		return post;
 	}
+
+public static List<HdzApplicant> getAllApplicants(){
+	
+	EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+
+	String qString = "Select p from HdzApplicant p";
+
+	Query q = em.createQuery(qString);
+	List<HdzApplicant> post = new ArrayList<HdzApplicant>();
+
+	try {
+		post = q.getResultList();
+
+	} catch (NoResultException e) {
+		System.out.println(e);
+	} catch (Exception e) {
+
+		e.printStackTrace();
+	} finally {
+		em.close();
+	}
+	return post;
+}
 	
 	
 	public static HashMap<Long, String> gethashmapSkillsbyJob()
@@ -119,6 +166,26 @@ public static List<HdzJob> getAlljobs(){
 		
 	}
 	
+	public static HashMap<Long, String> gethashmapSkillsbyApplicant()
+	{
+		HashMap<Long, String> mymap=new HashMap<Long, String>();
+		List<HdzApplicant> Applicants=getAllApplicants();
+		
+		for(HdzApplicant app: Applicants)
+		{
+			List<HdzSkillappbridge> mylist=QualifiedService.getSkillsbyApplicant(app.getApplicantid());
+			String content="";
+			for(HdzSkillappbridge a: mylist)
+			{
+				content+=a.getHdzSkill().getSkillname().toString()+" ";
+			}
+			
+			mymap.put(app.getApplicantid(), content);
+		}
+		
+		return mymap;	
+		
+	}
 	
 	
 	
