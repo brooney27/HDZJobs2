@@ -17,7 +17,7 @@ public class HdzApplicant implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HDZ_APPLICANT_APPLICANTID_GENERATOR", sequenceName="HDZ_APPLICANT_ID_SEQ",allocationSize=1)
+	@SequenceGenerator(name="HDZ_APPLICANT_APPLICANTID_GENERATOR", sequenceName="HDZ_APPLICANT_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HDZ_APPLICANT_APPLICANTID_GENERATOR")
 	private long applicantid;
 
@@ -70,15 +70,15 @@ public class HdzApplicant implements Serializable {
 	//bi-directional many-to-one association to HdzEmployee
 	@ManyToOne
 	@JoinColumn(name="EMPLOYEEID")
-	private HdzEmployee hdzEmployee;
+	private HdzEmployee hdzEmployee1;
 
 	//bi-directional many-to-one association to HdzApplication
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzApplication> hdzApplications;
 
 	//bi-directional many-to-one association to HdzAward
-	@OneToMany(mappedBy="hdzApplicant")
-	private List<HdzAward> hdzAwards;
+	@OneToMany(mappedBy="hdzApplicant1")
+	private List<HdzAward> hdzAwards1;
 
 	//bi-directional many-to-one association to HdzEducation
 	@OneToMany(mappedBy="hdzApplicant")
@@ -95,6 +95,15 @@ public class HdzApplicant implements Serializable {
 	//bi-directional many-to-one association to HdzSkillappbridge
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzSkillappbridge> hdzSkillappbridges;
+
+	//bi-directional many-to-one association to HdzEmployee
+	@ManyToOne
+	@JoinColumn(name="APPLICANTID")
+	private HdzEmployee hdzEmployee2;
+
+	//bi-directional many-to-one association to HdzAward
+	@OneToMany(mappedBy="hdzApplicant2")
+	private List<HdzAward> hdzAwards2;
 
 	public HdzApplicant() {
 	}
@@ -291,12 +300,12 @@ public class HdzApplicant implements Serializable {
 		this.visaflag = visaflag;
 	}
 
-	public HdzEmployee getHdzEmployee() {
-		return this.hdzEmployee;
+	public HdzEmployee getHdzEmployee1() {
+		return this.hdzEmployee1;
 	}
 
-	public void setHdzEmployee(HdzEmployee hdzEmployee) {
-		this.hdzEmployee = hdzEmployee;
+	public void setHdzEmployee1(HdzEmployee hdzEmployee1) {
+		this.hdzEmployee1 = hdzEmployee1;
 	}
 
 	public List<HdzApplication> getHdzApplications() {
@@ -321,26 +330,26 @@ public class HdzApplicant implements Serializable {
 		return hdzApplication;
 	}
 
-	public List<HdzAward> getHdzAwards() {
-		return this.hdzAwards;
+	public List<HdzAward> getHdzAwards1() {
+		return this.hdzAwards1;
 	}
 
-	public void setHdzAwards(List<HdzAward> hdzAwards) {
-		this.hdzAwards = hdzAwards;
+	public void setHdzAwards1(List<HdzAward> hdzAwards1) {
+		this.hdzAwards1 = hdzAwards1;
 	}
 
-	public HdzAward addHdzAward(HdzAward hdzAward) {
-		getHdzAwards().add(hdzAward);
-		hdzAward.setHdzApplicant(this);
+	public HdzAward addHdzAwards1(HdzAward hdzAwards1) {
+		getHdzAwards1().add(hdzAwards1);
+		hdzAwards1.setHdzApplicant1(this);
 
-		return hdzAward;
+		return hdzAwards1;
 	}
 
-	public HdzAward removeHdzAward(HdzAward hdzAward) {
-		getHdzAwards().remove(hdzAward);
-		hdzAward.setHdzApplicant(null);
+	public HdzAward removeHdzAwards1(HdzAward hdzAwards1) {
+		getHdzAwards1().remove(hdzAwards1);
+		hdzAwards1.setHdzApplicant1(null);
 
-		return hdzAward;
+		return hdzAwards1;
 	}
 
 	public List<HdzEducation> getHdzEducations() {
@@ -429,6 +438,36 @@ public class HdzApplicant implements Serializable {
 		hdzSkillappbridge.setHdzApplicant(null);
 
 		return hdzSkillappbridge;
+	}
+
+	public HdzEmployee getHdzEmployee2() {
+		return this.hdzEmployee2;
+	}
+
+	public void setHdzEmployee2(HdzEmployee hdzEmployee2) {
+		this.hdzEmployee2 = hdzEmployee2;
+	}
+
+	public List<HdzAward> getHdzAwards2() {
+		return this.hdzAwards2;
+	}
+
+	public void setHdzAwards2(List<HdzAward> hdzAwards2) {
+		this.hdzAwards2 = hdzAwards2;
+	}
+
+	public HdzAward addHdzAwards2(HdzAward hdzAwards2) {
+		getHdzAwards2().add(hdzAwards2);
+		hdzAwards2.setHdzApplicant2(this);
+
+		return hdzAwards2;
+	}
+
+	public HdzAward removeHdzAwards2(HdzAward hdzAwards2) {
+		getHdzAwards2().remove(hdzAwards2);
+		hdzAwards2.setHdzApplicant2(null);
+
+		return hdzAwards2;
 	}
 
 }
