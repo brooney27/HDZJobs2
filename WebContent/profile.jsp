@@ -9,6 +9,15 @@
 <title>Profile</title>
 <jsp:include page="bootstrap.jsp" />
 <title>Your Applications</title>
+<script>
+$(document).ready(function() {
+	$(".btn-pref .btn").click(function () {
+	    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+	    // $(".tab").addClass("active"); // instead of this do the below 
+	    $(this).removeClass("btn-default").addClass("btn-primary");   
+	});
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
