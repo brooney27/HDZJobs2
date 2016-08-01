@@ -69,14 +69,8 @@ public class HdzApplicant implements Serializable {
 
 	//bi-directional many-to-one association to HdzEmployee
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="EMPLOYEEID")
+	@JoinColumn(name="EMPLOYEEID")
 	private HdzEmployee hdzEmployee;
-
-	//bi-directional many-to-one association to HdzReftable
-	@ManyToOne
-	@PrimaryKeyJoinColumn(name="APPLICANTID")
-	private HdzReftable hdzReftable;
-
 
 	//bi-directional many-to-one association to HdzApplication
 	@OneToMany(mappedBy="hdzApplicant")
@@ -304,16 +298,6 @@ public class HdzApplicant implements Serializable {
 	public void setHdzEmployee(HdzEmployee hdzEmployee) {
 		this.hdzEmployee = hdzEmployee;
 	}
-
-
-	public HdzReftable getHdzReftable() {
-		return this.hdzReftable;
-	}
-
-	public void setHdzReftable(HdzReftable hdzReftable) {
-		this.hdzReftable = hdzReftable;
-	}
-
 
 	public List<HdzApplication> getHdzApplications() {
 		return this.hdzApplications;

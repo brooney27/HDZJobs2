@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -27,7 +26,7 @@ public class HdzInterviewquest implements Serializable {
 
 	//bi-directional many-to-one association to HdzJob
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="JOBSID")
+	@JoinColumn(name="JOBSID")
 	private HdzJob hdzJob;
 
 	//bi-directional many-to-one association to HdzInterviewresp

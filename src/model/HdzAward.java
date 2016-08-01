@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 
 /**
@@ -26,7 +25,7 @@ public class HdzAward implements Serializable {
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="APPLICANTID")
+	@JoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
 
 	public HdzAward() {

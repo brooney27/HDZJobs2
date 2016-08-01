@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 
 /**
@@ -24,12 +23,12 @@ public class HdzSkillappbridge implements Serializable {
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="APPLICANTID")
+	@JoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
 
 	//bi-directional many-to-one association to HdzSkill
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="SKILLSID")
+	@JoinColumn(name="SKILLSID")
 	private HdzSkill hdzSkill;
 
 	public HdzSkillappbridge() {
