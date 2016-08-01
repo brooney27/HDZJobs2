@@ -171,7 +171,7 @@
 											<th>Name</th>
 											<th>Phone Number</th>
 											<th>Email</th>
-											<th>Citizen</th>
+											<th>Skill</th>
 										</tr>
 									</thead>
 									
@@ -182,7 +182,8 @@
 											<td><c:out value="${candidate.firstname} ${candidate.lastname}"></c:out></td>
 											<td><c:out value="${candidate.phonenum}"></c:out></td>
 											<td><c:out value="${candidate.email}"></c:out></td>
-											<td><c:out value="${candidate.citizen}"></c:out></td>
+											<c:set var="mycanid"  value="${candidate.applicantid}" />
+											<td><c:out value="${applicantmap[mycanid]}"></c:out></td>
 																
 											</tr>
 									</c:forEach>

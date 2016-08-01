@@ -60,6 +60,9 @@ public class ViewApplications extends HttpServlet {
 
 			HashMap<Long, String> jobskillmap=QualifiedService.gethashmapSkillsbyJob();
 			
+			HashMap<Long, String> applicantmap=QualifiedService.gethashmapSkillsbyApplicant();
+			 request.setAttribute("appskill", applicantmap);
+			
 			request.setAttribute("mapskill", jobskillmap);
 			
 			//String method= (String) request.getParameter("match");
