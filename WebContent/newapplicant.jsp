@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:include page="bootstrap.jsp" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 <title>HDZ - Create account</title>
 <script>
 	function validateForm() {
@@ -51,7 +53,7 @@
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<div class="container">
-		<div class="row">
+		<div class="row centered-form">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				<form action="NewApplicant" onsubmit="return validateForm()"
@@ -64,21 +66,83 @@
 						<div class="panel-body">
 
 							<fieldset>
-								First name: <input type="text" name="firstname" id="firstname" />
-								Last name: <input type="text" name="lastname" id="lastname" /><br />
-								Email: <input type="text" name="email" id="email" />
-								Phone #: <input type="text" name="phone" id="phone" />
-								Password:<input type="password" name="password" id="password" /><br />
-								Date of Birth: <input type="text" name="dob" id="dob" />
-								Career Objective: <input type="text" name="objective" id="objective" />
-								Profile Summary: <input type="text" name="summary" id="summary" />
-								Veteran Status: <select name="veteran">
-									<option value="yes">Veteran</option>
-									<option value="no">Non-veteran</option>
-								</select> <br /> Citizenship <select name="citizen">
-									<option value="yes">Citizen</option>
-									<option value="no">Non-citizen</option>
-								</select>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="first_name" id="firstname"
+												class="form-control input-sm" placeholder="First Name">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="lastname" id="last_name"
+												class="form-control input-sm" placeholder="Last Name">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="email" id="email"
+												class="form-control input-sm" placeholder="Email address">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="phone" id="phone"
+												class="form-control input-sm" placeholder="Phone #">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="password" name="password" id="password"
+												class="form-control input-sm" placeholder="Password">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="password2" id="password2"
+												class="form-control input-sm" placeholder="Confirm Password">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<input type="text" name="dob" id="dob"
+												class="form-control input-sm" placeholder="Date of Birth">
+										</div>
+									</div>
+									<div class="col-xs-8 col-sm-8 col-md-8">
+										<div class="form-group">
+											<select class="selectpicker" data-style="btn-info" name="veteran" data-width="auto">
+												<option value="yes">Veteran</option>
+												<option value="no">Non-veteran</option>
+											</select>
+											<select class="selectpicker show-menu-arrow" data-style="btn-info" name="citizen" data-width="auto">
+												<option value="yes">Citizen</option>
+												<option value="no">Non-citizen</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="form-group">
+											<input type="text" name="objective" id="objective"
+												class="form-control input-sm" placeholder="Career Objective">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="form-group">
+											<textarea class="form-control" rows="5" name="summary" id="summary" placeholder="Summary" style="resize:none;"></textarea>
+										</div>
+									</div>
+								</div>
 							</fieldset>
 						</div>
 					</div>
@@ -89,15 +153,77 @@
 						</div>
 						<div class="panel-body">
 							<fieldset>
-								Institution: <input type="text" name="edu1" id="edu1" />
-								Degree: <input type="text" name="degree1" id="degree1" /><br />
-								Date completed: <input type="text" name="date1" id="date1" /> <br />
-								<br /> Institution: <input type="text" name="edu2" id="edu2" />
-								Degree: <input type="text" name="degree2" id="degree2" /><br />
-								Date completed: <input type="text" name="date2" id="date2" /> <br />
-								<br /> Institution: <input type="text" name="edu3" id="edu3" />
-								Degree: <input type="text" name="degree3" id="degree3" /><br />
-								Date completed: <input type="text" name="date3" id="date3" />
+								<div class="row">
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Institution</label>
+											<input type="text" name="edu1" id="edu1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Degree</label>
+											<input type="text" name="degree1" id="degree1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Date Completed</label>
+											<input type="text" name="date1" id="date1"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Institution</label>
+											<input type="text" name="edu2" id="edu2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Degree</label>
+											<input type="text" name="degree2" id="degree2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Date Completed</label>
+											<input type="text" name="date2" id="date2"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Institution</label>
+											<input type="text" name="edu3" id="edu3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Degree</label>
+											<input type="text" name="degree3" id="degree3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4">
+										<div class="form-group">
+											<label>Date Completed</label>
+											<input type="text" name="date3" id="date3"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
 							</fieldset>
 						</div>
 					</div>
