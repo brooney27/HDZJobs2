@@ -145,6 +145,8 @@ values (hdz_jobskillbridge_id_seq.nextval,2,2,'1');
 insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
 values (hdz_jobskillbridge_id_seq.nextval,3,3,'2');
 
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,3,7,'2');
 --application
 
 insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
