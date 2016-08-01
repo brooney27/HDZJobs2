@@ -27,13 +27,13 @@ public class applicantTest {
 		
 		//System.out.println(InterviewDao.getinterviewresp(3, "HM Interview", 3));
 		
-		HashMap<Long, String> mymap=QualifiedService.gethashmapSkillsbyJob();
+		HashMap<Long, String> mymap=QualifiedService.gethashmapSkillsbyApplicant();
 		
 		System.out.println(mymap);
 		
-		HdzApplication myapplication=PendingActionsDao.getapplicationbyapplicationid("7");
+		//HdzApplication myapplication=PendingActionsDao.getapplicationbyapplicationid("7");
 		
-		System.out.println(PendingActionsDao.checkAppStatus(myapplication));
+		//System.out.println(PendingActionsDao.checkAppStatus(myapplication));
 		
 		
 		

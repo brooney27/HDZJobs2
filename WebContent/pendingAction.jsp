@@ -183,7 +183,7 @@
 											<td><c:out value="${candidate.phonenum}"></c:out></td>
 											<td><c:out value="${candidate.email}"></c:out></td>
 											<c:set var="mycanid"  value="${candidate.applicantid}" />
-											<td><c:out value="${applicantmap[mycanid]}"></c:out></td>
+											<td><c:out value="${appskill[mycanid]}"></c:out></td>
 																
 											</tr>
 									</c:forEach>
@@ -193,7 +193,10 @@
 								</table>
 								
 								</c:if>
+								<c:if test="${mycandidates  == null}">
 								
+								<h4>No Qualified Candidates</h4>
+								</c:if>
 								
 								
 								</c:if>

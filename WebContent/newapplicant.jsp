@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 <title>HDZ - Create account</title>
+<style>
+</style>
 <script>
 	function validateForm() {
 		var x = document.forms["applicant"]["firstname"].value;
@@ -26,6 +28,14 @@
 		x = document.forms["applicant"]["password"].value;
 		if (x == null || x == "") {
 			text = ("Password must be filled out");
+			document.getElementById("invalid").innerHTML = text;
+			return false;
+		}
+		x = document.forms["applicant"]["password"].value;
+		var y = document.forms["applicant"]["password2"].value;
+		var match = x.localeCompare(y);
+		if (match!=0) {
+			text = ("Passwords do not match");
 			document.getElementById("invalid").innerHTML = text;
 			return false;
 		}
@@ -69,42 +79,48 @@
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
+											<label>First Name</label>
 											<input type="text" name="first_name" id="firstname"
-												class="form-control input-sm" placeholder="First Name">
+												class="form-control input-sm"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
+											<label>Last Name</label>
 											<input type="text" name="lastname" id="last_name"
-												class="form-control input-sm" placeholder="Last Name">
+												class="form-control input-sm"/>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
+											<label>Email Address</label>
 											<input type="text" name="email" id="email"
-												class="form-control input-sm" placeholder="Email address">
+												class="form-control input-sm">
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
+											<label>Phone #</label>
 											<input type="text" name="phone" id="phone"
-												class="form-control input-sm" placeholder="Phone #">
+												class="form-control input-sm"/>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
+											<label>Password</label>
 											<input type="password" name="password" id="password"
-												class="form-control input-sm" placeholder="Password">
+												class="form-control input-sm"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" name="password2" id="password2"
-												class="form-control input-sm" placeholder="Confirm Password">
+											<label>Confirm Password</label>
+											<input type="password" name="password2" id="password2"
+												class="form-control input-sm">
 										</div>
 									</div>
 								</div>
@@ -128,18 +144,21 @@
 										</div>
 									</div>
 								</div>
+								<hr class="separator">
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 col-md-12">
 										<div class="form-group">
+											<label>Career Objective</label>
 											<input type="text" name="objective" id="objective"
-												class="form-control input-sm" placeholder="Career Objective">
+												class="form-control input-sm"/>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 col-md-12">
 										<div class="form-group">
-											<textarea class="form-control" rows="5" name="summary" id="summary" placeholder="Summary" style="resize:none;"></textarea>
+											<label>Profile Summary</label>
+											<textarea class="form-control" rows="5" name="summary" id="summary" style="resize:none;"></textarea>
 										</div>
 									</div>
 								</div>
@@ -235,22 +254,131 @@
 						</div>
 						<div class="panel-body">
 							<fieldset>
-								Job title: <input type="text" name="job1" id="job1" /> Company:
-								<input type="text" name="company1" id="company1" /><br /> Job
-								Description: <input type="text" name="jobdesc1" id="jobdesc1" />
-								<br /> Start date: <input type="text" name="start1" id="start1" />
-								End date: <input type="text" name="leave1" id="leave1" /> <br />
-								<br /> Job title: <input type="text" name="job2" id="job2" />
-								Company: <input type="text" name="company2" id="company2" /><br />
-								Job Description: <input type="text" name="jobdesc2"
-									id="jobdesc2" /> <br /> Start date: <input type="text"
-									name="start2" id="start2" /> End date: <input type="text"
-									name="leave2" id="leave2" /> <br /> <br /> Job title: <input
-									type="text" name="job3" id="job3" /> Company: <input
-									type="text" name="company3" id="company3" /><br /> Job
-								Description: <input type="text" name="jobdesc3" id="jobdesc3" />
-								<br /> Start date: <input type="text" name="start3" id="start3" />
-								End date: <input type="text" name="leave3" id="leave3" /> <br />
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Job Title</label>
+											<input type="text" name="job1" id="job1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Company</label>
+											<input type="text" name="company1" id="company1"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="form-group">
+											<label>Job Description</label>
+											<input type="text" name="jobdesc1" id="jobdesc1"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Start Date</label>
+											<input type="text" name="start1" id="start1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>End Date</label>
+											<input type="text" name="leave1" id="leave1"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Job Title</label>
+											<input type="text" name="job2" id="job2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Company</label>
+											<input type="text" name="company2" id="company2"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="form-group">
+											<label>Job Description</label>
+											<input type="text" name="jobdesc2" id="jobdesc2"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Start Date</label>
+											<input type="text" name="start2" id="start2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>End Date</label>
+											<input type="text" name="leave2" id="leave2"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Job Title</label>
+											<input type="text" name="job3" id="job3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Company</label>
+											<input type="text" name="company3" id="company3"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="form-group">
+											<label>Job Description</label>
+											<input type="text" name="jobdesc3" id="jobdesc3"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>Start Date</label>
+											<input type="text" name="start3" id="start3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label>End Date</label>
+											<input type="text" name="leave3" id="leave3"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
 							</fieldset>
 						</div>
 					</div>
@@ -261,18 +389,98 @@
 						</div>
 						<div class="panel-body">
 							<fieldset>
-								Name: <input type="text" name="refname1" id="refname1" />
-								Phone: <input type="text" name="refphone1" id="refphone1" /><br />
-								Email: <input type="text" name="refemail1" id="refemail1" />
-								Position: <input type="text" name="refpos1" id="refpos1" /><br />
-								<br /> Name: <input type="text" name="refname2" id="refname2" />
-								Phone: <input type="text" name="refphone2" id="refphone2" /><br />
-								Email: <input type="text" name="refemail2" id="refemail2" />
-								Position: <input type="text" name="refpos2" id="refpos2" /><br />
-								<br /> Name: <input type="text" name="refname3" id="refname3" />
-								Phone: <input type="text" name="refphone3" id="refphone3" /><br />
-								Email: <input type="text" name="refemail3" id="refemail3" />
-								Position: <input type="text" name="refpos3" id="refpos3" /><br />
+								<div class="row">
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Name</label>
+											<input type="text" name="refname1" id="refname1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Phone</label>
+											<input type="text" name="refphone1" id="refphone1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Email</label>
+											<input type="text" name="refemail1" id="refemail1"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Position</label>
+											<input type="text" name="refpos1" id="refpos1"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Name</label>
+											<input type="text" name="refname2" id="refname2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Phone</label>
+											<input type="text" name="refphone2" id="refphone2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Email</label>
+											<input type="text" name="refemail2" id="refemail2"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Position</label>
+											<input type="text" name="refpos2" id="refpos2"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Name</label>
+											<input type="text" name="refname3" id="refname3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Phone</label>
+											<input type="text" name="refphone3" id="refphone3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Email</label>
+											<input type="text" name="refemail3" id="refemail3"
+												class="form-control input-sm">
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<div class="form-group">
+											<label>Position</label>
+											<input type="text" name="refpos3" id="refpos3"
+												class="form-control input-sm">
+										</div>
+									</div>
+								</div>
 							</fieldset>
 						</div>
 					</div>
