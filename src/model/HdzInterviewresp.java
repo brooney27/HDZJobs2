@@ -26,12 +26,12 @@ public class HdzInterviewresp implements Serializable {
 
 	//bi-directional many-to-one association to HdzApplication
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="APPLICATIONID")
+	@JoinColumn(name="APPLICATIONID")
 	private HdzApplication hdzApplication;
 
 	//bi-directional many-to-one association to HdzInterviewquest
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="INTERVIEWQUESTID")
+	@JoinColumn(name="INTERVIEWQUESTID")
 	private HdzInterviewquest hdzInterviewquest;
 
 	public HdzInterviewresp() {

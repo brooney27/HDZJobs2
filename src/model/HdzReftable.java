@@ -31,13 +31,11 @@ public class HdzReftable implements Serializable {
 
 	private String refposition;
 
-	//bi-directional many-to-one association to HdzApplicant
-	@OneToMany(mappedBy="hdzReftable")
-	private List<HdzApplicant> hdzApplicants;
+	
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="APPLICANTID")
+	@JoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
 
 	public HdzReftable() {

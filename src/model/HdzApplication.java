@@ -33,12 +33,12 @@ public class HdzApplication implements Serializable {
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="APPLICANTID")
+	@JoinColumn(name="APPLICANTID")
 	private HdzApplicant hdzApplicant;
 
 	//bi-directional many-to-one association to HdzJob
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="JOBSID")
+	@JoinColumn(name="JOBSID")
 	private HdzJob hdzJob;
 
 	//bi-directional many-to-one association to HdzInterview
