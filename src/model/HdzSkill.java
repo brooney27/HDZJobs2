@@ -22,13 +22,13 @@ public class HdzSkill implements Serializable {
 
 	private String skillname;
 
-	//bi-directional many-to-one association to HdzSkillappbridge
-	@OneToMany(mappedBy="hdzSkill")
-	private List<HdzSkillappbridge> hdzSkillappbridges;
-
 	//bi-directional many-to-one association to HdzJobskillbridge
 	@OneToMany(mappedBy="hdzSkill")
 	private List<HdzJobskillbridge> hdzJobskillbridges;
+
+	//bi-directional many-to-one association to HdzSkillappbridge
+	@OneToMany(mappedBy="hdzSkill")
+	private List<HdzSkillappbridge> hdzSkillappbridges;
 
 	public HdzSkill() {
 	}
@@ -47,28 +47,6 @@ public class HdzSkill implements Serializable {
 
 	public void setSkillname(String skillname) {
 		this.skillname = skillname;
-	}
-
-	public List<HdzSkillappbridge> getHdzSkillappbridges() {
-		return this.hdzSkillappbridges;
-	}
-
-	public void setHdzSkillappbridges(List<HdzSkillappbridge> hdzSkillappbridges) {
-		this.hdzSkillappbridges = hdzSkillappbridges;
-	}
-
-	public HdzSkillappbridge addHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
-		getHdzSkillappbridges().add(hdzSkillappbridge);
-		hdzSkillappbridge.setHdzSkill(this);
-
-		return hdzSkillappbridge;
-	}
-
-	public HdzSkillappbridge removeHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
-		getHdzSkillappbridges().remove(hdzSkillappbridge);
-		hdzSkillappbridge.setHdzSkill(null);
-
-		return hdzSkillappbridge;
 	}
 
 	public List<HdzJobskillbridge> getHdzJobskillbridges() {
@@ -91,6 +69,28 @@ public class HdzSkill implements Serializable {
 		hdzJobskillbridge.setHdzSkill(null);
 
 		return hdzJobskillbridge;
+	}
+
+	public List<HdzSkillappbridge> getHdzSkillappbridges() {
+		return this.hdzSkillappbridges;
+	}
+
+	public void setHdzSkillappbridges(List<HdzSkillappbridge> hdzSkillappbridges) {
+		this.hdzSkillappbridges = hdzSkillappbridges;
+	}
+
+	public HdzSkillappbridge addHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().add(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzSkill(this);
+
+		return hdzSkillappbridge;
+	}
+
+	public HdzSkillappbridge removeHdzSkillappbridge(HdzSkillappbridge hdzSkillappbridge) {
+		getHdzSkillappbridges().remove(hdzSkillappbridge);
+		hdzSkillappbridge.setHdzSkill(null);
+
+		return hdzSkillappbridge;
 	}
 
 }
