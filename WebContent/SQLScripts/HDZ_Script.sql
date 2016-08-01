@@ -23,7 +23,6 @@ drop sequence hdz_application_id_seq;
 drop sequence hdz_jobhistory_id_seq;
 drop sequence hdz_education_id_seq;
 drop sequence hdz_reftable_id_seq;
-drop sequence hdz_jobskillbridge_id_seq;
 drop sequence hdz_jobs_id_seq;
 drop sequence hdz_skillappbridge_id_seq;
 drop sequence hdz_skills_id_seq;
@@ -44,7 +43,7 @@ create sequence  hdz_skillappbridge_id_seq start with 1 increment by 1 nocache;
 create sequence  hdz_skills_id_seq start with 1 increment by 1 nocache;
 create sequence  hdz_application_id_seq start with 1 increment by 1 nocache;
 create sequence  hdz_employee_id_seq start with 1 increment by 1 nocache;
-create sequence  hdz_jobskillbridge_id_seq start with 1 increment by 1 nocache;
+
 
 create table HDZ_employee(
 employeeid integer primary key,
