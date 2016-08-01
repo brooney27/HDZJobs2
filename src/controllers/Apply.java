@@ -50,7 +50,7 @@ public class Apply extends HttpServlet {
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+			}
 		if(applicant.getHdzEmployee()!=null)application.setAppstatus("WorkRefsChecked");
 		
 		try {

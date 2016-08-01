@@ -67,18 +67,13 @@ public class HdzApplicant implements Serializable {
 
 	private String visaflag;
 
-	//bi-directional many-to-one association to HdzEmployee
-	@ManyToOne
-	@JoinColumn(name="EMPLOYEEID")
-	private HdzEmployee hdzEmployee1;
+	
 
 	//bi-directional many-to-one association to HdzApplication
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzApplication> hdzApplications;
 
-	//bi-directional many-to-one association to HdzAward
-	@OneToMany(mappedBy="hdzApplicant1")
-	private List<HdzAward> hdzAwards1;
+	
 
 	//bi-directional many-to-one association to HdzEducation
 	@OneToMany(mappedBy="hdzApplicant")
@@ -101,9 +96,9 @@ public class HdzApplicant implements Serializable {
 	@JoinColumn(name="APPLICANTID")
 	private HdzEmployee hdzEmployee2;
 
-	//bi-directional many-to-one association to HdzAward
-	@OneToMany(mappedBy="hdzApplicant2")
-	private List<HdzAward> hdzAwards2;
+	private HdzEmployee HdzEmployee;
+
+	
 
 	public HdzApplicant() {
 	}
@@ -300,13 +295,7 @@ public class HdzApplicant implements Serializable {
 		this.visaflag = visaflag;
 	}
 
-	public HdzEmployee getHdzEmployee1() {
-		return this.hdzEmployee1;
-	}
-
-	public void setHdzEmployee1(HdzEmployee hdzEmployee1) {
-		this.hdzEmployee1 = hdzEmployee1;
-	}
+	
 
 	public List<HdzApplication> getHdzApplications() {
 		return this.hdzApplications;
@@ -330,27 +319,9 @@ public class HdzApplicant implements Serializable {
 		return hdzApplication;
 	}
 
-	public List<HdzAward> getHdzAwards1() {
-		return this.hdzAwards1;
-	}
+	
 
-	public void setHdzAwards1(List<HdzAward> hdzAwards1) {
-		this.hdzAwards1 = hdzAwards1;
-	}
-
-	public HdzAward addHdzAwards1(HdzAward hdzAwards1) {
-		getHdzAwards1().add(hdzAwards1);
-		hdzAwards1.setHdzApplicant1(this);
-
-		return hdzAwards1;
-	}
-
-	public HdzAward removeHdzAwards1(HdzAward hdzAwards1) {
-		getHdzAwards1().remove(hdzAwards1);
-		hdzAwards1.setHdzApplicant1(null);
-
-		return hdzAwards1;
-	}
+	
 
 	public List<HdzEducation> getHdzEducations() {
 		return this.hdzEducations;
@@ -440,34 +411,20 @@ public class HdzApplicant implements Serializable {
 		return hdzSkillappbridge;
 	}
 
-	public HdzEmployee getHdzEmployee2() {
-		return this.hdzEmployee2;
+	public HdzEmployee getHdzEmployee() {
+		return this.getHdzEmployee();
 	}
 
-	public void setHdzEmployee2(HdzEmployee hdzEmployee2) {
-		this.hdzEmployee2 = hdzEmployee2;
+	public void setHdzEmployee(HdzEmployee hdzEmployee) {
+		this.HdzEmployee = hdzEmployee;
 	}
 
-	public List<HdzAward> getHdzAwards2() {
-		return this.hdzAwards2;
+	public void setHdzAwards(List<HdzAward> awards) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void setHdzAwards2(List<HdzAward> hdzAwards2) {
-		this.hdzAwards2 = hdzAwards2;
-	}
-
-	public HdzAward addHdzAwards2(HdzAward hdzAwards2) {
-		getHdzAwards2().add(hdzAwards2);
-		hdzAwards2.setHdzApplicant2(this);
-
-		return hdzAwards2;
-	}
-
-	public HdzAward removeHdzAwards2(HdzAward hdzAwards2) {
-		getHdzAwards2().remove(hdzAwards2);
-		hdzAwards2.setHdzApplicant2(null);
-
-		return hdzAwards2;
-	}
+	
+	
 
 }
