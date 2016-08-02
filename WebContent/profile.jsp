@@ -21,7 +21,7 @@ $(document).ready(function() {
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-10 col-sm-offset-1" style="background-color=grey">
 	<div class="card hovercard">
 	<img src="${gravatar}">
 	<h2>
@@ -67,7 +67,7 @@ $(document).ready(function() {
       <div class="tab-content">
       <div class="tab-pane fade in active" id="tab1">
 	<h4>Job History</h4>
-	<table class="table table-bordered table-striped table-hover">
+	<table class="table table-bordered table-striped">
 		<tr>
 			<th>Title</th>
 			<th>Company</th>
