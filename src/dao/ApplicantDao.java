@@ -16,7 +16,9 @@ import model.HdzJobhistory;
 import model.HdzReftable;
 import model.HdzSkill;
 
-
+/**
+ * @author Brian
+ */
 public class ApplicantDao {	
 	public static void insert(HdzApplicant applicant) {
 		EntityManager em = DBUtil.getEmfFactory().createEntityManager();

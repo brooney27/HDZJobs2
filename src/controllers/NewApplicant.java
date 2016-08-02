@@ -27,6 +27,7 @@ import util.PasswordUtil;
 
 /**
  * Servlet implementation class NewApplicant
+ * @author Brian and Josh
  */
 @WebServlet("/NewApplicant")
 public class NewApplicant extends HttpServlet {
