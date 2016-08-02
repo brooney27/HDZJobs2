@@ -60,7 +60,9 @@ h3 {
     font-size: 35px;
 }
 .loginBody {  
-	 background-color: #e5e5e5; 
+	 background-color: #cfd8dc;
+	 
+	  
 }
 
 .form-signin input[type="text"] {

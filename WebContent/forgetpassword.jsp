@@ -59,10 +59,16 @@
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading" style="background-color: white;">
+					
+					
+						<div class="row-fluid user-row" style="background-color: white;"
+							align="center">
+							<img src="./images/hdzlogowhite.png" height="160" width="280"/>
+							</div>
 						<div class="row-fluid user-row" style="background-color: white;"
 							align="center">
 							<br>
-							<h3>HDZ Jobs Portal</h3>
+							<h3>Jobs Portal</h3>
 
 						</div>
 					</div>

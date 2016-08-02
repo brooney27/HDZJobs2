@@ -55,9 +55,10 @@
 		<div class="row vertical-offset-100">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
-					<div class="panel-heading" style="background-color: white;"><div class="row-fluid user-row" style="background-color: white;"
+					<div class="panel-heading" style="background-color: white;">
+					<div class="row-fluid user-row" style="background-color: white;"
 							align="center">
-							<img src="./images/hdzlogo.png" height="160" width="280"/>
+							<img src="./images/hdzlogowhite.png" height="160" width="280"/>
 							</div>
 						<div class="row-fluid user-row" style="background-color: white;"
 							align="center">
