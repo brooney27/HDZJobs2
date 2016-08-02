@@ -79,7 +79,8 @@ alcoholtest varchar2(100),
 careerobj varchar2(200),
 appsummary varchar2(200),
 phonenum integer,
-employeeid integer
+employeeid integer,
+CONSTRAINT fk_HDZ_Applicant_employeeid FOREIGN KEY (employeeid) references HDZ_employee(employeeid)
 );
 
 create table HDZ_Education(
@@ -88,8 +89,8 @@ educationflag varchar2(1),
 applicantid integer,
 schoolname varchar2(200) ,
 degreecompleted varchar2(100),
-datecompleted varchar2(100)
-
+datecompleted varchar2(100),
+CONSTRAINT fk_HDZ_Education_applicantid FOREIGN KEY (applicantid) references HDZ_Applicant(applicantid)
 );
 
 create table HDZ_jobhistory(
@@ -100,8 +101,8 @@ position varchar2(50) ,
 companyname varchar2(200) ,
 startdate varchar2(100) ,
 enddate varchar2(100),
-description varchar2(100) 
-
+description varchar2(100),
+CONSTRAINT fk_HDZ_jobhistory_applicantid FOREIGN KEY (applicantid) references HDZ_Applicant(applicantid)
 );
 
 create table HDZ_reftable(
@@ -111,7 +112,8 @@ applicantid integer,
 refname varchar2(50) ,
 refemail varchar2(200) ,
 refphone varchar2(200) ,
-refposition varchar2(200) 
+refposition varchar2(200),
+CONSTRAINT fk_HDZ_reftable_applicantid FOREIGN KEY (applicantid) references HDZ_Applicant(applicantid)
 );
 
 create table HDZ_skills(
@@ -130,8 +132,12 @@ create table HDZ_jobskillbridge(
 jobskillbridgeid integer primary key,
 jobsid integer,
 skillsid integer,
-experience varchar2(100)
+experience varchar2(100),
+CONSTRAINT fk_HDZ_jobskillbridge_jobsid FOREIGN KEY (jobsid) references HDZ_Jobs(jobsid),
+CONSTRAINT fk_HDZ_jobskillbridge_skillsid FOREIGN KEY (skillsid) references HDZ_skills(skillsid)
 );
+
+
 
 create table HDZ_application(
 applicationid integer primary key,
@@ -141,22 +147,26 @@ jobsid integer ,
 appstatus varchar2(50) ,
 comments varchar2(500) ,
 appscore integer default null,
-codingtestscore integer
-
+codingtestscore integer,
+CONSTRAINT fk_HDZ_application_applicantid FOREIGN KEY (applicantid) references HDZ_Applicant(applicantid),
+CONSTRAINT fk_HDZ_application_jobsid FOREIGN KEY (jobsid) references HDZ_Jobs(jobsid)
 );
 
 create table HDZ_skillappbridge(
 skillappbridgeid integer primary key,
 skillsid integer,
 applicantid integer,
-experience varchar2(100)
+experience varchar2(100),
+CONSTRAINT fk_HDZ_skappbridge_applicantid FOREIGN KEY (applicantid) references HDZ_Applicant(applicantid),
+CONSTRAINT fk_HDZ_skappbridge_skillsid FOREIGN KEY (skillsid) references HDZ_skills(skillsid)
 );
 
 create table HDZ_award(
 awardid integer primary key,
 awardname varchar2(100),
 awardyear varchar2(100),
-applicantid integer
+applicantid integer,
+CONSTRAINT fk_HDZ_award_applicantid FOREIGN KEY (applicantid) references HDZ_Applicant(applicantid)
 );
 
 create table HDZ_codingquest(
@@ -169,14 +179,16 @@ create table HDZ_interviewquest(
 interviewquestid integer primary key,
 jobsid integer,
 interviewtype varchar2(100),
-question varchar2(200)
+question varchar2(200),
+CONSTRAINT fk_HDZ_interviewquest_jobsid FOREIGN KEY (jobsid) references HDZ_Jobs(jobsid)
 );
 
 create table HDZ_interview(
 interviewid integer primary key,
 interviewtype varchar2(100),
 applicationid integer,
-score integer default null
+score integer default null,
+CONSTRAINT fk_HDZ_interview_applicationid FOREIGN KEY (applicationid) references HDZ_Application(applicationid)
 );
 
 create table HDZ_interviewresp(
@@ -184,7 +196,9 @@ interviewrespid integer primary key,
 applicationid integer,
 interviewquestid integer,
 interviewtype varchar2(100),
-questionflag varchar(1)
+questionflag varchar(1),
+CONSTRAINT fk_HDZ_inresp_applicationid FOREIGN KEY (applicationid) references HDZ_Application(applicationid),
+CONSTRAINT fk_HDZ_inresp_interviewquestid FOREIGN KEY (interviewquestid) references HDZ_interviewquest(interviewquestid)
 );
 
 commit;

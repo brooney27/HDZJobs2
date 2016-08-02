@@ -33,8 +33,8 @@
 </ul>
 <h5>References</h5>
 <ul>
-<c:forEach var="ref" items="${user.hdzAwards}">
-<li><c:out value="${ref.awardname}: ${ref.awardyear}"/></li>
+<c:forEach var="ref" items="${user.hdzReftables}">
+<li><c:out value="${ref.refname}: ${ref.refposition} - Email Address: ${ref.refemail}"/></li>
 </c:forEach>
 </ul>
 </body>

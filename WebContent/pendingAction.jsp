@@ -128,7 +128,9 @@
 											<th>Job Title</th>
 											<th>Job description</th>
 											<th>Skills</th>
+											<c:if test="${role=='HiringManager'}">
 											<th>Matching</th>
+											</c:if>
 										</tr>
 									</thead>
 									<c:forEach var="app" items="${applicationsSearch}">
@@ -162,7 +164,7 @@
 								</table>
 								
 								<c:set var="mycandidates" scope="session" value="${candidates}" />
-									<c:if test="${mycandidates != null && mycandidates != ''}">
+									<c:if test="${mycandidates != null && mycandidates != '' && role=='HiringManager'}">
 								<table class="table table-bordered">
 
 									<thead>
@@ -193,7 +195,7 @@
 								</table>
 								
 								</c:if>
-								<c:if test="${mycandidates  == null}">
+								<c:if test="${mycandidates  == null && role=='HiringManager'}">
 								
 								<h4>No Qualified Candidates</h4>
 								</c:if>

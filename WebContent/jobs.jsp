@@ -11,24 +11,30 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
+<div class="container">
 <h2>Job Openings</h2>
 <h4>${query}</h4>
 <form action="JobSearch">
 <input type="text" name="search" id="search"/>
-<input type="submit" name="submit" id="submit" value="Search"/>
+<input type="submit" class="btn btn-info" name="submit" id="submit" value="Search"/>
 </form>
-<table>
+<table class="table table-bordered">
 <tr>
-<th>Position</th><th>Description</th>
+<th>Position</th><th>Description</th><th>Required Skills</th>
 </tr>
 <c:forEach var="job" items="${jobs}">
 <tr>
 <td>${job.position}</td><td>${job.description}</td>
 <c:if test="${user!=null}">
 <td>
+<c:forEach var="skill" items="${job.hdzJobskillbridges}">
+<c:out value="${skill.hdzSkill.skillname}: ${skill.experience} years"/>
+</c:forEach>
+</td>
+<td>
 <form action="Apply">
 <input type="hidden" name="jobid" id="jobid" value="${job.jobsid}"/>
-<input type="submit" name="submit" id="submit" value="Apply"/>
+<input type="submit" class="btn btn-primary" name="submit" id="submit" value="Apply"/>
 </form>
 </td>
 </c:if>
@@ -38,5 +44,6 @@
 </tr>
 </c:forEach>
 </table>
+</div>
 </body>
 </html>

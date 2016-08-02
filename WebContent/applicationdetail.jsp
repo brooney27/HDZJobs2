@@ -68,8 +68,19 @@ function limitText(limitField, limitCount, limitNum) {
  		<c:out value="${myapplicaitondetail.appstatus}"/>
  		</td>	
      </tr>
+     
+           <tr>
+     <td align="center" Style="font-weight: bold;font-size:16px; "  >   
+       
+ 		<c:out value="Application score"/>
+ 		</td>
+ 	 <td align="center" Style="font-size:16px; " >   
+       
+ 		<c:out value="${myapplicaitondetail.appscore}"/>
+ 		</td>	
+     </tr>
         <tr>
-     <td align="center" Style="background-color: #01579b ;color: #fff;font-weight: bold;font-size:16px; " >   
+     <td align="center" Style="background-color: #01579b ;color: #fff;font-weight: bold;font-size:16px; ">   
        
  		<c:out value="Applicant Name"/>
  		</td>
@@ -79,6 +90,19 @@ function limitText(limitField, limitCount, limitNum) {
  		</td>	
      </tr>
      
+
+     
+      <tr>
+     <td align="center" Style="font-weight: bold;font-size:16px; " >   
+       
+ 		<c:out value="Applicant Skill"/>
+ 		</td>
+ 	 <td align="center" Style="font-size:16px; " >   
+ 	 <c:set var="appskills"  value="${myapplicaitondetail.applicationid}" />
+       
+ 		<c:out value="${applicantskill[appskills]}"/>
+ 		</td>	
+     </tr>
     
        <tr>
      <td align="center" Style="font-weight: bold;font-size:16px; " >   
@@ -187,16 +211,7 @@ function limitText(limitField, limitCount, limitNum) {
      </tr>
    
      
-      <tr>
-     <td align="center" Style="font-weight: bold;font-size:16px; " >   
-       
- 		<c:out value="Drug Test"/>
- 		</td>
- 	 <td align="center" Style="font-size:16px; " >   
-       
- 		<c:out value="${myapplicaitondetail.hdzApplicant.drugtest}"/>
- 		</td>	
-     </tr>
+      
       
        <tr>
      <td align="center" Style="font-weight: bold;font-size:16px; " >   
@@ -210,16 +225,7 @@ function limitText(limitField, limitCount, limitNum) {
      </tr>
      
      
-     <tr>
-     <td align="center" Style="font-weight: bold;font-size:16px; " >   
-       
- 		<c:out value="STD Panel"/>
- 		</td>
- 	 <td align="center" Style="font-size:16px; " >   
-       
- 		<c:out value="${myapplicaitondetail.hdzApplicant.stdpanel}"/>
- 		</td>	
-     </tr>
+    
          
        <tr>
      <td align="center" Style="font-weight: bold;font-size:16px; " >   
@@ -233,16 +239,7 @@ function limitText(limitField, limitCount, limitNum) {
      </tr>
     
      
-      <tr>
-     <td align="center" Style="font-weight: bold;font-size:16px; " >   
-       
- 		<c:out value="DOT Test"/>
- 		</td>
- 	 <td align="center" Style="font-size:16px; " >   
-       
- 		<c:out value="${myapplicaitondetail.hdzApplicant.dottest}"/>
- 		</td>	
-     </tr>
+      
      
        
        <tr>
@@ -257,16 +254,7 @@ function limitText(limitField, limitCount, limitNum) {
      </tr>
     
      
-     <tr>
-     <td align="center" Style="font-weight: bold;font-size:16px; " >   
-       
- 		<c:out value="Alcohol Test"/>
- 		</td>
- 	 <td align="center" Style="font-size:16px; " >   
-       
- 		<c:out value="${myapplicaitondetail.hdzApplicant.alcoholtest}"/>
- 		</td>	
-     </tr>
+     
      
      
        <tr>
@@ -303,7 +291,17 @@ function limitText(limitField, limitCount, limitNum) {
  		<c:out value="${myapplicaitondetail.hdzJob.description}"/>
  		</td>	
      </tr>
-     
+     <tr>
+     <td align="center" Style="font-weight: bold;font-size:16px; " >   
+       
+ 		<c:out value="Job Skill"/>
+ 		</td>
+ 	 <td align="center" Style="font-size:16px; " >   
+ 	 <c:set var="jobskills"  value="${myapplicaitondetail.hdzJob.jobsid}" />
+       
+ 		<c:out value="${jobskill[jobskills]}"/>
+ 		</td>	
+     </tr>
 	 
      
      

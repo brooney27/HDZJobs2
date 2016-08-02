@@ -2,8 +2,6 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.List;
 
 
 /**
@@ -31,7 +29,6 @@ public class HdzReftable implements Serializable {
 
 	private String refposition;
 
-	
 
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
@@ -87,28 +84,6 @@ public class HdzReftable implements Serializable {
 
 	public void setRefposition(String refposition) {
 		this.refposition = refposition;
-	}
-
-	public List<HdzApplicant> getHdzApplicants() {
-		return this.hdzApplicants;
-	}
-
-	public void setHdzApplicants(List<HdzApplicant> hdzApplicants) {
-		this.hdzApplicants = hdzApplicants;
-	}
-
-	public HdzApplicant addHdzApplicant(HdzApplicant hdzApplicant) {
-		getHdzApplicants().add(hdzApplicant);
-		hdzApplicant.setHdzReftable(this);
-
-		return hdzApplicant;
-	}
-
-	public HdzApplicant removeHdzApplicant(HdzApplicant hdzApplicant) {
-		getHdzApplicants().remove(hdzApplicant);
-		hdzApplicant.setHdzReftable(null);
-
-		return hdzApplicant;
 	}
 
 	public HdzApplicant getHdzApplicant() {
