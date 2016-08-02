@@ -72,6 +72,7 @@ public class HdzApplicant implements Serializable {
 	@JoinColumn(name="EMPLOYEEID")
 	private HdzEmployee hdzEmployee;
 
+
 	//bi-directional many-to-one association to HdzApplication
 	@OneToMany(mappedBy="hdzApplicant")
 	private List<HdzApplication> hdzApplications;
@@ -298,6 +299,7 @@ public class HdzApplicant implements Serializable {
 	public void setHdzEmployee(HdzEmployee hdzEmployee) {
 		this.hdzEmployee = hdzEmployee;
 	}
+
 
 	public List<HdzApplication> getHdzApplications() {
 		return this.hdzApplications;

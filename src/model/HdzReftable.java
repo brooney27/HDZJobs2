@@ -29,6 +29,7 @@ public class HdzReftable implements Serializable {
 
 	private String refposition;
 
+
 	//bi-directional many-to-one association to HdzApplicant
 	@ManyToOne
 	@JoinColumn(name="APPLICANTID")

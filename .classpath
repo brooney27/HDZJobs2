@@ -15,5 +15,13 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/eclipselink.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/java-json.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/javax.persistence_2.1.0.v201304241213.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/home/oracle/workspace/HDZJobs2/WebContent/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

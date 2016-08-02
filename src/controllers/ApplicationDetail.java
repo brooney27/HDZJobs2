@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.HashMap;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.*;
+import services.QualifiedService;
 /**
  * Servlet implementation class ApplicationDetail
  */
@@ -33,6 +36,16 @@ public class ApplicationDetail extends HttpServlet {
 		
 		
 		HdzApplication myapplication=dao.PendingActionsDao.getapplicationbyapplicationid(applicationid);
+		
+		
+		HashMap<Long, String> jobskillmap=QualifiedService.gethashmapSkillsbyJob();
+		
+		HashMap<Long, String> applicantmap=QualifiedService.gethashmapSkillsbyApplicant();
+		
+		 request.setAttribute("applicantskill", applicantmap);
+		
+		request.setAttribute("jobskill", jobskillmap);
+		
 		
 		session.setAttribute("myapplicaitondetail", myapplication);
 		
