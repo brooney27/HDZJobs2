@@ -23,6 +23,7 @@ public class JobSearch extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String search = request.getParameter("search");
 		
+		
 		List<HdzJob> jobs = ApplicantDao.searchJobs(search);
 		
 		request.setAttribute("jobs", jobs);

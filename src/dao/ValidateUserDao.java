@@ -91,5 +91,37 @@ public class ValidateUserDao {
 
 		return user;
 	}
+	
+	public static HdzEmployee getValidEmployee(String email) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		String qString = "Select u from HdzEmployee u where u.email=:email";
+		TypedQuery<HdzEmployee> q = em.createQuery(qString, HdzEmployee.class);
+		q.setParameter("email", email);
+		HdzEmployee user = null;
+		try {
+			user = q.getSingleResult();
+		} catch (NoResultException e) {
+			user=null;
+			System.out.println(e);
+			em.close();
+		}	
+
+		return user;
+	}
+	public static HdzApplicant getValidApplicant(String email) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		String qString = "Select u from HdzApplicant u where u.email=:email";
+		TypedQuery<HdzApplicant> q = em.createQuery(qString, HdzApplicant.class);
+		q.setParameter("email", email);
+		HdzApplicant user = null;
+		try {
+			user = q.getSingleResult();
+		} catch (NoResultException e) {
+			user=null;
+			System.out.println(e);
+			em.close();
+		}
+		return user;
+	}
 
 }

@@ -20,7 +20,7 @@
     </c:if>
     <c:if test="${user == null}"> 
     <li><a href="./Jobs" style="color: #fff;font-weight: bold;font-size: 16px" >Jobs</a></li>
-     <li ><a href="login.jsp"  style="color: #fff;font-weight: bold;font-size: 16px">Login</a></li>
+     <li ><a href="login.jsp"  style="color: #fff;font-weight: bold;font-size: 16px">Log in</a></li>
     </c:if>
     </ul>
  

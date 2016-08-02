@@ -56,6 +56,19 @@ public class GradeCodeTest extends HttpServlet {
 		application.setCodingtestscore(new BigDecimal(numCorrect));
 		if(numCorrect>6){
 			application.setCodingtest("Y");
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "The applicant has passed coding test!", "Hi Hiring Manager"+",<br/><br/> The applicant called "+application.getHdzApplicant().getFirstname()+" "+application.getHdzApplicant().getLastname()+" has passed the coding test. The application id is "+application.getApplicationid()+".  <br/> <br/> Best,<br/> <br/> HDZ Jobs <br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "The applicant has passed coding test!", "Hi Group Manager"+",<br/><br/> The applicant called "+application.getHdzApplicant().getFirstname()+" "+application.getHdzApplicant().getLastname()+" has passed the coding test. The application id is "+application.getApplicationid()+".  <br/> <br/> Best,<br/> <br/> HDZ Jobs <br/>", true);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		else{
 			application.setCodingtest("N");

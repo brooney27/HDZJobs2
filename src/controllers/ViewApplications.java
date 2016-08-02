@@ -19,6 +19,7 @@ import services.QualifiedService;
 
 /**
  * Servlet implementation class ViewApplications
+ * @author sanjuktha
  */
 @WebServlet("/ViewApplications")
 public class ViewApplications extends HttpServlet {

@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
 				
 				nextURL = "/yourapplications.jsp";
 			} else {
+				session.setAttribute("user", null);
 				request.setAttribute("message",  "Applicant not found. Please login again or create a new account.");
 				nextURL = "/login.jsp";
 			}
@@ -58,6 +59,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("userrole",  2);
 				nextURL = "/PendingAction";
 			} else {
+				session.setAttribute("user", null);
 				request.setAttribute("message",  "Employee not found. Please enter a valid email and password.");
 				nextURL = "/login.jsp";
 			}

@@ -13,6 +13,7 @@ import model.HdzJob;
 
 /**
  * Servlet implementation class AddJobs
+ * @author sanjuktha
  */
 @WebServlet("/AddJobs")
 public class AddJobs extends HttpServlet {

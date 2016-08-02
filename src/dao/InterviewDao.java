@@ -13,6 +13,12 @@ import javax.persistence.TypedQuery;
 import model.*;
 import util.DBUtil;
 
+/**
+ * @author Xiaoyu He
+ *
+ *
+ */
+
 public class InterviewDao {
 
 	public static String getCosingTest(long id) {

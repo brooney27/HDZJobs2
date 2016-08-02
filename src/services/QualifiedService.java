@@ -164,7 +164,10 @@ public static List<HdzApplicant> getAllApplicants(){
 			String content="";
 			for(HdzJobskillbridge a: mylist)
 			{
-				content+=a.getHdzSkill().getSkillname().toString()+" "+a.getExperience()+" years ";
+					
+				content+=a.getHdzSkill().getSkillname().toString()+": "+a.getExperience()+" years, ";
+				
+				
 			}
 			
 			mymap.put(job.getJobsid(), content);
@@ -185,7 +188,7 @@ public static List<HdzApplicant> getAllApplicants(){
 			String content="";
 			for(HdzSkillappbridge a: mylist)
 			{
-				content+=a.getHdzSkill().getSkillname().toString()+" "+a.getExperience()+" years ";
+				content+=a.getHdzSkill().getSkillname().toString()+": "+a.getExperience()+" years, ";
 			}
 			
 			mymap.put(app.getApplicantid(), content);

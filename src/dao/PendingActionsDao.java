@@ -13,9 +13,28 @@ import controllers.PendingAction;
 import util.*;
 import model.*;
 
+/**
+ * @author Xiaoyu He
+ *
+ *
+ */
 public class PendingActionsDao {
 
 	public static void update(HdzApplicant user) {
+		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		try {
+			trans.begin();
+			em.merge(user);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
+	
+	public static void update(HdzEmployee user) {
 		EntityManager em = DBUtil.getEmfFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		try {
