@@ -64,16 +64,16 @@ insert into HDZ_jobhistory (jobhistoryid,jobhistoryflag,applicantID, position, c
 values (hdz_jobhistory_id_seq.nextval,null, 1,'Software Engineer', 'Facebook', '08/05/2010','01/07/2016','Java Programmer, Agile Development');
 
 insert into HDZ_jobhistory (jobhistoryid,jobhistoryflag,applicantID, position, companyname, startdate,enddate, description ) 
-values (hdz_jobhistory_id_seq.nextval,null, 1,'Business Analyst', 'IPS', '05/05/2013','01/07/2015','Agile, Waterfall methodology');
+values (hdz_jobhistory_id_seq.nextval,null, 2,'Business Analyst', 'IPS', '05/05/2013','01/07/2015','Agile, Waterfall methodology');
 
 insert into HDZ_jobhistory (jobhistoryid,jobhistoryflag,applicantID, position, companyname, startdate,enddate, description ) 
-values (hdz_jobhistory_id_seq.nextval,null, 1,'Hardware Engineer', 'Apple', '01/25/2010','01/20/2016','PCB design, Velilog, TCL,Perl');
+values (hdz_jobhistory_id_seq.nextval,null, 3,'Hardware Engineer', 'Apple', '01/25/2010','01/20/2016','PCB design, Velilog, TCL,Perl');
 
 insert into HDZ_jobhistory (jobhistoryid,jobhistoryflag,applicantID, position, companyname, startdate,enddate, description ) 
-values (hdz_jobhistory_id_seq.nextval,null, 1,'Cyber Security Engineer', 'Amazon', '03/09/2000','01/07/2016','Java, networking');
+values (hdz_jobhistory_id_seq.nextval,null, 4,'Cyber Security Engineer', 'Amazon', '03/09/2000','01/07/2016','Java, networking');
 
 insert into HDZ_jobhistory (jobhistoryid,jobhistoryflag,applicantID, position, companyname, startdate,enddate, description ) 
-values (hdz_jobhistory_id_seq.nextval,null, 1,' Senior Software Engineer', 'Oracle', '08/05/2011','01/07/2015','Java Programmer,Adop');
+values (hdz_jobhistory_id_seq.nextval,null, 5,' Senior Software Engineer', 'Oracle', '08/05/2011','01/07/2015','Java Programmer,Adop');
 
 --reftable
 
@@ -106,7 +106,6 @@ values (hdz_skills_id_seq.nextval, 'Python');
 insert into HDZ_skills (skillsid, skillname)
 values (hdz_skills_id_seq.nextval, 'C');
 
-
 insert into HDZ_skills (skillsid, skillname)
 values (hdz_skills_id_seq.nextval, 'C++');
 
@@ -132,7 +131,19 @@ insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
 values (hdz_jobs_id_seq.nextval, 'Quality Assurance', 'Software testing and configuration','Y');
 
 insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
-values (hdz_jobs_id_seq.nextval, 'Cyber security', 'Software development and networking','N');
+values (hdz_jobs_id_seq.nextval, 'Cyber security', 'Software development and networking','Y');
+
+insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Software Analyst', 'Software development','Y');
+
+insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Software Architect', 'CAD,Programming languages','Y');
+
+insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Electrical Design Engineer', 'Virtuoso,design vision','Y');
+
+insert into HDZ_Jobs (jobsid, position, description, codingtestreq)
+values (hdz_jobs_id_seq.nextval, 'Technology Analyst', 'Agile,Java development','Y');
 
 --jobskillbridge
 
@@ -150,6 +161,29 @@ values (hdz_jobskillbridge_id_seq.nextval,3,7,'2');
 
 insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
 values (hdz_jobskillbridge_id_seq.nextval,4,8,'2');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,5,1,'1');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,6,5,'3');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,7,6,'2');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,8,7,'2');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,8,8,'3');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,4,1,'2');
+
+insert into HDZ_jobskillbridge (jobskillbridgeid, jobsid,skillsid,experience)
+values (hdz_jobskillbridge_id_seq.nextval,2,6,'3');
+
+
 --application
 
 insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
@@ -164,6 +198,24 @@ values (hdz_application_id_seq.nextval, 3,'N', 3,'New',null,null,null);
 insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
 values (hdz_application_id_seq.nextval, 4,'Y', 4,'New',null,null,null);
 
+
+insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
+values (hdz_application_id_seq.nextval, 5,'Y', 5,'New',null,null,null);
+
+insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
+values (hdz_application_id_seq.nextval, 1,'Y', 6,'New',null,null,null);
+
+insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
+values (hdz_application_id_seq.nextval, 2,'Y', 7,'New',null,null,null);
+
+insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
+values (hdz_application_id_seq.nextval, 3,'Y', 8,'New',null,null,null);
+
+insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
+values (hdz_application_id_seq.nextval, 4,'Y', 1,'New',null,null,null);
+
+insert into HDZ_application (applicationid, applicantID,codingtest, jobsID,appstatus,comments,appscore,codingtestscore)
+values (hdz_application_id_seq.nextval, 5,'Y', 2,'New',null,null,null);
 
 --bridge
 
@@ -181,6 +233,13 @@ values (hdz_skillappbridge_id_seq.nextval,4,4,'1');
 
 insert into HDZ_skillappbridge (skillappbridgeid, skillsid, applicantid, experience)
 values (hdz_skillappbridge_id_seq.nextval,5,5,'3');
+
+insert into HDZ_skillappbridge (skillappbridgeid, skillsid, applicantid, experience)
+values (hdz_skillappbridge_id_seq.nextval,6,1,'2');
+
+insert into HDZ_skillappbridge (skillappbridgeid, skillsid, applicantid, experience)
+values (hdz_skillappbridge_id_seq.nextval,7,2,'3');
+
 
 --award
 
@@ -631,5 +690,5 @@ insert into HDZ_interviewresp (interviewrespid, applicationid, interviewquestid,
 values (hdz_interviewresp_id_seq.nextval,4,4,'HR Interview','F');
 
 
-
+commit;
 

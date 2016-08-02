@@ -194,7 +194,7 @@ public class InterviewReportSubmission extends HttpServlet {
 					} else {
 						hdzApplication.setAppstatus("GroupInterviewDone");
 						try {
-							Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Group interview!", "Hi"+hdzApplication.getHdzApplicant().getFirstname()+",<br/> You have PASSED Group interview!"+". Your application has been set as GroupInterviewDone! We will reach you soon! <br/> Thank you for choosing HDZ Jobs!! <br/> Best,<br/> HDZ Jobs <br/>", true);
+							Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Group interview!", "Hi "+hdzApplication.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED Group interview!"+". Your application has been set as GroupInterviewDone! We will reach you soon! <br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/><br/>", true);
 						} catch (MessagingException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
