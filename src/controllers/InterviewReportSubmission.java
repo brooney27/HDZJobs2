@@ -20,6 +20,7 @@ import util.Email;
 
 /**
  * Servlet implementation class InterviewReportSubmission
+ * @author Xiaoyu He
  */
 @WebServlet("/InterviewReportSubmission")
 public class InterviewReportSubmission extends HttpServlet {
@@ -141,6 +142,13 @@ public class InterviewReportSubmission extends HttpServlet {
 						e.printStackTrace();
 					}
 					
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "The applicant has passed HR Interview", "Hi Hiring Manager"+",<br/><br/> The applicant called "+hdzApplication.getHdzApplicant().getFirstname()+" "+hdzApplication.getHdzApplicant().getLastname()+" has passed the HR Interview. The application id is "+hdzApplication.getApplicationid()+".  <br/> <br/> Best,<br/> <br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					
 					InterviewService.updateApplication(hdzApplication);
 				} else {
@@ -165,6 +173,13 @@ public class InterviewReportSubmission extends HttpServlet {
 					hdzApplication.setAppstatus("HMInterviewDone");	
 					try {
 						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed HM interview!", "Hi "+hdzApplication.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED HM interview!"+". Your application has been set as HMInterviewDone! We will reach you soon! <br/> <br/>Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					try {
+						Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "The applicant has passed HM Interview", "Hi Group Interview Manager"+",<br/><br/> The applicant called "+hdzApplication.getHdzApplicant().getFirstname()+" "+hdzApplication.getHdzApplicant().getLastname()+" has passed the HM Interview. The application id is "+hdzApplication.getApplicationid()+".  <br/> <br/> Best,<br/> <br/> HDZ Jobs <br/>", true);
 					} catch (MessagingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

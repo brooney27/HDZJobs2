@@ -15,6 +15,7 @@ import services.RoleActionService;
 
 /**
  * Servlet implementation class PendingAction
+ * @author Xiaoyu He, Navreet
  */
 @WebServlet("/PendingAction")
 public class PendingAction extends HttpServlet {

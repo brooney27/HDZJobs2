@@ -14,6 +14,7 @@ import model.*;
 import services.QualifiedService;
 /**
  * Servlet implementation class ApplicationDetail
+ * @author Xiaoyu He
  */
 @WebServlet("/ApplicationDetail")
 public class ApplicationDetail extends HttpServlet {

@@ -16,6 +16,7 @@ import util.Email;
 
 /**
  * Servlet implementation class EducationForm
+ * @author Xiaoyu He
  */
 @WebServlet("/EducationForm")
 public class EducationForm extends HttpServlet {
