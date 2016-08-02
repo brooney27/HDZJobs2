@@ -19,6 +19,7 @@ import util.Email;
 
 /**
  * Servlet implementation class FinalReport
+ * @author Xiaoyu He
  */
 @WebServlet("/FinalReport")
 public class FinalReport extends HttpServlet {

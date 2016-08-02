@@ -13,6 +13,11 @@ import controllers.PendingAction;
 import util.*;
 import model.*;
 
+/**
+ * @author Xiaoyu He
+ *
+ *
+ */
 public class PendingActionsDao {
 
 	public static void update(HdzApplicant user) {

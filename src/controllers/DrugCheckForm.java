@@ -16,6 +16,7 @@ import util.Email;
 
 /**
  * Servlet implementation class DrugCheckForm
+ * @author Xiaoyu He
  */
 @WebServlet("/DrugCheckForm")
 public class DrugCheckForm extends HttpServlet {
