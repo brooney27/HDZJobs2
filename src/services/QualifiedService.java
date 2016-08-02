@@ -15,7 +15,9 @@ import model.HdzJobskillbridge;
 import model.HdzSkill;
 import model.HdzSkillappbridge;
 import util.DBUtil;
-
+/**
+ * @author Brian and Xiaoyu
+ */
 public class QualifiedService {
 	public static List<HdzApplicant> getQualifiedApplicants(List<HdzJobskillbridge> skills){
 		if(skills==null||skills.size()==0){

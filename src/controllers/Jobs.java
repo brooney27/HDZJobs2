@@ -14,6 +14,7 @@ import model.HdzJob;
 
 /**
  * Servlet implementation class Jobs
+ * @author Brian
  */
 @WebServlet("/Jobs")
 public class Jobs extends HttpServlet {

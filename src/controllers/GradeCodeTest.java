@@ -16,6 +16,7 @@ import util.Email;
 
 /**
  * Servlet implementation class GradeCodeTest
+ * @author Brian
  */
 @WebServlet("/GradeCodeTest")
 public class GradeCodeTest extends HttpServlet {
