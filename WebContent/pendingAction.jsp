@@ -302,7 +302,7 @@
 											<td><a class="btn btn-primary" Style="color:white"
 												href="FinalReport?hireappid=${report.applicationid}">
 													Hire</a>
-													<a
+													<a class="btn btn-primary" Style="color:white"
 												href="FinalReport?failappid=${report.applicationid}">
 													Fail</a></td>
 										</tr>
