@@ -8,7 +8,6 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
 <!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -19,6 +18,8 @@
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <link rel="stylesheet" href="css/style.css" />
 <title>Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 <script>
 	function validateLogin() {
 		var email = $('#email').val();
@@ -84,7 +85,7 @@
 										
 
 									<br/>
-									<select id="loginrole" name="loginrole" style="width: 320px;">
+									<select class="selectpicker" data-style="btn-info" id="loginrole" name="loginrole" data-width="auto">
 										<option value="applicant">Applicant</option>
 										<option value="employee">Employee</option>
 									</select> <br/><br/>

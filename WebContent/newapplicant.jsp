@@ -137,7 +137,7 @@
 												<option value="yes">Veteran</option>
 												<option value="no">Non-veteran</option>
 											</select>
-											<select class="selectpicker show-menu-arrow" data-style="btn-info" name="citizen" data-width="auto">
+											<select class="selectpicker" data-style="btn-info" name="citizen" data-width="auto">
 												<option value="yes">Citizen</option>
 												<option value="no">Non-citizen</option>
 											</select>
