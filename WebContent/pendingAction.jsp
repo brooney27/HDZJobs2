@@ -150,7 +150,7 @@
 						
 											<c:if test="${role=='HiringManager'}">
 											 
-												<td><a
+												<td><a class="btn btn-primary" Style="color:white"
 												href="ViewApplications?jobid=${app.hdzJob.jobsid}">
 													Search Qualified Applicants</a>		
 													</td>				
@@ -237,7 +237,7 @@
 											<td><c:out value="${action.hdzApplicant.firstname}"></c:out>
 											</td>
 											<td><c:out value="${action.appstatus}"></c:out></td>
-											<td><a
+											<td><a class="btn btn-primary" Style="color:white"
 												href="ActionSubmit?applicationid=${action.applicationid}">
 													Take Action</a></td>
 										</tr>
@@ -299,7 +299,7 @@
 											</td>
 											<td><c:out value="${report.appstatus}"></c:out></td>
 											<td><c:out value="${report.appscore}"></c:out></td>
-											<td><a
+											<td><a class="btn btn-primary" Style="color:white"
 												href="FinalReport?hireappid=${report.applicationid}">
 													Hire</a>
 													<a

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>HDZ Jobs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -62,9 +62,9 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <ul class="w3-navbar" id="myNavbar">
-    <li><a href="./login.jsp" class="w3-padding-large">Log In</a></li>
+    <li><a href="./login.jsp" class="w3-padding-large">LOG IN</a></li>
     <li class="w3-hide-small w3-right">
-      <a href="./Jobs" class="w3-padding-large w3-hover-red"><i class="fa fa-search"></i></a>
+      <a href="./Jobs" class="w3-padding-large w3-hover-red"><i class="fa fa-search"> Search Jobs</i></a>
     </li>
   </ul>
 </div>
@@ -72,27 +72,26 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-opacity w3-display-container">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span > </span>
+     <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">HDZ<span class="w3-hide-small">JOBS</span></span>
   </div>
 </div>
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-<div align="center"><img src="./images/hdzlogowhite.png" height="160" width="280"/></div>
+
   <h3 class="w3-center">ABOUT US</h3>
   <p class="w3-center"><em>Jobs at HDZ</em></p>
   <p>Innovation is'nt easy. Or quick to come by. So ours is challenging workplace where teams are diverse,competitive and continually searching for tomorrow's technology and the brilliant minds to create it.</p>
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-section">
-      <p><b>My Name</b></p><br>
-      <img src="https://unsplash.it/235/235?image=91" class="w3-circle" alt="Photo of Me">
+      <p><b>Our Company</b></p><br>
+      <img src="./images/hdzlogowhite.png" height="160" width="280"/>
     </div>
 
     <!-- Hide this text on small devices -->
     <div class="w3-col m6 w3-hide-small w3-section">
-      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Have you ever wondered what it is like to work at HDZ?  We see the everyday as a bar that continually needs to be raised. Step inside our world and you will find one brilliant mind after another. You'll find everything from scientists and engineers to accountants and MBAs, all working together in a spirit of collaboration. We believe people should make informed decisions about their future, and for this reason we invite you to attend a number of Intel-sponsored recruiting or virtual event offerings and learn about the various opportunities for you across the company.
+Our employees' passion for innovation drives new technologies that solve real-world challenges across the globe.</p>
     </div>
   </div>
 </div>
@@ -167,13 +166,13 @@ body, html {
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-light-grey w3-wide" Style="color:black"></span>
+     <span class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</span>
   </div>
 </div>
 
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">WHERE We WORK</h3>
+  <h3 class="w3-center">Location</h3>
   <p class="w3-center"><em>We'd love your feedback!</em></p>
 
   <div class="w3-row w3-padding-32 w3-section">

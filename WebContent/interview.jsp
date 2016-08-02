@@ -126,7 +126,7 @@
 									</tr>
 								</thead>
 								<tr>
-									<td><a
+									<td><a class="btn btn-info" Style="color:white"
 										href="ApplicationDetail?applicationid=${application.applicationid}"><c:out
 												value="${application.applicationid}"></c:out></a></td>
 									<td><c:out value="${application.appstatus}"></c:out></td>
@@ -151,12 +151,12 @@
 												</c:if>
 
 												<tr>
-													<td><a class="buttonLink"
+													<td><a class="buttonLink btn btn-primary" Style="color:white"
 														href="InterviewReportSubmission?groupInterview=Pass&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Group
 															Interview Pass</a></td>
 												</tr>
 												<tr>
-													<td><a class="buttonLink"
+													<td><a class="buttonLink btn btn-primary" Style="color:white"
 														href="InterviewReportSubmission?groupInterview=Fail&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">Group
 															Interview Fail</a></td>
 												</tr>
@@ -165,7 +165,7 @@
 												<c:set var="coding" scope="session" value="${coding}" />
 												<c:if test="${coding == 'N'}">
 													<tr>
-														<td><a class="buttonLink"
+														<td><a class="buttonLink btn btn-primary" Style="color:white"
 															href="GetCodeTest?appid=${application.applicationid}">Take Coding
 																Test</a></td>
 													</tr>
@@ -174,12 +174,12 @@
 													</tr>
 												</c:if>
 												<tr>
-													<td><a class="buttonLink"
+													<td><a class="buttonLink btn btn-primary" Style="color:white"
 														href="InterviewReportSubmission?hmInterview=Pass&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HM
 															Pass</a></td>
 												</tr>
 												<tr>
-													<td><a class="buttonLink"
+													<td><a class="buttonLink btn btn-primary" Style="color:white"
 														href="InterviewReportSubmission?hmInterview=Fail&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HM
 															Fail</a></td>
 												</tr>
@@ -187,14 +187,14 @@
 											<c:if test="${type == 'HR Interview'}">
 
 												<tr>
-													<td><a class="buttonLink"
+													<td><div><a class="buttonLink btn btn-primary" Style="color:white"
 														href="InterviewReportSubmission?hrInterview=Pass&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HR
-															Pass</a></td>
+															Pass</a></div></td>
 												</tr>
 												<tr>
-													<td><a class="buttonLink"
+													<td><div><a class="buttonLink btn btn-primary" Style="color:white"
 														href="InterviewReportSubmission?hrInterview=Fail&appid=${application.applicationid}&type=${interviewType}&score=${interviewscore}">HR
-															Fail</a></td>
+															Fail</a></div></td>
 												</tr>
 											</c:if>
 										</table></td>
@@ -254,10 +254,10 @@
 
 											</td>
 
-											<td align="center"><a 
+											<td align="center"><a class="buttonLink btn btn-primary" Style="color:white"
 														href="PassQuestion?passquestionid=${ques.interviewquestid}&passapplicationid=${application.applicationid}&passinterviewtype=${interviewType}">
 															Pass</a>
-															<a 
+															<a class="buttonLink btn btn-primary" Style="color:white"
 														href="PassQuestion?failquestionid=${ques.interviewquestid}&failapplicationid=${application.applicationid}&failinterviewtype=${interviewType}">
 															Fail</a>
 															 </td>
