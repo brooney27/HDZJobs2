@@ -111,45 +111,45 @@ Our employees' passion for innovation drives new technologies that solve real-wo
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
     <div class="w3-col m3">
-      <img src="images/img_p1.jpg" style="width:100%;height:160px"  onclick="onClick(this)" class="w3-hover-opacity">  
+      <img src="images/img_p1.jpg" style="width:100%;height:160px"  onclick="location.href = './Jobs';" class="w3-hover-opacity">  
        <div>Candidate Help</div> 
     </div>
     
 
     <div class="w3-col m3">
-      <img src="images/img_p2.jpeg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p2.jpeg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
     <div>Check out our benefit</div> 
     </div>
 
     <div class="w3-col m3">
-      <img src="images/img_p3.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p3.jpg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
     <div>Explore opportunities</div>
     </div>
 
     <div class="w3-col m3">
-      <img src="images/img_p4.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p4.jpg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
 	<div>Fun at Work</div> 
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-section">
     <div class="w3-col m3">
-      <img src="images/img_p5.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p5.jpg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
     <div>Interview Process</div> 
     </div>
 
     <div class="w3-col m3">
-      <img src="images/img_p6.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p6.jpg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
   <div>Attend Our Job Fair</div>
     </div>
 
     <div class="w3-col m3">
-      <img src="images/img_p7.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p7.jpg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
     <div>Jobs @HDZ BLOG</div>
     </div>
 
     <div class="w3-col m3">
-      <img src="images/img_p8.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p8.jpg" style="width:100%;height:160px" onclick="location.href = './Jobs';" class="w3-hover-opacity">
     <div>Why Work @ HDZ?</div> 
     </div>
   </div>
