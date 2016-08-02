@@ -1,4 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+ul.nav a:hover { background-color: #A33FAF !important;}
+</style>
 <nav class="navbar navbar-default" style="background-color: #01579b; position: fixed; z-index: 1000; width:100%">
   <div class="container-fluid ">
     <div class="navbar-header" >

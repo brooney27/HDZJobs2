@@ -21,8 +21,9 @@ $(document).ready(function() {
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-	<div class="col-sm-10 col-sm-offset-1" style="background-color=grey">
+	<div class="col-sm-10 col-sm-offset-1" style="background-color:lightgrey; padding:12px">
 	<div class="card hovercard">
+	<div class="container img-rounded" style="background-color:white; margin-bottom:12px; padding-top:12px;width:100%">
 	<img src="${gravatar}">
 	<h2>
 		<c:out value="${user.firstname} ${user.lastname}" />
@@ -39,6 +40,7 @@ $(document).ready(function() {
 		Contact:
 		<c:out value="${user.phonenum} ${user.email}" />
 	</p>
+	</div>
 	<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" id="jobhistory" class="btn btn-primary" href="#tab1" data-toggle="tab">
@@ -134,6 +136,8 @@ $(document).ready(function() {
 	</table>
 	</div>
 	<a href="./resume.jsp">View Resume</a>
+	</div>
+	</div>
 	</div>
 	</div>
 </body>
