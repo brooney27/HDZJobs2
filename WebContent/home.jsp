@@ -36,7 +36,7 @@ body, html {
 
 /* Third image (Contact) */
 .bgimg-3 {
-    background-image: url("img_parallax3.jpg");
+    background-image: url("images/home3.jpg");
     min-height: 400px;
 }
 
@@ -62,9 +62,9 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <ul class="w3-navbar" id="myNavbar">
-    <li><a href="#" class="w3-padding-large">HOME</a></li>
+    <li><a href="./login.jsp" class="w3-padding-large">Log In</a></li>
     <li class="w3-hide-small w3-right">
-      <a href="#" class="w3-padding-large w3-hover-red"><i class="fa fa-search"></i></a>
+      <a href="./Jobs" class="w3-padding-large w3-hover-red"><i class="fa fa-search"></i></a>
     </li>
   </ul>
 </div>
@@ -112,37 +112,46 @@ body, html {
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
     <div class="w3-col m3">
-      <img src="img_p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p1.jpg" style="width:100%;height:160px"  onclick="onClick(this)" class="w3-hover-opacity">  
+       <div>Candidate Help</div> 
+    </div>
+    
+
+    <div class="w3-col m3">
+      <img src="images/img_p2.jpeg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+    <div>Check out our benefit</div> 
     </div>
 
     <div class="w3-col m3">
-      <img src="img_p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p3.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+    <div>Explore opportunities</div>
     </div>
 
     <div class="w3-col m3">
-      <img src="img_p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="img_p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p4.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+	<div>Fun at Work</div> 
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-section">
     <div class="w3-col m3">
-      <img src="img_p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p5.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+    <div>Interview Process</div> 
     </div>
 
     <div class="w3-col m3">
-      <img src="img_p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p6.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+  <div>Attend Our Job Fair</div>
     </div>
 
     <div class="w3-col m3">
-      <img src="img_p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p7.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+    <div>Jobs @HDZ BLOG</div>
     </div>
 
     <div class="w3-col m3">
-      <img src="img_p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+      <img src="images/img_p8.jpg" style="width:100%;height:160px" onclick="onClick(this)" class="w3-hover-opacity">
+    <div>Why Work @ HDZ?</div> 
     </div>
   </div>
 </div>
@@ -158,14 +167,14 @@ body, html {
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</span>
+     <span class="w3-xxlarge w3-text-light-grey w3-wide" Style="color:black"></span>
   </div>
 </div>
 
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">WHERE I WORK</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
+  <h3 class="w3-center">WHERE We WORK</h3>
+  <p class="w3-center"><em>We'd love your feedback!</em></p>
 
   <div class="w3-row w3-padding-32 w3-section">
     <div class="w3-col m4 w3-container">
@@ -174,11 +183,11 @@ body, html {
     </div>
     <div class="w3-col m8 w3-container w3-section">
       <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker w3-hover-text-black" style="width:30px"></i> Chicago, US<br>
-        <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: +00 151515<br>
+        <i class="fa fa-map-marker w3-hover-text-black" style="width:30px"></i> Rockville, US<br>
+        <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: +1 (301) 354-8600<br>
         <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: mail@mail.com<br>
       </div>
-      <p>Swing by for a cup of coffee, or leave me a note:</p>
+      <p>Ask Questions:</p>
       <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
         <div class="w3-half">
           <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name">
@@ -194,14 +203,12 @@ body, html {
 </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-dark-grey w3-padding-48 w3-hover-black">
-  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
-</footer>
+
  
 <!-- Add Google Maps -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var myCenter = new google.maps.LatLng(39.083997, -77.152758);
 
 function initialize() {
 var mapProp = {
