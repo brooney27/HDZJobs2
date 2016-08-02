@@ -23,13 +23,11 @@
 	function validateLogin() {
 		var email = $('#email').val();
 		// http://stackoverflow.com/a/46181/11236
-
 		// check the email
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		var goodemail = re.test(email);
 		if (goodemail == false)
 			alert("Invalid Email! " + email);
-
 		// check the password and restrict the length to 4 - 15 characters
 		// the passsword must be lower case, upper case or a number
 		var password = $('#password').val();
@@ -38,7 +36,6 @@
 		if (!goodpassword) {
 			alert("Invalid Password! " + password);
 		}
-
 		return (goodpassword && goodemail);
 	}
 </script>
@@ -80,6 +77,7 @@
 										for="inputPassword" class="sr-only">Password</label> <input
 										type="password" id="password" name="password"
 										class="form-control" placeholder="password" required>
+										
 
 									<br/>
 									<select id="loginrole" name="loginrole" style="width: 320px;">
@@ -91,6 +89,10 @@
 										id="login" value="Login »">
 								</form>
 								<div class="login-help">
+								
+									<h4>
+										<a href="./forgetpassword.jsp">Forgot Password</a>
+									</h4>
 									<h4>
 										<a href="./newapplicant.jsp">Create New Applicant Account</a>
 									</h4>
@@ -115,7 +117,6 @@
 						for="inputPassword" class="sr-only">Password</label> <input
 						type="password" id="password" name="password" class="form-control"
 						placeholder="password" required>
-
 					<h4>Select from below</h4>
 					<select id="loginrole" name="loginrole">
 						<option value="applicant">Applicant</option>
@@ -123,7 +124,6 @@
 					</select> <br />
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
 						in</button>
-
 				</form>
 				<br />
 				<h2>

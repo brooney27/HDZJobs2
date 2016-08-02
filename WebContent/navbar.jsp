@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default" style="background-color: #01579b">
   <div class="container-fluid ">
     <div class="navbar-header" >
-      <a class="navbar-brand " href="" style="color: #fff;font-weight: bold;font-size: 20px">HDZ Jobs</a>
+      <a class="navbar-brand " href="" style="color: #fff;font-weight: bold;font-size: 20px"><img src="./images/hdzlogo.png" height="30" width="54"/></a>
     </div>
     <ul class="nav navbar-nav">   	  
        <c:if test="${role =='applicant'}">  
