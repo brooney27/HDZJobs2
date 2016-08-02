@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login</title>
+<title>Forget Password</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <link rel="stylesheet" href="css/style.css" />
-<title>Login</title>
+<title>Forget Password</title>
 <script>
 	function validateLogin() {
 		var email = $('#email').val();
@@ -72,34 +72,25 @@
 								<label class="panel-login">
 									<div class="login_result"></div>
 								</label>
-								<form class="form-signin" onsubmit="return validateLogin()"
-									action="Login" method="get">
+								<form class="form-signin" 
+									action="ForgetPassword" method="get">
+									<div>Please enter your email address</div>
+									
 									<label for="inputEmail" class="sr-only">Email address</label> <input
 										type="text" id="email" name="email" class="form-control"
-										placeholder="Email address" required autofocus> <label
-										for="inputPassword" class="sr-only">Password</label> <input
-										type="password" id="password" name="password"
-										class="form-control" placeholder="password" required>
-										
-
+										placeholder="Email address" autofocus> 
 									<br/>
-									<select id="loginrole" name="loginrole" style="width: 320px;">
-										<option value="applicant">Applicant</option>
-										<option value="employee">Employee</option>
-									</select> <br/><br/>
+									 <br/><br/>
 									<input
 										class="btn btn-lg btn-success btn-block" type="submit"
-										id="login" value="Login »">
+										 name="method" value="Validate">
+										<input
+										class="btn btn-lg btn-success btn-block" type="submit"
+										 name="method" value="Cancel">
+										
+										 
 								</form>
-								<div class="login-help">
 								
-									<h4>
-										<a href="./forgetpassword.jsp">Forgot Password</a>
-									</h4>
-									<h4>
-										<a href="./newapplicant.jsp">Create New Applicant Account</a>
-									</h4>
-								</div>
 							</fieldset>
 						</div>
 					</div>
