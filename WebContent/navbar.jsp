@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<nav class="navbar navbar-default" style="background-color: #01579b">
+<nav class="navbar navbar-default" style="background-color: #01579b; position: fixed; z-index: 1000;">
   <div class="container-fluid ">
     <div class="navbar-header" >
       <a class="navbar-brand " href="" style="color: #fff;font-weight: bold;font-size: 20px"><img src="./images/hdzlogo.png" height="30" width="54"/></a>
@@ -26,3 +26,4 @@
  
   </div>
 </nav>
+<div style="height:75px;"></div>
