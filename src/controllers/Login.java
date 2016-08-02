@@ -44,10 +44,8 @@ public class Login extends HttpServlet {
 
 		if (loginrole.equals("applicant")) {
 		// validate an applicant
-			System.out.println("Login: validating an applicant"+ email + " " + password);
 			applicant = ValidateUserDao.getValidApplicant(email, password);
 			if (applicant != null) {
-				System.out.println("found valid user" + email + " " + password);
 				session.setAttribute("user", applicant);
 				session.setAttribute("role",  "applicant");
 				session.setAttribute("userrole",  1);
@@ -55,25 +53,21 @@ public class Login extends HttpServlet {
 				
 				nextURL = "/yourapplications.jsp";
 			} else {
-				System.out.println("user not found: " + email + " " + password);
 				request.setAttribute("message",  "Applicant not found. Please login again or create a new account.");
 				nextURL = "/login.jsp";
 			}
 			
 			
 		} else {
-			// validate an employee user	
-			System.out.println("Login: validating an employee"+ email + " " + password);
+			// validate an employee user
 			employee = ValidateUserDao.getValidEmployee(email, password);		
 			if (employee != null) {
-				System.out.println("found valid user" + email + " " + password);
 				session.setAttribute("user", employee);
 				session.setAttribute("role",  employee.getPosition().replaceAll(" ", ""));
 				session.setAttribute("userrole",  2);
 				nextURL = "/PendingAction";
 			} else {
 				request.setAttribute("message",  "Employee not found. Please enter a valid email and password.");
-				System.out.println("user not found: " + email + " " + password);
 				nextURL = "/login.jsp";
 			}
 		}
