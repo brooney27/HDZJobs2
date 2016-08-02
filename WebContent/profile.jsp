@@ -21,7 +21,7 @@ $(document).ready(function() {
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-	<div class="col-sm-10 col-sm-offset-1" style="background-color:lightgrey; padding:12px">
+	<div class="col-sm-10 col-sm-offset-1" style="background-color:lightgrey; padding:12px;">
 	<div class="card hovercard">
 	<div class="container img-rounded" style="background-color:white; margin-bottom:12px; padding-top:12px;width:100%">
 	<img src="${gravatar}">
