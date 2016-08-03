@@ -64,11 +64,11 @@ public class Nationalityform extends HttpServlet {
 			
 		
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -116,11 +116,11 @@ public class Nationalityform extends HttpServlet {
 			
 			dao.PendingActionsDao.update(nationalityapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				nationalityapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				nationalityapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(nationalityapplication);
 				

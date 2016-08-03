@@ -277,6 +277,11 @@ public class PendingActionsDao {
 					break;
 				}
 			}
+			else
+			{
+				refcheck=false;
+				break;
+			}
 		}
 
 		for (HdzEducation edu : educations) {
@@ -296,6 +301,11 @@ public class PendingActionsDao {
 					break;
 				}
 			}
+			else
+			{
+				jobcheck=false;
+				break;
+			}
 		}
 		if (myapplicant.getCitizenflag() != null && myapplicant.getVisaflag() != null
 				&& myapplicant.getVeteranflag() != null && myapplicant.getDrugtestflag() != null)
@@ -309,11 +319,15 @@ public class PendingActionsDao {
 				}
 			}
 		}
+		else
+		{
+			appstatus=false;
+		}
 		return appstatus;
 
 	}
 	
-	public static boolean checkWorkStatus(HdzApplication myapplication) {
+	public static boolean checkWorkStatus(HdzApplication myapplication,HdzApplicant myapplicant) {
 		boolean appstatus = false;
 		List<HdzReftable> references = dao.PendingActionsDao
 				.getRefbyapplicantid(myapplication.getHdzApplicant().getApplicantid());
@@ -321,7 +335,7 @@ public class PendingActionsDao {
 		List<HdzJobhistory> jobs = dao.PendingActionsDao
 				.getjobhistorybyapplicantid(myapplication.getHdzApplicant().getApplicantid());
 
-		HdzApplicant myapplicant = myapplication.getHdzApplicant();
+		
 
 		boolean refcheck = true;
 		
@@ -333,9 +347,14 @@ public class PendingActionsDao {
 					break;
 				}
 			}
+			else
+			{
+				refcheck = false;
+				break;
+			}
 		}
 
-		
+		System.out.println("refcheck: "+refcheck);
 
 		for (HdzJobhistory job : jobs) {
 			if (job.getJobhistoryflag() != null) {
@@ -345,17 +364,43 @@ public class PendingActionsDao {
 					break;
 				}
 			}
+			else
+			{
+				jobcheck=false;
+				break;
+			}
 		}
+		
+		System.out.println("jobcheck: "+jobcheck);
+		
 		if ( myapplicant.getVeteranflag() != null ) {
+			System.out.println("veteran"+myapplicant.getVeteranflag());
 			if (myapplicant.getVeteranflag().equals("Y") ) {
 				if (refcheck && jobcheck) {
 					
 						appstatus = true;
 					
 				}
+				else
+				{
+					appstatus=false;
+				}
 			}
+			else
+			{
+				appstatus=false;
+			}
+			
 		}
+		else
+		{
+			appstatus=false;
+		}
+		
+		System.out.println("appstatus: "+appstatus);
 		return appstatus;
+		
+		
 
 	}
 	public static boolean checkEducation(HdzApplication myapplication)

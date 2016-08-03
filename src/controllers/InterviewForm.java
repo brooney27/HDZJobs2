@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -63,6 +64,10 @@ public class InterviewForm extends HttpServlet {
 				
 				long score=InterviewService.getscore(hdzApplication.getApplicationid(), "HM Interview");
 				
+				BigDecimal totalscore=InterviewService.gettotalscore(hdzApplication.getApplicationid());
+				
+				session.setAttribute("totalscore", totalscore);
+				
 				session.setAttribute("interviewscore", score);
 				
 			} else if (role.equals("HRManager")) {
@@ -71,6 +76,10 @@ public class InterviewForm extends HttpServlet {
 				
 				session.setAttribute("interviewquestion", questions);
 				long score=InterviewService.getscore(hdzApplication.getApplicationid(), "HR Interview");
+			
+				BigDecimal totalscore=InterviewService.gettotalscore(hdzApplication.getApplicationid());
+				
+				session.setAttribute("totalscore", totalscore);
 				
 				session.setAttribute("interviewscore", score);
 				
@@ -84,6 +93,9 @@ public class InterviewForm extends HttpServlet {
 				session.setAttribute("interviewquestion", questions);
 				
 				long score=InterviewService.getscore(hdzApplication.getApplicationid(), "Group Interview");
+				BigDecimal totalscore=InterviewService.gettotalscore(hdzApplication.getApplicationid());
+				
+				session.setAttribute("totalscore", totalscore);
 				
 				session.setAttribute("interviewscore", score);
 				

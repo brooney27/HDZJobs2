@@ -31,7 +31,7 @@ public class QualifiedService {
 			List<HdzSkillappbridge> apps = s.getHdzSkillappbridges();
 			List<HdzSkillappbridge> filteredApps = new ArrayList<HdzSkillappbridge>();
 			for(HdzSkillappbridge application:apps){
-				if(Integer.parseInt(application.getExperience())>=Integer.parseInt(skill.getExperience())){
+				if(Long.parseLong(application.getExperience())>=Integer.parseInt(skill.getExperience())){
 					filteredApps.add(application);
 				}
 			}
@@ -197,10 +197,4 @@ public static List<HdzApplicant> getAllApplicants(){
 		return mymap;	
 		
 	}
-	
-	
-	
-	
-	
-	
 }

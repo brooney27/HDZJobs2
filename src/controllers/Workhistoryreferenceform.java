@@ -72,7 +72,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 			
 			dao.PendingActionsDao.update(myref);
 			
-			if(dao.PendingActionsDao.checkWorkStatus(myapplication))
+			if(dao.PendingActionsDao.checkWorkStatus(myapplication,myapplication.getHdzApplicant()))
 			{
 				myapplication.setAppstatus("WorkRefChecked");
 				
@@ -86,15 +86,14 @@ public class Workhistoryreferenceform extends HttpServlet {
 				dao.PendingActionsDao.update(myapplication);
 				
 			}
+				
 			
-		
-			
-			if(comment!=null)
+			if(comment!="")
 			{
 				System.out.println(comment);
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 			
 				
@@ -123,51 +122,51 @@ public class Workhistoryreferenceform extends HttpServlet {
 			session.setAttribute("hiremessage", null);	
 			HdzJobhistory myjob=dao.PendingActionsDao.getjobhisbyjobhisid(workid);
 			
-			HdzApplication myapplication=dao.PendingActionsDao.getapplicationbyapplicationid(session.getAttribute("WorkApplicationid").toString());
+			HdzApplication myapplication1=dao.PendingActionsDao.getapplicationbyapplicationid(session.getAttribute("WorkApplicationid").toString());
 			
 			myjob.setJobhistoryflag("Y");
 			
 			dao.PendingActionsDao.update(myjob);
 			
 			
-			if(dao.PendingActionsDao.checkWorkStatus(myapplication))
+			if(dao.PendingActionsDao.checkWorkStatus(myapplication1,myapplication1.getHdzApplicant()))
 			{
-				myapplication.setAppstatus("WorkRefChecked");
+				myapplication1.setAppstatus("WorkRefChecked");
 				
 				try {
-					Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Work Reference Check!", "Hi "+myapplication.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED Work Reference Chcek!"+". Your application has been set as WorkRefChecked! We will reach you soon! <br/><br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
+					Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Work Reference Check!", "Hi "+myapplication1.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED Work Reference Chcek!"+". Your application has been set as WorkRefChecked! We will reach you soon! <br/><br/> Thank you for choosing HDZ Jobs!! <br/><br/> Best,<br/><br/> HDZ Jobs <br/>", true);
 				} catch (MessagingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
-				dao.PendingActionsDao.update(myapplication);
+				dao.PendingActionsDao.update(myapplication1);
 				
 			}
 			
 		
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				System.out.println(comment);
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication1.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
-				dao.PendingActionsDao.update(myapplication);
+				dao.PendingActionsDao.update(myapplication1);
 				
-				session.setAttribute("ApplicationComment", myapplication);
+				session.setAttribute("ApplicationComment", myapplication1);
 				
 			}
 			
-			List<HdzJobhistory> myjobs=dao.PendingActionsDao.getjobhistorybyapplicantid(myapplication.getHdzApplicant().getApplicantid());
-			List<HdzReftable> myreferences=dao.PendingActionsDao.getRefbyapplicantid(myapplication.getHdzApplicant().getApplicantid());
+			List<HdzJobhistory> myjobs=dao.PendingActionsDao.getjobhistorybyapplicantid(myapplication1.getHdzApplicant().getApplicantid());
+			List<HdzReftable> myreferences=dao.PendingActionsDao.getRefbyapplicantid(myapplication1.getHdzApplicant().getApplicantid());
 			
-			session.setAttribute("VeteranApplication", myapplication);
+			session.setAttribute("VeteranApplication", myapplication1);
 			session.setAttribute("WorkHistoryCheck", myjobs);
 			
 			session.setAttribute("ReferenceCheck", myreferences);
 			
-			session.setAttribute("ApplicationComment", myapplication);
+			session.setAttribute("ApplicationComment", myapplication1);
 			
 			request.getRequestDispatcher("workhisrefercheck.jsp").forward(request, response);
 			
@@ -178,50 +177,52 @@ public class Workhistoryreferenceform extends HttpServlet {
 			session.setAttribute("hiremessage", null);	
 			HdzApplicant myapplicant=dao.PendingActionsDao.getapplicantbyapplicantid(veteranid);
 			
-			HdzApplication myapplication=dao.PendingActionsDao.getapplicationbyapplicationid(session.getAttribute("WorkApplicationid").toString());
+			HdzApplication myapplication2=dao.PendingActionsDao.getapplicationbyapplicationid(session.getAttribute("WorkApplicationid").toString());
 			
 			myapplicant.setVeteranflag("Y");
 			
 			dao.PendingActionsDao.update(myapplicant);
 			
-			if(dao.PendingActionsDao.checkWorkStatus(myapplication))
+			if(dao.PendingActionsDao.checkWorkStatus(myapplication2,myapplicant))
 			{
-				myapplication.setAppstatus("WorkRefChecked");
+				myapplication2.setAppstatus("WorkRefChecked");
+				
+				System.out.println("check work");
 				
 				try {
-					Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Work Reference Check!", "Hi "+myapplication.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED Work Reference Chcek!"+". Your application has been set as WorkRefChecked! We will reach you soon! <br/><br/> Thank you for choosing HDZ Jobs!! <br/> <br/>Best,<br/><br/> HDZ Jobs <br/>", true);
+					Email.sendEmail("study.javaclass@gmail.com ", "study.javaclass@gmail.com ", "Congratulations!! You have passed Work Reference Check!", "Hi "+myapplication2.getHdzApplicant().getFirstname()+",<br/><br/> You have PASSED Work Reference Chcek!"+". Your application has been set as WorkRefChecked! We will reach you soon! <br/><br/> Thank you for choosing HDZ Jobs!! <br/> <br/>Best,<br/><br/> HDZ Jobs <br/>", true);
 				} catch (MessagingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
-				dao.PendingActionsDao.update(myapplication);
+				dao.PendingActionsDao.update(myapplication2);
 				
 			}
 			
 			
 			System.out.println(comment);
-			if(comment!=null)
+			if(comment!="")
 			{
 				System.out.println(comment);
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication2.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
-				dao.PendingActionsDao.update(myapplication);
+				dao.PendingActionsDao.update(myapplication2);
 				
-				session.setAttribute("ApplicationComment", myapplication);
+				session.setAttribute("ApplicationComment", myapplication2);
 				
 			}
 			
-			List<HdzJobhistory> myjobs=dao.PendingActionsDao.getjobhistorybyapplicantid(myapplication.getHdzApplicant().getApplicantid());
-			List<HdzReftable> myreferences=dao.PendingActionsDao.getRefbyapplicantid(myapplication.getHdzApplicant().getApplicantid());
+			List<HdzJobhistory> myjobs=dao.PendingActionsDao.getjobhistorybyapplicantid(myapplication2.getHdzApplicant().getApplicantid());
+			List<HdzReftable> myreferences=dao.PendingActionsDao.getRefbyapplicantid(myapplication2.getHdzApplicant().getApplicantid());
 			
-			session.setAttribute("VeteranApplication", myapplication);
+			session.setAttribute("VeteranApplication", myapplication2);
 			session.setAttribute("WorkHistoryCheck", myjobs);
 			
 			session.setAttribute("ReferenceCheck", myreferences);
 			
-			session.setAttribute("ApplicationComment", myapplication);
+			session.setAttribute("ApplicationComment", myapplication2);
 			
 			request.getRequestDispatcher("workhisrefercheck.jsp").forward(request, response);
 		}
@@ -268,11 +269,11 @@ public class Workhistoryreferenceform extends HttpServlet {
 			
 			session.setAttribute("ApplicationComment", myapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -321,11 +322,11 @@ public class Workhistoryreferenceform extends HttpServlet {
 			
 			session.setAttribute("ApplicationComment", myapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -371,11 +372,11 @@ public class Workhistoryreferenceform extends HttpServlet {
 			
 			session.setAttribute("ApplicationComment", myapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				

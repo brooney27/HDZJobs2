@@ -69,11 +69,11 @@ public class EducationForm extends HttpServlet {
 
 		
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				session.setAttribute("ApplicationComment", myapplication);
@@ -127,11 +127,11 @@ public class EducationForm extends HttpServlet {
 			
 			session.setAttribute("ApplicationComment", myapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
