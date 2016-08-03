@@ -64,7 +64,7 @@ public class Nationalityform extends HttpServlet {
 			
 		
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
@@ -116,7 +116,7 @@ public class Nationalityform extends HttpServlet {
 			
 			dao.PendingActionsDao.update(nationalityapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");

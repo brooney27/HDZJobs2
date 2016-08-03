@@ -69,7 +69,7 @@ public class EducationForm extends HttpServlet {
 
 		
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
@@ -127,7 +127,7 @@ public class EducationForm extends HttpServlet {
 			
 			session.setAttribute("ApplicationComment", myapplication);
 			
-			if(comment!=null)
+			if(comment!="")
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
