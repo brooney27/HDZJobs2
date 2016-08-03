@@ -94,7 +94,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 				System.out.println(comment);
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 			
 				
@@ -151,7 +151,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 			{
 				System.out.println(comment);
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -205,7 +205,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 			{
 				System.out.println(comment);
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -272,7 +272,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -325,7 +325,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
@@ -375,7 +375,7 @@ public class Workhistoryreferenceform extends HttpServlet {
 			{
 				
 				HdzEmployee user=(HdzEmployee)session.getAttribute("user");
-				myapplication.setComments(user.getEmpname()+""+user.getPosition()+":"+comment);	
+				myapplication.setComments(user.getEmpname()+" "+user.getPosition()+":"+comment);	
 				
 				dao.PendingActionsDao.update(myapplication);
 				
