@@ -92,7 +92,7 @@ $(document).ready(function() {
 	<h4>Skills</h4>
 	<table class="table table-bordered table-striped table-hover">
 		<tr>
-			<th></th>
+			<th>Skills</th>
 			<th>Years</th>
 		</tr>
 		<c:forEach var="skill" items="${user.hdzSkillappbridges}">
