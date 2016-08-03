@@ -28,14 +28,14 @@
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		var goodemail = re.test(email);
 		if (goodemail == false)
-			alert("Invalid Email! " + email);
+			alert("Invalid Email!");
 		// check the password and restrict the length to 4 - 15 characters
 		// the passsword must be lower case, upper case or a number
 		var password = $('#password').val();
 		var pword = new RegExp(/^[a-zA-Z0-9]{4,15}$/)
 		goodpassword = pword.test(password)
 		if (!goodpassword) {
-			alert("Invalid Password! " + password);
+			alert("Invalid Password!");
 		}
 		return (goodpassword && goodemail);
 	}

@@ -19,9 +19,27 @@
 			document.getElementById("invalid").innerHTML = text;
 			return false;
 		}
+		x = document.forms["applicant"]["phone"].value;
+		if (x == null || x == "") {
+			text = ("Phone number must be filled out");
+			document.getElementById("invalid").innerHTML = text;
+			return false;
+		}
+		if (isNaN(x)) {
+			text = ("Phone must be only numbers");
+			document.getElementById("invalid").innerHTML = text;
+			return false;
+		}
 		x = document.forms["applicant"]["email"].value;
 		if (x == null || x == "") {
 			text = ("Email must be filled out");
+			document.getElementById("invalid").innerHTML = text;
+			return false;
+		}
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		var goodemail = re.test(x);
+		if(goodemail==false){
+			text=("Invalid email address");
 			document.getElementById("invalid").innerHTML = text;
 			return false;
 		}
@@ -31,6 +49,7 @@
 			document.getElementById("invalid").innerHTML = text;
 			return false;
 		}
+		
 		x = document.forms["applicant"]["password"].value;
 		var y = document.forms["applicant"]["password2"].value;
 		var match = x.localeCompare(y);

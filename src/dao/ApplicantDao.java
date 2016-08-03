@@ -144,11 +144,11 @@ public class ApplicantDao {
         EntityManager em = DBUtil.getEmfFactory().createEntityManager();
         List<HdzJob> searchposts = null;
         String qString = "select j from HdzJob j "
-                + "where j.position like :search";
+                + "where UPPER(j.position) like :search";
         
         try{
             TypedQuery<HdzJob> query = em.createQuery(qString,HdzJob.class);
-            query.setParameter("search", "%" + search + "%");
+            query.setParameter("search", "%" + search.toUpperCase() + "%");
             searchposts = query.getResultList();
         }catch (Exception e){
             e.printStackTrace();
