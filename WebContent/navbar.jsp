@@ -13,10 +13,15 @@ ul.nav a:hover { background-color: #A33FAF !important;}
       <li ><a href="profile.jsp" style="color: #fff; font-weight: bold;font-size: 16px" >Profile</a></li>
       <li ><a href="./Jobs" style="color: #fff;font-weight: bold;font-size: 16px" >Jobs</a></li>
     </c:if>
+
      <c:if test="${role !='applicant'}"> 
       <li><a href="./PendingAction" style="color: #fff;font-weight: bold;font-size: 16px" >Pending Actions
       </a></li>
 </c:if>
+
+  
+      
+
     
         <c:if test="${user != null}">  
       <li ><a href="<%=request.getContextPath() %>/Logout"  style="color: #fff;font-weight: bold;font-size: 16px">Log Out</a></li>
