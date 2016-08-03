@@ -134,7 +134,7 @@
 									<td><c:out value="${application.hdzJob.position}"></c:out></td>
 									<td><c:out value="${application.hdzJob.description}"></c:out></td>
 									<td><c:out value="${application.codingtest}"></c:out></td>
-									<td><c:out value="${application.appscore}"></c:out></td>
+									<td><c:out value="${totalscore}"></c:out></td>
 									<td><table>
 											<c:set var="type" scope="session" value="${interviewType}" />
 											<c:if test="${type == 'Group Interview'}">

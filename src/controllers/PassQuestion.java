@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.mail.Session;
 import javax.servlet.ServletException;
@@ -71,8 +72,53 @@ public class PassQuestion extends HttpServlet {
 				InterviewService.update(interviewresponse);
 			}
 			
-			
 			long score=InterviewService.getscore(Long.parseLong(passapplicationid), passinterviewtype);
+			HdzInterview interview=InterviewService.getinterview(Long.parseLong(passapplicationid), passinterviewtype);
+			
+			if(interview==null)
+			{
+				HdzInterview myinterview=new HdzInterview();
+				myinterview.setHdzApplication(myapplication);
+				
+				myinterview.setInterviewtype(passinterviewtype);
+				
+				myinterview.setScore(new BigDecimal(score));
+				
+				InterviewService.insert(myinterview);
+				
+				BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(passapplicationid));
+				
+				myapplication.setAppscore(totalscore);
+				
+				InterviewService.updateApplication(myapplication);		
+				
+				
+			}
+			else
+			{
+				interview.setHdzApplication(myapplication);
+				
+				interview.setInterviewtype(passinterviewtype);
+				
+				interview.setScore(new BigDecimal(score));
+				
+				InterviewService.update(interview);
+				
+				BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(passapplicationid));
+					
+				myapplication.setAppscore(totalscore);
+				
+				InterviewService.updateApplication(myapplication);		
+				
+				
+			}
+					
+			
+			BigDecimal totalscore=InterviewService.gettotalscore(myapplication.getApplicationid());
+			
+			session.setAttribute("totalscore", totalscore);
+			
+			System.out.println("totalscore"+totalscore);
 			
 			session.setAttribute("interviewscore", score);
 			
@@ -102,6 +148,12 @@ public class PassQuestion extends HttpServlet {
 			InterviewService.update(interviewresponse);
 			}
 			long score=InterviewService.getscore(Long.parseLong(failapplicationid), failinterviewtype);
+			
+			BigDecimal totalscore=InterviewService.gettotalscore(Long.parseLong(failapplicationid));
+			
+			System.out.println("totalscore"+totalscore);
+			
+			session.setAttribute("totalscore", totalscore);
 			
 			session.setAttribute("interviewscore", score);
 			
